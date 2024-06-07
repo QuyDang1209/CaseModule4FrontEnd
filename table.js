@@ -20,8 +20,8 @@ function showAllPlayer() {
                 <td>${player.position}</td>
                 <td>
                 <button>View</button>
-                <button>Update</button>
-                <button>Delete</button>
+                <a href="javascript:void(0)" onclick="showFormDelete(${player.id})">Delete</a>
+                <a href="javascript:void(0)" onclick="showFormUpdate(${player.id})">Update</a>
                 </td>
              </tr>
                 `;
@@ -84,4 +84,83 @@ function createNewPlayer(){
             
         }
     })
+}
+
+function showFormUpdate(id){
+    $.ajax({
+        url: "http://localhost:8080/api/player/" + id,
+        method: "get",
+        
+        success: function (data){
+            $("#code-update").val(data.code);
+            // $("#img-update").val(data.img);
+            $("#name-update").val(data.name);
+            $("#dob-update").val(data.dob);
+            $("#address-update").val(data.address);
+            $("#position-update").val(data.position);
+            $("#height-update").val(data.height);
+            $("#weight-update").val(data.weight);
+            $("#ranking-update").val(data.ranking);
+            $("#salary-update").val(data.salary);
+            $("#performence-update-id").val(data.per.id);
+            $("#status-update-id").val(data.status.id);
+            $("#save-update-button").on("click", function() {
+                updatePlayer(id);
+        });
+
+            $("#form-update").show();
+            $("#tb-player").hide();
+
+        }
+    });
+}
+
+function updatePlayer(id){
+    let code = document.getElementById("code-update").value;
+    let img = document.getElementById("img-update");
+    let name = document.getElementById("name-update").value;
+    let dob = document.getElementById("dob-update").value;
+    let address = document.getElementById("address-update").value;
+    let position = document.getElementById("position-update").value;
+    let height = document.getElementById("height-update").value;
+    let weight = document.getElementById("weight-update").value;
+    let ranking = document.getElementById("ranking-update").value;
+    let salary = document.getElementById("salary-update").value;
+    let performence = document.getElementById("performence-update-id").value;
+    let status = document.getElementById("status-update-id").value;
+
+    let formData = new FormData();
+    formData.append("code", code);
+    formData.append("img", img.files[0]);
+    formData.append("name", name);
+    formData.append("dob", dob);
+    formData.append("address", address);
+    formData.append("position", position);
+    formData.append("height", height);
+    formData.append("weight", weight);
+    formData.append("ranking", ranking);
+    formData.append("salary", salary);
+    formData.append("per.id", performence);
+    formData.append("status.id", status);
+    
+    $.ajax({
+        data: formData,
+        url: "http://localhost:8080/api/player/" + id,
+        method: "put",
+        processData: false,
+        contentType: false,
+
+        success: function () {
+            console.log("Player updated successfully. Redirecting to index.html");
+            window.location.href = "index.html";
+        },
+        error: function(jqXHR, status, e){
+            console.log(e);
+            
+        }
+    });
+}
+
+function hideFormUpdate() {
+    $("#form-update").hide();
 }
