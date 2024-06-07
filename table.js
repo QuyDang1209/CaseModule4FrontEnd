@@ -171,9 +171,9 @@ function showFormDelete(id){
         method: "get",
         success: function (data){
             
-            $("#delete-customer-info").html(`
+            $("#delete-player-info").html(`
                 <strong>Code:</strong> ${data.code} <br>
-                <strong>Image:</strong> ${data.img} <br>
+                <strong>Image:</strong><img src="${'http://localhost:8080/static/' + data.img}" alt=""> <br>
                 <strong>Name:</strong> ${data.name} <br>
                 <strong>Dob:</strong> ${data.dob} <br>
                 <strong>Address:</strong> ${data.address}<br>
