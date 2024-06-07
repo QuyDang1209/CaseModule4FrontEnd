@@ -66,11 +66,11 @@ $(document).ready(function() {
             url: "/api/search_players?term=" + searchTerm,
             success: function(response) {
                 // Xử lý kết quả tìm kiếm
-                console.log("Kết quả tìm kiếm:", response);
+                console.log("Searching:", response);
             },
             error: function(xhr, status, error) {
                 // Xử lý lỗi
-                console.error("Lỗi khi tìm kiếm người chơi:", error);
+                console.error("Searching players error!!", error);
             }
         });
     });
