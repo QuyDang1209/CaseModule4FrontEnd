@@ -443,7 +443,15 @@
                                 <button type="button" id="save-update-button">Save</button>
                                 <button onclick="getAllPlayer()">Cancel</button>
                             </form>
+
+                            <div id="delete-confirmation" style="display: none;">
+                                <p>Are you sure you want to delete the following player?</p>
+                                <p id="delete-player-info"></p>
+                                <button type="button" id="confirm-delete-button">Yes, delete</button>
+                                <button onclick="window.location.href = 'tables.html'">Cancel</button>
+                            </div>
                         </div>
+
                     </div>
 
                 </div>

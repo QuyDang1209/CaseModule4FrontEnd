@@ -152,7 +152,7 @@ function updatePlayer(id){
 
         success: function () {
             console.log("Player updated successfully. Redirecting to index.html");
-            window.location.href = "index.html";
+            window.location.href = "tables.html";
         },
         error: function(jqXHR, status, e){
             console.log(e);
@@ -163,4 +163,60 @@ function updatePlayer(id){
 
 function hideFormUpdate() {
     $("#form-update").hide();
+}
+
+function showFormDelete(id){
+    $.ajax({
+        url: "http://localhost:8080/api/player/" + id,
+        method: "get",
+        success: function (data){
+            
+            $("#delete-customer-info").html(`
+                <strong>Code:</strong> ${data.code} <br>
+                <strong>Image:</strong> ${data.img} <br>
+                <strong>Name:</strong> ${data.name} <br>
+                <strong>Dob:</strong> ${data.dob} <br>
+                <strong>Address:</strong> ${data.address}<br>
+                <strong>Position:</strong> ${data.position}<br>
+                <strong>Height:</strong> ${data.height}<br>
+                <strong>Weight:</strong> ${data.weight}<br>
+                <strong>Ranking:</strong> ${data.ranking}<br>
+                <strong>Performence:</strong> ${data.per.id}<br>
+                <strong>Status:</strong> ${data.status.id}<br>
+            `);
+
+            $("#delete-confirmation").show();
+
+            $("#confirm-delete-button").on("click", function() {
+                confirmDelete(id);
+            });
+
+            $("#tb-player").hide();
+        },
+        
+        error: function(jqXHR, status, e) {
+            console.log(e);
+        }
+    });
+}
+
+function confirmDelete(id){
+    console.log("Preparing to delete player with id:", id);
+
+    $.ajax({
+        url: "http://localhost:8080/api/player/" + id,
+        method: "delete",
+        
+        success: function () {
+            console.log("Player deleted successfully. Redirecting to index.html");
+            window.location.href = "tables.html";
+        },
+        error: function(jqXHR, status, e) {
+            console.log("Error deleting player:", e);
+        }
+    });
+}
+
+function hideDeleteConfirmation(){
+    $("#delete-confirmation").hide();
 }
