@@ -19,7 +19,8 @@ function showAllPlayer() {
                 <td>${player.address}</td>
                 <td>${player.position}</td>
                 <td>
-                <button>View</button>
+
+                <a href="javascript:void(0)" onclick="showPlayerDetail(${player.id})">View</a>
                 <a href="javascript:void(0)" onclick="showFormDelete(${player.id})">Delete</a>
                 <a href="javascript:void(0)" onclick="showFormUpdate(${player.id})">Update</a>
                 </td>
@@ -219,4 +220,39 @@ function confirmDelete(id){
 
 function hideDeleteConfirmation(){
     $("#delete-confirmation").hide();
+}
+
+function showPlayerDetail(id){
+    $.ajax({
+        url: "http://localhost:8080/api/player/" + id,
+        method: "get",
+        success: function (data){
+            
+            $("#player-info").html(`
+                <strong>Code:</strong> ${data.code} <br>
+                <strong>Image:</strong><img src="${'http://localhost:8080/static/' + data.img}" alt=""> <br>
+                <strong>Name:</strong> ${data.name} <br>
+                <strong>Dob:</strong> ${data.dob} <br>
+                <strong>Address:</strong> ${data.address}<br>
+                <strong>Position:</strong> ${data.position}<br>
+                <strong>Height:</strong> ${data.height}<br>
+                <strong>Weight:</strong> ${data.weight}<br>
+                <strong>Ranking:</strong> ${data.ranking}<br>
+                <strong>Performence:</strong> ${data.per.id}<br>
+                <strong>Status:</strong> ${data.status.id}<br>
+            `);
+
+            $("#player_detail").show();
+
+            // $("#confirm-delete-button").on("click", function() {
+            //     confirmDelete(id);
+            // });
+
+            $("#tb-player").hide();
+        },
+        
+        error: function(jqXHR, status, e) {
+            console.log(e);
+        }
+    });
 }
