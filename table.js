@@ -5,52 +5,83 @@ function showAllPlayer() {
         // headers: {
         //     "Authorization": "Bearer " + token
         // },
-        method: "GET",
         url: "http://localhost:8080/api/player",
+        
         success: function (data) {
             console.log(data);
-
-            // Xử lý dữ liệu khách hàng và hiển thị lên bảng
-            let table = $('table');
-
-            let strRow = "";
-            data.forEach(function (player) {
-                let row = `
-                         <tr>
-                            <td>${player.id}</td>
-                            <td>${player.code}</td>
-                            <td>${player.name}</td>
-                            <td>${player.dob}</td>
-                            <td>${player.address}</td>
-                            <td>${player.position}</td>
-                            <td>
-                            <button>View</button>
-                            <button>Update</button>
-                            <button>Delete</button>
-</td>
-                         </tr>
-                            `;
-                strRow += row;
-
+            let arrPlayer = data.map((player, i, arrp) => {
+                return `
+                <tr>
+                <td>${player.code}</td>
+                <td><img src="${'http://localhost:8080/static/' + player.img}" alt=""></td>
+                <td>${player.name}</td>
+                <td>${player.dob}</td>
+                <td>${player.address}</td>
+                <td>${player.position}</td>
+                <td>
+                <button>View</button>
+                <button>Update</button>
+                <button>Delete</button>
+                </td>
+             </tr>
+                `;
             });
-            $("#tb-player").html(strRow);
+            $("#tb-player").html(arrPlayer.join(""));
+        },
 
-            // let strRow = "";
-            // for(let i = 0; i< data.length;i++){
-            //     strRow += `
-            //         <tr data-id="2">
-            //             <td>${data[i].id}</td>
-            //             <td>${data[i].name}</td>
-            //             <td>${data[i].age}</td>
-            //             <td>${data[i].gender}</td>
-            //             <td>${data[i].address}</td>
-            //             <td>
-            //                 <button onclick="showEditForm(2)">Sửa</button>
-            //                 <button onclick="deleteCustomer(2)">Xóa</button>
-            //             </td>
-            //         </tr>
-            //     `
-            // }
+        error: function(jqXHR, status, e){
+            console.log(e);
+            
         }
     });
+}
+
+function showFormCreate(){
+    $("#form-create").show();
+    $("#tb-player").hide();
+}
+
+function createNewPlayer(){
+    let code = document.getElementById("code").value;
+    let img = document.getElementById("img");
+    let name = document.getElementById("name").value;
+    let dob = document.getElementById("dob").value;
+    let address = document.getElementById("address").value;
+    let position = document.getElementById("position").value;
+    let height = document.getElementById("height").value;
+    let weight = document.getElementById("weight").value;
+    let ranking = document.getElementById("ranking").value;
+    let salary = document.getElementById("salary").value;
+    let Performence = document.getElementById("Performence").value;
+    let status = document.getElementById("status").value;
+
+    let formData = new FormData();
+    formData.append("code", code);
+    formData.append("img", img.files[0]);
+    formData.append("name", name);
+    formData.append("dob", dob);
+    formData.append("address", address);
+    formData.append("position", position);
+    formData.append("height", height);
+    formData.append("weight", weight);
+    formData.append("ranking", ranking);
+    formData.append("salary", salary);
+    formData.append("per.id", Performence);
+    formData.append("status.id", status);
+
+    $.ajax({
+        data: formData,
+        method: "post",
+        processData: false,
+        contentType: false,
+        url: "http://localhost:8080/api/player/upload",
+        success: function (data) {
+            console.log("Player added successfully. Redirecting to tables.html", data);
+            window.location.href = "tables.html";
+        },
+        error: function(jqXHR, status, e){
+            console.log(e);
+            
+        }
+    })
 }
