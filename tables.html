@@ -365,22 +365,43 @@
 
                     <!-- Page Heading -->
                     <h1 class="h3 mb-2 text-gray-800">Tables Player</h1>
-                    <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
-                        For more information about DataTables, please visit the <a target="_blank"
-                            href="https://datatables.net">official DataTables documentation</a>.</p>
 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+                            <button type="button" onclick="showFormCreate()">Add New Customer</button>
+                            <form style="display: none" id="form-create">
+                                <input id="code" type="text" placeholder="Enter Code"> <br>
+                                <input id="img" type="file" placeholder="Enter Img"> <br>
+                                <input id="name" type="text" placeholder="Enter Name"> <br>
+                                <input id="dob" type="text" placeholder="Enter Dob"> <br>
+                                <input id="address" type="text" placeholder="Enter Address"> <br>
+                                <input id="position" type="text" placeholder="Enter Position"> <br>
+                                <input id="height" type="text" placeholder="Enter Height"> <br>
+                                <input id="weight" type="text" placeholder="Enter Weight"> <br>
+                                <input id="ranking" type="text" placeholder="Enter Ranking"> <br>
+                                <input id="salary" type="text" placeholder="Enter Salary"> <br>
+                                <select name = "Performence" id="Performence">
+                                    <option value="1">High</option>
+                                    <option value="2">Average</option>
+                                    <option value="3">Low</option>
+                                </select> <br>
+                                <select name = "status" id="status">
+                                    <option value="1">Active</option>
+                                    <option value="2">Injure</option>
+                                    <option value="3">Retire</option>
+                                </select> <br>
+                                <button type="button" onclick="createNewPlayer()">Save</button>
+                                <button onclick="getAllPlayer()">Cancel</button>
+                            </form>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>ID</th>
                                             <th>Code</th>
+                                            <th>Image</th>
                                             <th>Name</th>
                                             <th>Date Of Birth</th>
                                             <th>Address</th>
@@ -389,17 +410,6 @@
                                         </tr>
                                     </thead>
                                     <tbody id="tb-player">
-<!--                                    <tr>-->
-<!--                                        <td>ID</td>-->
-<!--                                        <td>Code</td>-->
-<!--                                        <td>Name</td>-->
-<!--                                        <td>Date Of Birth</td>-->
-<!--                                        <td>Address</td>-->
-<!--                                        <td>Position</td>-->
-<!--                                        <td>Action</td>-->
-<!--                                    </tr>-->
-
-
                                     </tbody>
                                 </table>
                             </div>
