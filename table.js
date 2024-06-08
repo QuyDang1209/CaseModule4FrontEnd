@@ -5,6 +5,7 @@ function showAllPlayer() {
         // headers: {
         //     "Authorization": "Bearer " + token
         // },
+        method: "get",
         url: "http://localhost:8080/api/player",
         
         success: function (data) {
@@ -70,7 +71,7 @@ function createNewPlayer(){
     formData.append("salary", salary);
     formData.append("per.id", Performence);
     formData.append("status.id", status);
-
+    console.log(formData)
     $.ajax({
         data: formData,
         method: "post",
