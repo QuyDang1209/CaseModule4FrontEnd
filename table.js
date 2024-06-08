@@ -19,8 +19,8 @@ function showAllPlayer() {
                 <td>${player.address}</td>
                 <td>${player.position}</td>
                 <td>
-
-                <a href="javascript:void(0)" onclick="showPlayerDetail(${player.id})">View</a>
+                
+                <a href="#player_detail"  onclick="showPlayerDetail(${player.id})">View</a>
                 <a href="javascript:void(0)" onclick="showFormDelete(${player.id})">Delete</a>
                 <a href="javascript:void(0)" onclick="showFormUpdate(${player.id})">Update</a>
                 </td>
@@ -28,6 +28,7 @@ function showAllPlayer() {
                 `;
             });
             $("#tb-player").html(arrPlayer.join(""));
+            $(".modal").hide();
         },
 
         error: function(jqXHR, status, e){
@@ -111,6 +112,8 @@ function showFormUpdate(id){
 
             $("#form-update").show();
             $("#tb-player").hide();
+            $("#player-info").hide();
+            $(".modal").hide();
 
         }
     });
@@ -229,17 +232,41 @@ function showPlayerDetail(id){
         success: function (data){
             
             $("#player-info").html(`
-                <strong>Code:</strong> ${data.code} <br>
-                <strong>Image:</strong><img src="${'http://localhost:8080/static/' + data.img}" alt=""> <br>
-                <strong>Name:</strong> ${data.name} <br>
-                <strong>Dob:</strong> ${data.dob} <br>
-                <strong>Address:</strong> ${data.address}<br>
-                <strong>Position:</strong> ${data.position}<br>
-                <strong>Height:</strong> ${data.height}<br>
-                <strong>Weight:</strong> ${data.weight}<br>
-                <strong>Ranking:</strong> ${data.ranking}<br>
-                <strong>Performence:</strong> ${data.per.id}<br>
-                <strong>Status:</strong> ${data.status.id}<br>
+            
+                <div class="profile-card">
+                    <div class="image">
+                        <img src="${'http://localhost:8080/static/' + data.img}" alt="" class="profile-img">
+                        
+                    </div>
+
+                    <div class="text-data">
+                        <span class="name"> ${data.name}</span>
+                        <span class="code"> ${data.code}</span>
+                    </div>
+
+                    <div class="info">
+                        <div class="data">
+                            <strong>Dob:</strong><span class="dob">${data.dob}</span><br>
+                            <strong>Address:</strong><span class="address">${data.address}</span><br>
+                            <strong>Position:</strong><span class="position">${data.position}</span><br>
+                        </div>
+                        <div class="data">
+                            <strong>Height:</strong><span class="height">${data.height}</span><br>
+                            <strong>Weight:</strong><span class="weight">${data.weight}</span><br>
+                            <strong>Bmi:</strong><span class="bmi">${(data.weight*10000/(data.height*data.height)).toFixed(2)}</span><br>
+                        </div>
+                        <div class="data">
+                            <strong>Ranking:</strong><span class="ranking">${data.ranking}</span><br>
+                            <strong>Performence:</strong><span class="performence">${data.per.quality}</span><br>
+                            <strong>Status:</strong><span class="status">${data.status.status}</span><br>
+                    </div>
+                </div>
+
+                <div class="buttons">
+                    <button class="button" onclick="showFormUpdate(${data.id})">Udate</button>
+                    <button class="button" onclick="window.location.href = 'tables.html'">Back</button>
+                </div>
+            
             `);
 
             $("#player_detail").show();

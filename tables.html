@@ -23,6 +23,9 @@
     <!-- Custom styles for this page -->
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
+    <link rel="stylesheet" href="test.css">
+    <link rel="stylesheet" href="modal.css">
+
 </head>
 
 <body id="page-top">
@@ -441,7 +444,7 @@
                                 </select> <br>
                         
                                 <button type="button" id="save-update-button">Save</button>
-                                <button onclick="getAllPlayer()">Cancel</button>
+                                <button onclick="showAllPlayer()">Cancel</button>
                             </form>
 
                             <div id="delete-confirmation" style="display: none;">
@@ -451,10 +454,12 @@
                                 <button onclick="window.location.href = 'tables.html'">Cancel</button>
                             </div>
 
-                            <div id="player_detail" style="display: none;">
-                                <p id="player-info"></p>
-                                <button onclick="window.location.href = 'tables.html'">Back</button>
+                            <div class="wrapper">
+                                <div id="player_detail" class="modal">
+                                    <p id="player-info"></p>
                             </div>
+                            </div>
+                            
                         </div>
 
                     </div>
