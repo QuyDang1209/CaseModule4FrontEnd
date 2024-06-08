@@ -23,6 +23,9 @@
     <!-- Custom styles for this page -->
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
+    <link rel="stylesheet" href="test.css">
+    <link rel="stylesheet" href="modal.css">
+
 </head>
 
 <body id="page-top">
@@ -365,22 +368,45 @@
 
                     <!-- Page Heading -->
                     <h1 class="h3 mb-2 text-gray-800">Tables Player</h1>
-                    <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
-                        For more information about DataTables, please visit the <a target="_blank"
-                            href="https://datatables.net">official DataTables documentation</a>.</p>
 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+                            <button type="button" onclick="showFormCreate()">Add New Customer</button>
+                            <form style="display: none" id="form-create">
+                                <input id="code" type="text" placeholder="Enter Code"> <br>
+                                <input id="img" type="file" placeholder="Enter Img"> <br>
+                                <input id="name" type="text" placeholder="Enter Name"> <br>
+                                <input id="dob" type="text" placeholder="Enter Dob"> <br>
+                                <input id="address" type="text" placeholder="Enter Address"> <br>
+                                <input id="position" type="text" placeholder="Enter Position"> <br>
+                                <input id="height" type="text" placeholder="Enter Height"> <br>
+                                <input id="weight" type="text" placeholder="Enter Weight"> <br>
+                                <input id="ranking" type="text" placeholder="Enter Ranking"> <br>
+                                <input id="salary" type="text" placeholder="Enter Salary"> <br>
+                                <select name = "Performence" id="Performence">
+                                    <option value="1">High</option>
+                                    <option value="2">Average</option>
+                                    <option value="3">Low</option>
+                                </select> <br>
+                                <select name = "status" id="status">
+                                    <option value="1">Active</option>
+                                    <option value="2">Injure</option>
+                                    <option value="3">Retire</option>
+                                </select> <br>
+
+                                <button type="button" onclick="createNewPlayer()">Save</button>
+                                <button onclick="getAllPlayer()">Cancel</button>
+                            </form>
                         </div>
+
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>ID</th>
                                             <th>Code</th>
+                                            <th>Image</th>
                                             <th>Name</th>
                                             <th>Date Of Birth</th>
                                             <th>Address</th>
@@ -389,21 +415,53 @@
                                         </tr>
                                     </thead>
                                     <tbody id="tb-player">
-<!--                                    <tr>-->
-<!--                                        <td>ID</td>-->
-<!--                                        <td>Code</td>-->
-<!--                                        <td>Name</td>-->
-<!--                                        <td>Date Of Birth</td>-->
-<!--                                        <td>Address</td>-->
-<!--                                        <td>Position</td>-->
-<!--                                        <td>Action</td>-->
-<!--                                    </tr>-->
-
-
                                     </tbody>
                                 </table>
                             </div>
                         </div>
+
+                        <div class="card-footer">
+                            <form style="display: none" id="form-update">
+                                <input id="code-update" type="text" placeholder="Enter Code"> <br>
+                                <input id="img-update" type="file" placeholder="Enter Img"> <br>
+                                <input id="name-update" type="text" placeholder="Enter Name"> <br>
+                                <input id="dob-update" type="text" placeholder="Enter Dob"> <br>
+                                <input id="address-update" type="text" placeholder="Enter Address"> <br>
+                                <input id="position-update" type="text" placeholder="Enter Position"> <br>
+                                <input id="height-update" type="text" placeholder="Enter Height"> <br>
+                                <input id="weight-update" type="text" placeholder="Enter Weight"> <br>
+                                <input id="ranking-update" type="text" placeholder="Enter Ranking"> <br>
+                                <input id="salary-update" type="text" placeholder="Enter Salary"> <br>
+                                <select name = "performence-update-id" id="performence-update-id">
+                                    <option value="1">High</option>
+                                    <option value="2">Average</option>
+                                    <option value="3">Low</option>
+                                </select> <br>
+                                <select name = "status-update-id" id="status-update-id">
+                                    <option value="1">Active</option>
+                                    <option value="2">Injure</option>
+                                    <option value="3">Retire</option>
+                                </select> <br>
+                        
+                                <button type="button" id="save-update-button">Save</button>
+                                <button onclick="showAllPlayer()">Cancel</button>
+                            </form>
+
+                            <div id="delete-confirmation" style="display: none;">
+                                <p>Are you sure you want to delete the following player?</p>
+                                <p id="delete-player-info"></p>
+                                <button type="button" id="confirm-delete-button">Yes, delete</button>
+                                <button onclick="window.location.href = 'tables.html'">Cancel</button>
+                            </div>
+
+                            <div class="wrapper">
+                                <div id="player_detail" class="modal">
+                                    <p id="player-info"></p>
+                            </div>
+                            </div>
+                            
+                        </div>
+
                     </div>
 
                 </div>
@@ -513,11 +571,11 @@
     <script src="js/sb-admin-2.min.js"></script>
 
     <!-- Page level plugins -->
-    <script src="vendor/datatables/jquery.dataTables.min.js"></script>
-    <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    <!-- <script src="vendor/datatables/jquery.dataTables.min.js"></script> -->
+    <!-- <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script> -->
 
     <!-- Page level custom scripts -->
-    <script src="js/demo/datatables-demo.js"></script>
+    <!-- <script src="js/demo/datatables-demo.js"></script> -->
     <script src="table.js"></script>
 
 </body>
