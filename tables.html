@@ -378,12 +378,12 @@
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
                             <button type="button" onclick="showFormCreate()">Add New Player</button>
-                            <form style="display: none" id="form-create">
+                            <form style="display: none" id="form-create" method="post">
                                 <input id="code" type="text" placeholder="Enter Code"> <br>
-                                <input id="img" type="file" placeholder="Enter Img"> <br>
+                                <input id="img" type="file" placeholder="Enter Img" > <br>
                                 <input id="name" type="text" placeholder="Enter Name"> <br>
                                 <input id="dob" type="text" placeholder="Enter Dob"> <br>
-                                <input id="address" type="text" placeholder="Enter Address"> <br>
+                                <input id="address" type="text" placeholder="Enter Address" > <br>
                                 <input id="position" type="text" placeholder="Enter Position"> <br>
                                 <input id="height" type="number" placeholder="Enter Height"> <br>
                                 <input id="weight" type="number" placeholder="Enter Weight"> <br>
@@ -426,15 +426,15 @@
                         </div>
 
                         <div class="card-footer">
-                            <form style="display: none" id="form-update">
+                            <form style="display: none" id="form-update" enctype="multipart/form-data">
                                 <input id="code-update" type="text" placeholder="Enter Code"> <br>
                                 <input id="img-update" type="file" placeholder="Enter Img"> <br>
                                 <input id="name-update" type="text" placeholder="Enter Name"> <br>
                                 <input id="dob-update" type="text" placeholder="Enter Dob"> <br>
                                 <input id="address-update" type="text" placeholder="Enter Address"> <br>
                                 <input id="position-update" type="text" placeholder="Enter Position"> <br>
-                                <input id="height-update" type="text" placeholder="Enter Height"> <br>
-                                <input id="weight-update" type="text" placeholder="Enter Weight"> <br>
+                                <input id="height-update" type="text" placeholder="Enter Height" > <br>
+                                <input id="weight-update" type="text" placeholder="Enter Weight" > <br>
                                 <input id="ranking-update" type="text" placeholder="Enter Ranking"> <br>
                                 <input id="salary-update" type="text" placeholder="Enter Salary"> <br>
                                 <select name = "performence-update-id" id="performence-update-id">

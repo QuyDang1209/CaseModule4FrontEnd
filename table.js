@@ -58,6 +58,16 @@ function createNewPlayer(){
     let Performence = document.getElementById("Performence").value;
     let status = document.getElementById("status").value;
 
+
+    // add validate
+    // Client-side validation
+    // Client-side validation
+    if (!code || !img || !name || !dob || !address || !position || !height || !weight || !ranking || !salary || !performance || !status) {
+        alert("Please fill out all required fields.");
+        return;
+    }
+
+
     let formData = new FormData();
     formData.append("code", code);
     formData.append("img", img.files[0]);

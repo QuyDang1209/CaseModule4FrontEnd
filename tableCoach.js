@@ -56,6 +56,12 @@ function submitCreateCoach() {
     formData.append("salary", salary);
     formData.append("img", img.files[0]);
 
+    // Basic client-side validation
+    if (!code || !name || !dob || !address || !salary || !img.files[0]) {
+        alert("Please fill out all required fields.");
+        return;
+    }
+
     $.ajax({
         data: formData,
         method: "POST",
