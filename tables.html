@@ -28,7 +28,7 @@
     <!-- Custom styles for this page -->
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="test.css">
+    <link rel="stylesheet" href="player-card.css">
     <link rel="stylesheet" href="modal.css">
 
 </head>
@@ -102,10 +102,10 @@
             </div>
         </li>
 
-<<<<<<< HEAD
+
         <!-- Divider -->
         <hr class="sidebar-divider">
-=======
+
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
@@ -402,6 +402,25 @@
                         </div>
 
                         <div class="card-body">
+                            <form>
+                                <div class="input-group input-group-sm hidden-xs">
+                                        <input type="text" id="search-player" class="form-control pull-right" name="name" placeholder="search"/>
+                                        <div class="input-group-btn">
+                                            <button type="button" class="btn btn-default" onclick="showPlayerByName()"><i class="fa fa-search"></i></button>
+                                        </div>
+                                    
+                                </div>
+                            </form>
+
+                            <form action="">
+                                <select name="" id="status-option">
+                                    <option value="1">Active</option>
+                                    <option value="2">Injure</option>
+                                    <option value="3">Retire</option>
+                                </select>
+                                <button type="button" onclick="showPlayerByStatus()">submit</button>
+                            </form>
+
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
@@ -417,8 +436,13 @@
                                     </thead>
                                     <tbody id="tb-player">
                                     </tbody>
+                                    <tbody id="search-info">
+                                    
+                                    </tbody>
                                 </table>
                             </div>
+
+                            
                         </div>
 
                         <div class="card-footer">
@@ -539,7 +563,7 @@
         <!-- Main Content -->
         <div id="content">
 
-<<<<<<< HEAD
+
             <!-- Topbar -->
             <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
@@ -885,7 +909,6 @@
 <!--            </div>-->
 <!--        </div>-->
 <!--    </div>-->
->>>>>>> 4f730bc8f187af5e613795507194904fe520803b
 
 </div>
 <!-- End of Page Wrapper -->
@@ -903,6 +926,14 @@
                 <h4 class="modal-title">Modal Heading</h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
+
+    <!-- Page level plugins -->
+    <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="js/demo/datatables-demo.js"></script>
+    <script src="table.js"></script>
 
             <!-- Modal body -->
             <div class="modal-body">
@@ -981,6 +1012,7 @@
             <!-- Page level custom scripts -->
             <!-- <script src="js/demo/datatables-demo.js"></script> -->
             <script src="table.js"></script>
+>>>>>>> d1d79e0d7bc26910a1f22608208a441ce9d39e90
 
 </body>
 
