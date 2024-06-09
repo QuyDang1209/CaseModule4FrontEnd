@@ -23,7 +23,7 @@
     <!-- Custom styles for this page -->
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="test.css">
+    <link rel="stylesheet" href="player-card.css">
     <link rel="stylesheet" href="modal.css">
 
 </head>
@@ -401,6 +401,25 @@
                         </div>
 
                         <div class="card-body">
+                            <form>
+                                <div class="input-group input-group-sm hidden-xs">
+                                        <input type="text" id="search-player" class="form-control pull-right" name="name" placeholder="search"/>
+                                        <div class="input-group-btn">
+                                            <button type="button" class="btn btn-default" onclick="showPlayerByName()"><i class="fa fa-search"></i></button>
+                                        </div>
+                                    
+                                </div>
+                            </form>
+
+                            <form action="">
+                                <select name="" id="status-option">
+                                    <option value="1">Active</option>
+                                    <option value="2">Injure</option>
+                                    <option value="3">Retire</option>
+                                </select>
+                                <button type="button" onclick="showPlayerByStatus()">submit</button>
+                            </form>
+
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
@@ -416,8 +435,13 @@
                                     </thead>
                                     <tbody id="tb-player">
                                     </tbody>
+                                    <tbody id="search-info">
+                                    
+                                    </tbody>
                                 </table>
                             </div>
+
+                            
                         </div>
 
                         <div class="card-footer">
@@ -571,11 +595,11 @@
     <script src="js/sb-admin-2.min.js"></script>
 
     <!-- Page level plugins -->
-    <!-- <script src="vendor/datatables/jquery.dataTables.min.js"></script> -->
-    <!-- <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script> -->
+    <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
     <!-- Page level custom scripts -->
-    <!-- <script src="js/demo/datatables-demo.js"></script> -->
+    <script src="js/demo/datatables-demo.js"></script>
     <script src="table.js"></script>
 
 </body>
