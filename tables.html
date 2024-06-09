@@ -364,7 +364,7 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Tables</h1>
+                    <h1 class="h3 mb-2 text-gray-800">Tables Player</h1>
                     <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
                         For more information about DataTables, please visit the <a target="_blank"
                             href="https://datatables.net">official DataTables documentation</a>.</p>
@@ -385,25 +385,19 @@
                                             <th>Date Of Birth</th>
                                             <th>Address</th>
                                             <th>Position</th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>$320,800</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Garrett Winters</td>
-                                            <td>Accountant</td>
-                                            <td>Tokyo</td>
-                                            <td>63</td>
-                                            <td>2011/07/25</td>
-                                            <td>$170,750</td>
-                                        </tr>
+                                    <tbody id="tb-player">
+<!--                                    <tr>-->
+<!--                                        <td>ID</td>-->
+<!--                                        <td>Code</td>-->
+<!--                                        <td>Name</td>-->
+<!--                                        <td>Date Of Birth</td>-->
+<!--                                        <td>Address</td>-->
+<!--                                        <td>Position</td>-->
+<!--                                        <td>Action</td>-->
+<!--                                    </tr>-->
 
 
                                     </tbody>
@@ -438,6 +432,55 @@
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
+    <div class="modal" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Modal Heading</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <form action="/action_page.php" id="registrationForm">
+                        <div class="form-group">
+                            <label for="fullname">Code:</label>
+                            <input type="text" class="form-control" placeholder="Enter fullname" id="fullname" required pattern="[A-Za-z\s]+">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone:</label>
+                            <input type="tel" class="form-control" placeholder="Enter phone" id="phone" required pattern="[0-9]{10}">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="username">User Name:</label>
+                            <input type="text" class="form-control" placeholder="Enter username" id="username" required pattern="[A-Za-z0-9]{5,}">
+                        </div>
+
+                        <!--                        <div class="form-group">-->
+                        <!--                            <label for="pass">Password:</label>-->
+                        <!--                            <input type="password" class="form-control" placeholder="Enter password" id="pass" required minlength="8">-->
+                        <!--                            <div class="invalid-feedback">Please enter a valid password (at least 8 characters).</div>-->
+                        <!--                        </div>-->
+
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" class="form-control" placeholder="Enter email" id="email" required>
+                            <div class="invalid-feedback">Please enter a valid email address.</div>
+                        </div>
+
+                        <div class="form-group form-check">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox"> Remember me
+                            </label>
+                        </div>
+
+                        <button type="button" class="btn btn-primary" onclick="handleSubmitUser()">Submit</button>
+                    </form>
+                </div>
 
     <!-- Logout Modal-->
     <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -475,6 +518,7 @@
 
     <!-- Page level custom scripts -->
     <script src="js/demo/datatables-demo.js"></script>
+    <script src="table.js"></script>
 
 </body>
 
