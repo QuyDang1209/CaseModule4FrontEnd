@@ -5,6 +5,7 @@ function showAllPlayer() {
         // headers: {
         //     "Authorization": "Bearer " + token
         // },
+        method: "get",
         url: "http://localhost:8080/api/player",
         
         success: function (data) {
