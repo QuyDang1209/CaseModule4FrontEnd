@@ -2,7 +2,12 @@
 <html lang="en">
 
 <head>
-
+    <style>
+        img{
+            width: 100px;
+            height: 100px;
+        }
+    </style>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -372,7 +377,7 @@
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <button type="button" onclick="showFormCreate()">Add New Customer</button>
+                            <button type="button" onclick="showFormCreate()">Add New Player</button>
                             <form style="display: none" id="form-create">
                                 <input id="code" type="text" placeholder="Enter Code"> <br>
                                 <input id="img" type="file" placeholder="Enter Img"> <br>
@@ -380,10 +385,10 @@
                                 <input id="dob" type="text" placeholder="Enter Dob"> <br>
                                 <input id="address" type="text" placeholder="Enter Address"> <br>
                                 <input id="position" type="text" placeholder="Enter Position"> <br>
-                                <input id="height" type="text" placeholder="Enter Height"> <br>
-                                <input id="weight" type="text" placeholder="Enter Weight"> <br>
+                                <input id="height" type="number" placeholder="Enter Height"> <br>
+                                <input id="weight" type="number" placeholder="Enter Weight"> <br>
                                 <input id="ranking" type="text" placeholder="Enter Ranking"> <br>
-                                <input id="salary" type="text" placeholder="Enter Salary"> <br>
+                                <input id="salary" type="number" placeholder="Enter Salary"> <br>
                                 <select name = "Performence" id="Performence">
                                     <option value="1">High</option>
                                     <option value="2">Average</option>
@@ -541,24 +546,24 @@
                 </div>
 
     <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
-                </div>
-            </div>
-        </div>
-    </div>
+<!--    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"-->
+<!--        aria-hidden="true">-->
+<!--        <div class="modal-dialog" role="document">-->
+<!--            <div class="modal-content">-->
+<!--                <div class="modal-header">-->
+<!--                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>-->
+<!--                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">-->
+<!--                        <span aria-hidden="true">×</span>-->
+<!--                    </button>-->
+<!--                </div>-->
+<!--                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>-->
+<!--                <div class="modal-footer">-->
+<!--                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>-->
+<!--                    <a class="btn btn-primary" href="login.html">Logout</a>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
 
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
