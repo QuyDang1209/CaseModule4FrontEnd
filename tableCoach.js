@@ -20,7 +20,7 @@ function showAllCoach() {
                         <td>${coach.salary}</td>
                         <td><img src="${'http://localhost:8080/static/' + coach.img}" alt=""></td>
                         <td>
-                            <button class="btn-view">View</button>
+                            <button class="btn-view" type="button"onclick="showOfCoach(${coach.id})">View</button>
                             <button class="btn-update" type="button" onclick="updateCoach(${coach.id})">Update</button>
                             
                              <button class="btn-delete" type="button" onclick="showFormDelete(${coach.id})">Delete</button>
@@ -152,7 +152,7 @@ function submitDeleteCoach() {
         success: function (data) {
             console.log("Coach deleted successfully.");
             showAllCoach(); // Gọi lại hàm showAllCoach() để cập nhật lại bảng
-            $(".modal-dialog").hide();
+            $("#mdDelete").modal("hide");
         },
         error: function (jqXHR, status, e) {
             console.log("Error deleting Coach:", e);
@@ -160,32 +160,27 @@ function submitDeleteCoach() {
     });
 }
 showAllCoach()
+function showOfCoach(id) {
+    $.ajax({
+        url: "http://localhost:8080/api/coaches/" + id,
+        method: "GET",
+        success: function (data) {
+            let coachDetail = `
+                <div>
+                    <strong>Code:</strong> ${data.code} <br>
+                    <strong>Image:</strong> <img src="${'http://localhost:8080/static/' + data.img}" alt="Coach Image"> <br>
+                    <strong>Name:</strong> ${data.name} <br>
+                    <strong>Dob:</strong> ${data.dob} <br>
+                    <strong>Address:</strong> ${data.address} <br>
+                    <strong>Salary:</strong> ${data.salary} <br>
+                </div>
+            `;
 
-// function hideDeleteConfirmation(){
-//     $("#delete-confirmation").hide();
-// }
-// function showCoachDetail(id){
-//     $.ajax({
-//         url: "http://localhost:8080/api/coaches/" + id,
-//         method: "get",
-//         success: function (data){
-//
-//             $("#player-info").html(`
-//                 <strong>Code:</strong> ${data.code} <br>
-//                 <strong>Image:</strong><img src="${'http://localhost:8080/static/' + data.img}" alt=""> <br>
-//                 <strong>Name:</strong> ${data.name} <br>
-//                 <strong>Dob:</strong> ${data.dob} <br>
-//                 <strong>Address:</strong> ${data.address}<br>
-//                 <strong>Salary:</strong> ${data.salary}<br>
-//             `);
-//
-//             $("#coach_detail").show();
-//
-//             $("#tb-coach").hide();
-//         },
-//
-//         error: function(jqXHR, status, e) {
-//             console.log(e);
-//         }
-//     });
-// }
+            $("#coachDetail").html(coachDetail);
+            $("#coachDetailModal").modal('show');
+        },
+        error: function (jqXHR, status, e) {
+            console.log("Error getting Coach details:", e);
+        }
+    });
+}
