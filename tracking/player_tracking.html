@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+            integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="player_tracking.js"></script>
+</head>
+<body>
+<form action="">
+    <label for="month">Choose Month</label>
+        <select id="month">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+        </select>
+    <label for="year">Choose Year</label>
+    <input type="text" id="year">
+
+    <table border="1px" id="table">
+        <thead>
+        <tr>
+            <td>Player Name</td>
+            <td>Hour play per weak 1</td>
+            <td>Hour play per weak 2</td>
+            <td>Hour play per weak 3</td>
+            <td>Hour play per weak 4</td>
+            <td>Bonus</td>
+        </tr>
+        </thead>
+        <tbody id="hpw">
+        </tbody>
+    </table>
+    <button type="button" onclick="payRoll()">Payroll</button>
+    <button type="button" onclick="showAllSalaryinMonth()">Show Salary In Month</button>
+</form>
+<table >
+    <tr>
+        <td>NAME</td>
+        <td>SALARY</td>
+    </tr>
+    <tbody id="salary">
+
+    </tbody>
+</table>
+</body>
+</html>

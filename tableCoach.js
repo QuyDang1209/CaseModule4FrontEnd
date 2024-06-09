@@ -22,7 +22,6 @@ function showAllCoach() {
                         <td>
                             <button class="btn-view" type="button"onclick="showOfCoach(${coach.id})">View</button>
                             <button class="btn-update" type="button" onclick="updateCoach(${coach.id})">Update</button>
-                            
                              <button class="btn-delete" type="button" onclick="showFormDelete(${coach.id})">Delete</button>
                         </td>
                     </tr>
@@ -61,7 +60,7 @@ function submitCreateCoach() {
         method: "POST",
         processData: false,
         contentType: false,
-        url: "http://localhost:8080/api/coaches",
+        url: "http://localhost:8080/api/coaches/upload",
         success: function (data) {
             console.log("Coach added successfully. Redirecting to tableCoach.html", data);
             window.location.href = "tableCoach.html";
@@ -184,3 +183,32 @@ function showOfCoach(id) {
         }
     });
 }
+
+// function hideDeleteConfirmation(){
+//     $("#delete-confirmation").hide();
+// }
+// function showCoachDetail(id){
+//     $.ajax({
+//         url: "http://localhost:8080/api/coaches/" + id,
+//         method: "get",
+//         success: function (data){
+//
+//             $("#player-info").html(`
+//                 <strong>Code:</strong> ${data.code} <br>
+//                 <strong>Image:</strong><img src="${'http://localhost:8080/static/' + data.img}" alt=""> <br>
+//                 <strong>Name:</strong> ${data.name} <br>
+//                 <strong>Dob:</strong> ${data.dob} <br>
+//                 <strong>Address:</strong> ${data.address}<br>
+//                 <strong>Salary:</strong> ${data.salary}<br>
+//             `);
+//
+//             $("#coach_detail").show();
+//
+//             $("#tb-coach").hide();
+//         },
+//
+//         error: function(jqXHR, status, e) {
+//             console.log(e);
+//         }
+//     });
+// }
