@@ -5,8 +5,9 @@ function showAllPlayer() {
         // headers: {
         //     "Authorization": "Bearer " + token
         // },
+        method: "get",
         url: "http://localhost:8080/api/player",
-        
+
         success: function (data) {
             console.log(data);
             let arrPlayer = data.map((player, i, arrp) => {
@@ -33,7 +34,7 @@ function showAllPlayer() {
 
         error: function(jqXHR, status, e){
             console.log(e);
-            
+
         }
     });
 }
@@ -154,7 +155,7 @@ function createNewPlayer(){
         },
         error: function(jqXHR, status, e){
             console.log(e);
-            
+
         }
     })
 }
@@ -163,7 +164,7 @@ function showFormUpdate(id){
     $.ajax({
         url: "http://localhost:8080/api/player/" + id,
         method: "get",
-        
+
         success: function (data){
             $("#code-update").val(data.code);
             // $("#img-update").val(data.img);
@@ -179,7 +180,7 @@ function showFormUpdate(id){
             $("#status-update-id").val(data.status.id);
             $("#save-update-button").on("click", function() {
                 updatePlayer(id);
-        });
+            });
 
             $("#form-update").show();
             $("#tb-player").hide();
@@ -217,7 +218,7 @@ function updatePlayer(id){
     formData.append("salary", salary);
     formData.append("per.id", performence);
     formData.append("status.id", status);
-    
+
     $.ajax({
         data: formData,
         url: "http://localhost:8080/api/player/" + id,
@@ -231,7 +232,7 @@ function updatePlayer(id){
         },
         error: function(jqXHR, status, e){
             console.log(e);
-            
+
         }
     });
 }
@@ -245,7 +246,7 @@ function showFormDelete(id){
         url: "http://localhost:8080/api/player/" + id,
         method: "get",
         success: function (data){
-            
+
             $("#delete-player-info").html(`
                 <strong>Code:</strong> ${data.code} <br>
                 <strong>Image:</strong><img src="${'http://localhost:8080/static/' + data.img}" alt=""> <br>
@@ -268,7 +269,7 @@ function showFormDelete(id){
 
             $("#tb-player").hide();
         },
-        
+
         error: function(jqXHR, status, e) {
             console.log(e);
         }
@@ -281,7 +282,7 @@ function confirmDelete(id){
     $.ajax({
         url: "http://localhost:8080/api/player/" + id,
         method: "delete",
-        
+
         success: function () {
             console.log("Player deleted successfully. Redirecting to index.html");
             window.location.href = "tables.html";
@@ -303,6 +304,7 @@ function showPlayerDetail(id){
         method: "get",
         success: function (data){
             console.log(data);
+
             $("#player-info").html(`
             
                 <div class="profile-card">
@@ -349,7 +351,7 @@ function showPlayerDetail(id){
 
             // $("#tb-player").hide();
         },
-        
+
         error: function(jqXHR, status, e) {
             console.log(e);
         }
