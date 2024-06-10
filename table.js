@@ -44,9 +44,9 @@ function showFormCreate(){
     $("#tb-player").hide();
 }
 
-function createNewPlayer(){
+function createNewPlayer() {
     let code = document.getElementById("code").value;
-    let img = document.getElementById("img");
+
     let name = document.getElementById("name").value;
     let dob = document.getElementById("dob").value;
     let address = document.getElementById("address").value;
@@ -58,16 +58,83 @@ function createNewPlayer(){
     let Performence = document.getElementById("Performence").value;
     let status = document.getElementById("status").value;
 
+    let inputImg = document.getElementById("img");
+
 
     // add validate
     // Client-side validation
     // Client-side validation
-    if (!code || !img || !name || !dob || !address || !position || !height || !weight || !ranking || !salary || !performance || !status) {
+
+    if (!code || !name || !dob || !address || !position || !height || !weight || !ranking || !salary || !performance || !status) {
         alert("Please fill out all required fields.");
+        return;
+    }
+    if (inputImg.files.length === 0) {
+        alert("You must choose image");
         return;
     }
 
 
+    // Clear previous errors
+    /*
+    let errorElements = document.querySelectorAll(".error");
+    errorElements.forEach(function(el) {
+        el.textContent = "";
+    });
+
+    let isValid = true;
+    if (code == null) {
+        document.getElementById("error-code111").innerText = "Code is required.";
+        isValid = false;
+    }
+    if (name == null) {
+        document.getElementById("error-name").innerText = "Name is required.";
+        isValid = false;
+    }
+    if (dob == null) {
+        document.getElementById("error-dob").innerText = "Date of birth is required.";
+        isValid = false;
+    }
+    if (address == null) {
+        document.getElementById("error-address").innerText = "Address is required.";
+        isValid = false;
+    }
+    if (position == null) {
+        document.getElementById("error-position").innerText = "Position is required.";
+        isValid = false;
+    }
+    if (height == null) {
+        document.getElementById("error-height").innerText = "Height is required.";
+        isValid = false;
+    }
+    if (weight == null) {
+        document.getElementById("error-weight").innerText = "Weight is required.";
+        isValid = false;
+    }
+    if (ranking == null) {
+        document.getElementById("error-ranking").innerText = "Ranking is required.";
+        isValid = false;
+    }
+    if (salary == null) {
+        document.getElementById("error-salary").innerText = "Salary is required.";
+        isValid = false;
+    }
+    if (performance == null) {
+        document.getElementById("error-performance").innerText = "Performance is required.";
+        isValid = false;
+    }
+    if (status == null) {
+        document.getElementById("error-status").innerText = "Status is required.";
+        isValid = false;
+    }
+    \
+     */
+    /*
+    if (!isValid) {
+        return;
+    }else{}
+
+     */
     let formData = new FormData();
     formData.append("code", code);
     formData.append("img", img.files[0]);
@@ -92,10 +159,29 @@ function createNewPlayer(){
             console.log("Player added successfully. Redirecting to tables.html", data);
             window.location.href = "tables.html";
         },
+
         error: function(jqXHR, status, e){
             console.log(e);
-            
+
         }
+        /*
+        error: function (jqXHR, status, e) {
+            let errors = jqXHR.responseJSON;
+            console.log(errors)
+            if (jqXHR.responseJSON && jqXHR.responseJSON.errors) {
+                let errors = jqXHR.responseJSON.errors;
+                for (let field in errors) {
+                    if (errors.hasOwnProperty(field)) {
+                        document.getElementById(errors[field]);
+                        break;
+                    }
+                }
+            } else {
+                console.log(e);
+            }
+        }
+
+         */
     })
 }
 
