@@ -15,6 +15,7 @@ function showAllPlayer() {
                 });
                 return `
                 <tr>
+
                     <td>${player.code}</td>
                     <td><img src="${'http://localhost:8080/static/' + player.img}" alt=""></td>
                     <td>${player.name}</td>
@@ -67,6 +68,9 @@ function hideButtonStatusUpdateCancel(){
 function showFormCreate(){
     $("#form-create").show();
     $("#tb-player").hide();
+    $("#th-player").hide();
+    $("#frm-search").hide();
+    $("#frm-status").hide();
 }
 
 function createNewPlayer(){
@@ -90,8 +94,9 @@ function createNewPlayer(){
         processData: false,
         contentType: false,
         url: "http://localhost:8080/api/player/upload",
-        success: function () {
-            window.location.href = "tables.html";
+        success: function (data) {
+            console.log("Player added successfully. Redirecting to tables.html", data);
+            window.location.href = "tablesPlayer.html";
         },
         error: function(jqXHR, status, e){
             console.log(e);
@@ -150,7 +155,8 @@ function updatePlayer(id){
         processData: false,
         contentType: false,
         success: function () {
-            window.location.href = "tables.html";
+            console.log("Player updated successfully. Redirecting to index.html");
+            window.location.href = "tablesPlayer.html";
         },
         error: function(jqXHR, status, e){
             console.log(e);
@@ -198,7 +204,8 @@ function confirmDelete(id){
         url: "http://localhost:8080/api/player/" + id,
         method: "delete",
         success: function () {
-            window.location.href = "tables.html";
+            console.log("Player deleted successfully. Redirecting to index.html");
+            window.location.href = "tablesPlayer.html";
         },
         error: function(jqXHR, status, e) {
             console.log(e);
@@ -243,8 +250,8 @@ function showPlayerDetail(id){
                     </div>
                 </div>
                 <div class="buttons">
-                    <button class="button" onclick="showFormUpdate(${data.id})">Update</button>
-                    <button class="button" onclick="window.location.href = 'tables.html'">Back</button>
+                    <button class="button" onclick="showFormUpdate(${data.id})">Udate</button>
+                    <button class="button" onclick="window.location.href = 'tablesPlayer.html'">Back</button>
                 </div>
             `);
 
@@ -273,7 +280,7 @@ function updatePlayerStatus(){
         data: JSON.stringify(arrPlayerStatus),
         success: function () {
             showAllPlayer();
-            window.location.href ="tables.html"
+            window.location.href ="tablesPlayer.html"
 
         },
         error: function (jqXHR, status, e){
