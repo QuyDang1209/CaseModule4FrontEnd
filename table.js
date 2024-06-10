@@ -512,3 +512,98 @@ function showPlayerCreateModel() {
 
             $("#player_create").modal("show");
 }
+/*
+function searchPlayers(){
+    let name = document.getElementById("search-name").value;
+    let salary = document.getElementById("search-salary").value;
+
+
+    let queryParams = [];
+    if (name) {
+        queryParams.push(`name=${encodeURIComponent(name)}`);
+    }
+    if (salary) {
+        queryParams.push(`salary=${encodeURIComponent(salary)}`);
+    }
+
+    let queryString = queryParams.length > 0 ? '?' + queryParams.join('&') : '';
+
+    $.ajax({
+        url : "https://localhost:8080/api/player" + queryString,
+        method: "get",
+        success: function(data){
+            let arrPlayer = data.map((player, i, arrp) => {
+                return `
+                <tr>
+                    <td>${player.code}</td>
+                    <td><img src="${'http://localhost:8080/static/' + player.img}" alt="" class="player-img"></td>
+                    <td>${player.name}</td>
+                    <td>${player.dob}</td>
+                    <td>${player.address}</td>
+                    <td>${player.position}</td>
+                    <td>${player.salary}</td>
+                    <td>
+                        <a href="#player_detail"  onclick="showPlayerDetail(${player.id})">View</a>
+                        <a href="javascript:void(0)" onclick="showFormDelete(${player.id})">Delete</a>
+                        <a href="javascript:void(0)" onclick="showFormUpdate(${player.id})">Update</a>
+                    </td>
+                </tr>
+                `;
+            });
+            $("#tb-player").html(arrPlayerInfo.join(""));
+            $(".modal").hide();
+            $("#tb-player").show();
+        },
+        error: function(jqXHR, status, e) {
+            console.log(e);
+        }
+    });
+    }
+ */
+function searchPlayers(name, salary) {
+    // Construct the URL with parameters
+    let url = `http://localhost:8080/api/player/search`;
+    if (name && salary) {
+        url += `?name=${encodeURIComponent(name)}&salary=${encodeURIComponent(salary)}`;
+    } else if (name) {
+        url += `?name=${encodeURIComponent(name)}`;
+    } else if (salary) {
+        url += `?salary=${encodeURIComponent(salary)}`;
+    }
+
+    $.ajax({
+        url: url,
+        method: 'GET',
+        success: function(response) {
+            console.log("Players found:", response);
+            displayPlayers(response); // Call function to display players
+            // Optionally, handle the response data
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            console.error("Error searching players:", textStatus, errorThrown);
+            // Optionally, handle errors or display error messages
+        }
+    });
+}
+
+function displayPlayers(){
+    // Clear existing table data
+    $('#player-table-body').empty();
+
+    // Loop through each player in the response and add a row to the table
+    players.forEach(function(player) {
+        let row = `<tr>
+                        <td>${player.code}</td>
+                        <td><img src="${'http://localhost:8080/static/' + player.img}" alt="" class="player-img"></td>
+                        <td>${player.name}</td>
+                        <td>${player.dob}</td>
+                        <td>${player.address}</td>
+                        <td>${player.position}</td>
+                        <td>${player.salary}</td>
+                    </tr>`;
+        $('#player-table-body').append(row);
+    });
+
+    // Show the table
+    $('#player-table').show();
+}
