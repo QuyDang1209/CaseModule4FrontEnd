@@ -150,7 +150,7 @@
                     <!-- Page Heading -->
                     <div class="c-header">
                         <h1 class="h3 mb-2 text-gray-800">Coach Tracking</h1>
-                        <button type="button" onclick="showFormTracking();">Add</button>
+                        <button type="button" onclick="showFormTracking();" class="btn btn-primary">Add</button>
                     </div>
 
                     <!-- DataTales Example -->
@@ -205,8 +205,11 @@
                                     <tbody id="bpw">
                                     </tbody>
                                 </table>
-                                <button type="button" onclick="payRoll()">Payroll</button>
-                                <button type="button" onclick="showAllCoachTracking()">Cancel</button>
+                                <div class="pt-btn">
+                                    <button type="button" onclick="payRoll()" class="btn btn-success">Payroll</button>
+                                    <button type="button" onclick="showAllCoachTracking()" class="btn btn-secondary">Cancel</button>
+                                </div>
+                                
                             </div>
                         </form>
                     </div>

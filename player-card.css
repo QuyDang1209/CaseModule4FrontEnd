@@ -91,6 +91,106 @@
     border: 3px solid white;
 }
 
+.title-name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#form-create {
+    display: block; /* Hiển thị form */
+    max-width: 70%;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+}
+
+#form-create input, #form-create select, #form-create button {
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.btn-save {
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+}
+
+.btn-save:hover {
+    background-color: #45a049;
+}
+
+.btn-cancel {
+    background-color: darkgrey;
+    color: white;
+    cursor: pointer;
+}
+
+.btn-cancel:hover {
+    background-color: grey;
+}
+
+#form-create br {
+    margin-bottom: 10px; /* Thêm khoảng cách dưới mỗi <br> */
+}
+
+/* Tổng thể cho phần chứa thông tin người chơi */
+.player-info {
+    max-width: 50%;
+    margin: 20px auto;
+    padding: 10px 300px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+}
+
+/* Kiểu dáng cho từng mục thông tin */
+.info-item {
+    margin-bottom: 15px;
+    line-height: 1.5;
+    display: flex;
+    align-items: center;
+}
+
+/* Kiểu dáng cho tiêu đề mạnh (bold) */
+.info-item strong {
+    width: 120px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Kiểu dáng cho nội dung thông tin */
+.info-item span {
+    color: #555;
+}
+
+/* Kiểu dáng cho hình ảnh */
+.info-item img {
+    max-width: 100px;
+    height: auto;
+    border-radius: 5px;
+    margin-left: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Tùy chỉnh cho các mục cuối cùng (loại bỏ khoảng cách cuối cùng) */
+.info-item:last-child {
+    margin-bottom: 0;
+}
+
+.dlt-btn{
+    display: flex;
+    justify-content: center;
+}
+
+
 /* IPlayerRepository -> playerService -> viết controller GET -> viết ajax */
 /* giao diện update delete */
 

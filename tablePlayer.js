@@ -21,9 +21,9 @@ function showAllPlayer() {
                 <td><img src="${'http://localhost:8080/static/' + player.img}" alt="" class="player-img"></td>
                 <td>
                 
-                <a href="#player_detail"  onclick="showPlayerDetail(${player.id})">View</a>
-                <a href="javascript:void(0)" onclick="showFormDelete(${player.id})">Delete</a>
-                <a href="javascript:void(0)" onclick="showFormUpdate(${player.id})">Update</a>
+                <button type="button" class="btn btn-info"><a href="#player_detail"  onclick="showPlayerDetail(${player.id})" style="color: white;">View</a></button>
+                <button type="button" class="btn btn-danger"><a href="javascript:void(0)" onclick="showFormDelete(${player.id})" style="color: white;">Delete</a></button>
+                <button type="button" class="btn btn-secondary"><a href="javascript:void(0)" onclick="showFormUpdate(${player.id})" style="color: white;">Update</a></button>
                 </td>
              </tr>
                 `;
@@ -115,6 +115,7 @@ function showFormCreate(){
     $("#th-player").hide();
     $("#frm-search").hide();
     $("#frm-status").hide();
+    $(".btn").hide();
 }
 
 function createNewPlayer(){
@@ -250,17 +251,41 @@ function showFormDelete(id){
         success: function (data){
 
             $("#delete-player-info").html(`
-                <strong>Code:</strong> ${data.code} <br>
-                <strong>Image:</strong><img src="${'http://localhost:8080/static/' + data.img}" alt=""> <br>
-                <strong>Name:</strong> ${data.name} <br>
-                <strong>Dob:</strong> ${data.dob} <br>
-                <strong>Address:</strong> ${data.address}<br>
-                <strong>Position:</strong> ${data.position}<br>
-                <strong>Height:</strong> ${data.height}<br>
-                <strong>Weight:</strong> ${data.weight}<br>
-                <strong>Ranking:</strong> ${data.ranking}<br>
-                <strong>Performence:</strong> ${data.per.id}<br>
-                <strong>Status:</strong> ${data.status.id}<br>
+            <div class="player-info">
+            <div class="info-item">
+                <strong>Code:</strong> <span>${data.code}</span>
+            </div>
+            <div class="info-item">
+                <strong>Image:</strong> <img src="${'http://localhost:8080/static/' + data.img}" alt="Player Image">
+            </div>
+            <div class="info-item">
+                <strong>Name:</strong> <span>${data.name}</span>
+            </div>
+            <div class="info-item">
+                <strong>Dob:</strong> <span>${data.dob}</span>
+            </div>
+            <div class="info-item">
+                <strong>Address:</strong> <span>${data.address}</span>
+            </div>
+            <div class="info-item">
+                <strong>Position:</strong> <span>${data.position}</span>
+            </div>
+            <div class="info-item">
+                <strong>Height:</strong> <span>${data.height}</span>
+            </div>
+            <div class="info-item">
+                <strong>Weight:</strong> <span>${data.weight}</span>
+            </div>
+            <div class="info-item">
+                <strong>Ranking:</strong> <span>${data.ranking}</span>
+            </div>
+            <div class="info-item">
+                <strong>Performance:</strong> <span>${data.per.id}</span>
+            </div>
+            <div class="info-item">
+                <strong>Status:</strong> <span>${data.status.id}</span>
+            </div>
+        </div>
             `);
 
             $("#delete-confirmation").show();
@@ -270,6 +295,10 @@ function showFormDelete(id){
             });
 
             $("#tb-player").hide();
+            $("#th-player").hide();
+            $("#frm-search").hide();
+            $("#frm-status").hide();
+            $(".btn-primary").hide();
         },
 
         error: function(jqXHR, status, e) {
