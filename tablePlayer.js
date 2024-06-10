@@ -14,11 +14,11 @@ function showAllPlayer() {
                 return `
                 <tr>
                 <td>${player.code}</td>
-                <td><img src="${'http://localhost:8080/static/' + player.img}" alt="" class="player-img"></td>
                 <td>${player.name}</td>
                 <td>${player.dob}</td>
                 <td>${player.address}</td>
                 <td>${player.position}</td>
+                <td><img src="${'http://localhost:8080/static/' + player.img}" alt="" class="player-img"></td>
                 <td>
                 
                 <a href="#player_detail"  onclick="showPlayerDetail(${player.id})">View</a>

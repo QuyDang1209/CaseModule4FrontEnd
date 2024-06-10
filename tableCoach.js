@@ -12,7 +12,6 @@ function showAllCoach() {
             data.forEach(function (coach) {
                 let row = `
                     <tr>
-                        <td>${coach.id}</td>
                         <td>${coach.code}</td>
                         <td>${coach.name}</td>
                         <td>${coach.dob}</td>
