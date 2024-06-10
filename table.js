@@ -613,6 +613,14 @@ function displayPlayers(){
 
  */
 
+function logout(){
+    // Clear the JWT token from local storage or cookies
+    localStorage.removeItem('token');
+    // Redirect to the login page
+    window.location.href = 'login.html';
+}
+
+
 function searchPlayers() {
     const minSalary = document.getElementById('min-salary').value;
     const maxSalary = document.getElementById('max-salary').value;
