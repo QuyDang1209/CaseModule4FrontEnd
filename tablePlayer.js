@@ -14,11 +14,11 @@ function showAllPlayer() {
                 return `
                 <tr>
                 <td>${player.code}</td>
-                <td><img src="${'http://localhost:8080/static/' + player.img}" alt="" class="player-img"></td>
                 <td>${player.name}</td>
                 <td>${player.dob}</td>
                 <td>${player.address}</td>
                 <td>${player.position}</td>
+                <td><img src="${'http://localhost:8080/static/' + player.img}" alt="" class="player-img"></td>
                 <td>
                 
                 <a href="#player_detail"  onclick="showPlayerDetail(${player.id})">View</a>
@@ -34,7 +34,6 @@ function showAllPlayer() {
 
         error: function(jqXHR, status, e){
             console.log(e);
-
         }
     });
 }
@@ -113,6 +112,9 @@ function showPlayerByName() {
 function showFormCreate(){
     $("#form-create").show();
     $("#tb-player").hide();
+    $("#th-player").hide();
+    $("#frm-search").hide();
+    $("#frm-status").hide();
 }
 
 function createNewPlayer(){
@@ -151,7 +153,7 @@ function createNewPlayer(){
         url: "http://localhost:8080/api/player/upload",
         success: function (data) {
             console.log("Player added successfully. Redirecting to tables.html", data);
-            window.location.href = "tables.html";
+            window.location.href = "tablesPlayer.html";
         },
         error: function(jqXHR, status, e){
             console.log(e);
@@ -228,7 +230,7 @@ function updatePlayer(id){
 
         success: function () {
             console.log("Player updated successfully. Redirecting to index.html");
-            window.location.href = "tables.html";
+            window.location.href = "tablesPlayer.html";
         },
         error: function(jqXHR, status, e){
             console.log(e);
@@ -285,7 +287,7 @@ function confirmDelete(id){
 
         success: function () {
             console.log("Player deleted successfully. Redirecting to index.html");
-            window.location.href = "tables.html";
+            window.location.href = "tablesPlayer.html";
         },
         error: function(jqXHR, status, e) {
             console.log("Error deleting player:", e);
@@ -338,7 +340,7 @@ function showPlayerDetail(id){
 
                 <div class="buttons">
                     <button class="button" onclick="showFormUpdate(${data.id})">Udate</button>
-                    <button class="button" onclick="window.location.href = 'tables.html'">Back</button>
+                    <button class="button" onclick="window.location.href = 'tablesPlayer.html'">Back</button>
                 </div>
             
             `);

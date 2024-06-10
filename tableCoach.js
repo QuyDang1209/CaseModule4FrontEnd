@@ -12,7 +12,6 @@ function showAllCoach() {
             data.forEach(function (coach) {
                 let row = `
                     <tr>
-                        <td>${coach.id}</td>
                         <td>${coach.code}</td>
                         <td>${coach.name}</td>
                         <td>${coach.dob}</td>
@@ -32,6 +31,44 @@ function showAllCoach() {
             $("#mdDelete").hide()
         }
     });
+}
+
+function showCoachByName() {
+    let name = document.getElementById("search-coach").value;
+    console.log(name);
+
+    $.ajax({
+        url: "http://localhost:8080/api/coaches?name=" + name,
+        method: "get",
+
+        success: function(data){
+            console.log(data);
+
+            let table = $('table');
+
+            let strRow = "";
+            data.forEach(function (coach) {
+                let row = `
+                    <tr>
+                        <td>${coach.code}</td>
+                        <td>${coach.name}</td>
+                        <td>${coach.dob}</td>
+                        <td>${coach.address}</td>
+                        <td>${coach.salary}</td>
+                        <td><img src="${'http://localhost:8080/static/' + coach.img}" alt=""></td>
+                        <td>
+                            <button class="btn-view" type="button"onclick="showOfCoach(${coach.id})">View</button>
+                            <button class="btn-update" type="button" onclick="updateCoach(${coach.id})">Update</button>
+                             <button class="btn-delete" type="button" onclick="showFormDelete(${coach.id})">Delete</button>
+                        </td>
+                    </tr>
+                `;
+                strRow += row;
+            });
+            $("#tb-coach").html(strRow);
+            $("#mdDelete").hide()
+        }
+    })
 }
 
 function addCoach() {
