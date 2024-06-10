@@ -20,9 +20,8 @@ function showAllCoach() {
                         <td>${coach.salary}</td>
                         <td><img src="${'http://localhost:8080/static/' + coach.img}" alt=""></td>
                         <td>
-                            <button class="btn-view" onclick="viewcoach()">View</button>
+                            <button class="btn-view" type="button"onclick="showOfCoach(${coach.id})">View</button>
                             <button class="btn-update" type="button" onclick="updateCoach(${coach.id})">Update</button>
-                            
                              <button class="btn-delete" type="button" onclick="showFormDelete(${coach.id})">Delete</button>
                         </td>
                     </tr>
@@ -166,6 +165,30 @@ function submitDeleteCoach() {
     });
 }
 showAllCoach()
+function showOfCoach(id) {
+    $.ajax({
+        url: "http://localhost:8080/api/coaches/" + id,
+        method: "GET",
+        success: function (data) {
+            let coachDetail = `
+                <div>
+                    <strong>Code:</strong> ${data.code} <br>
+                    <strong>Image:</strong> <img src="${'http://localhost:8080/static/' + data.img}" alt="Coach Image"> <br>
+                    <strong>Name:</strong> ${data.name} <br>
+                    <strong>Dob:</strong> ${data.dob} <br>
+                    <strong>Address:</strong> ${data.address} <br>
+                    <strong>Salary:</strong> ${data.salary} <br>
+                </div>
+            `;
+
+            $("#coachDetail").html(coachDetail);
+            $("#coachDetailModal").modal('show');
+        },
+        error: function (jqXHR, status, e) {
+            console.log("Error getting Coach details:", e);
+        }
+    });
+}
 
 // function hideDeleteConfirmation(){
 //     $("#delete-confirmation").hide();
