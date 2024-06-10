@@ -113,6 +113,9 @@ function showPlayerByName() {
 function showFormCreate(){
     $("#form-create").show();
     $("#tb-player").hide();
+    $("#th-player").hide();
+    $("#frm-search").hide();
+    $("#frm-status").hide();
 }
 
 function createNewPlayer(){
@@ -151,7 +154,7 @@ function createNewPlayer(){
         url: "http://localhost:8080/api/player/upload",
         success: function (data) {
             console.log("Player added successfully. Redirecting to tables.html", data);
-            window.location.href = "tables.html";
+            window.location.href = "tablesPlayer.html";
         },
         error: function(jqXHR, status, e){
             console.log(e);
@@ -338,7 +341,7 @@ function showPlayerDetail(id){
 
                 <div class="buttons">
                     <button class="button" onclick="showFormUpdate(${data.id})">Udate</button>
-                    <button class="button" onclick="window.location.href = 'tables.html'">Back</button>
+                    <button class="button" onclick="window.location.href = 'tablesPlayer.html'">Back</button>
                 </div>
             
             `);
