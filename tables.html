@@ -170,13 +170,12 @@
 
                     <!-- Topbar Search -->
                     <form
-                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search"
-                    onsubmit="event.preventDefault(); searchPlayers();">
+                            class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search"
+                            onsubmit="event.preventDefault(); searchPlayers();">
                         <div class="input-group">
-<!--                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."-->
-<!--                                aria-label="Search" aria-describedby="basic-addon2">-->
-                            <input type="text" id="search-name" class="form-control bg-light border-0 small" placeholder="Search by name..." aria-label="Search by name" aria-describedby="basic-addon2">
-                            <input type="number" id="search-salary" class="form-control bg-light border-0 small" placeholder="Search by salary..." aria-label="Search by salary" aria-describedby="basic-addon2">
+                            <label for="min-salary" class="mr-2">Find salary for the players:</label>
+                            <input type="number" id="min-salary" class="form-control bg-light border-0 small" placeholder="Min salary" aria-label="Min salary" aria-describedby="basic-addon2">
+                            <input type="number" id="max-salary" class="form-control bg-light border-0 small" placeholder="Max salary" aria-label="Max salary" aria-describedby="basic-addon2">
                             <div class="input-group-append">
                                 <button class="btn btn-primary" type="button" onclick="searchPlayers()">
                                     <i class="fas fa-search fa-sm"></i>
@@ -184,6 +183,8 @@
                             </div>
                         </div>
                     </form>
+
+
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -909,15 +910,15 @@
 <!--        </div>-->
         <!-- End of Main Content -->
 
-        <!-- Footer -->
-        <footer class="sticky-footer bg-white">
-            <div class="container my-auto">
-                <div class="copyright text-center my-auto">
-                    <span>Copyright &copy; Your Website 2020</span>
-                </div>
-            </div>
-        </footer>
-        <!-- End of Footer -->
+<!--        &lt;!&ndash; Footer &ndash;&gt;-->
+<!--        <footer class="sticky-footer bg-white">-->
+<!--            <div class="container my-auto">-->
+<!--                <div class="copyright text-center my-auto">-->
+<!--                    <span>Copyright &copy; Your Website 2020</span>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </footer>-->
+<!--        &lt;!&ndash; End of Footer &ndash;&gt;-->
 
     </div>
     <!-- End of Content Wrapper -->

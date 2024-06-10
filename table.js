@@ -560,10 +560,11 @@ function searchPlayers(){
     });
     }
  */
+/*
 function searchPlayers(name, salary) {
     // Construct the URL with parameters
     let url = `http://localhost:8080/api/player/search`;
-    if (name && salary) {
+    if (name || salary) {
         url += `?name=${encodeURIComponent(name)}&salary=${encodeURIComponent(salary)}`;
     } else if (name) {
         url += `?name=${encodeURIComponent(name)}`;
@@ -586,6 +587,8 @@ function searchPlayers(name, salary) {
     });
 }
 
+ */
+/*
 function displayPlayers(){
     // Clear existing table data
     $('#player-table-body').empty();
@@ -606,4 +609,46 @@ function displayPlayers(){
 
     // Show the table
     $('#player-table').show();
+}
+
+ */
+
+function searchPlayers() {
+    const minSalary = document.getElementById('min-salary').value;
+    const maxSalary = document.getElementById('max-salary').value;
+
+    // Construct the URL with parameters
+    let url = `http://localhost:8080/api/player/searchBySalaryRange?minSalary=${encodeURIComponent(minSalary)}&maxSalary=${encodeURIComponent(maxSalary)}`;
+
+    $.ajax({
+        url: url,
+        method: 'GET',
+        success: function(response) {
+            console.log("Players found:", response);
+
+            let tableRows = response.map(player => `
+                <tr>
+                    <td>${player.code}</td>
+                    <td><img src="${'http://localhost:8080/static/' + player.img}" alt="" class="player-img"></td>
+                    <td>${player.name}</td>
+                    <td>${player.dob}</td>
+                    <td>${player.address}</td>
+                    <td>${player.position}</td>
+                    <td>${player.salary}</td>
+                    <td>
+                        <a href="#player_detail" onclick="showPlayerDetail(${player.id})">View</a>
+                        <a href="javascript:void(0)" onclick="showFormDelete(${player.id})">Delete</a>
+                        <a href="javascript:void(0)" onclick="showFormUpdate(${player.id})">Update</a>
+                    </td>
+                </tr>
+            `);
+
+            $("#tb-player").html(tableRows.join(""));
+            $(".modal").hide();
+            $("#tb-player").show();
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            console.error("Error searching players:", textStatus, errorThrown);
+        }
+    });
 }
