@@ -1,3 +1,4 @@
+
 let arrPlayerStatus = [];
 showAllPlayer();
 hideButtonStatusUpdateCancel();
@@ -280,5 +281,3 @@ function updatePlayerStatus(){
         }
     });
 }
-
-
