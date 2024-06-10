@@ -1,5 +1,36 @@
-showformTracking()
-function showformTracking(){
+showAllCoachTracking();
+function showAllCoachTracking() {
+    $.ajax({
+        url: "http://localhost:8080/api/coach_tracking",
+        method: "get",
+
+        success: function (data){
+            console.log(data)
+            let arrCoachTracking = data.map((c,i,arrc) => {
+                return `
+                <tr>
+                    <td>${c.coach.name}</td>
+                    <td>${c.totalsalary}</td>
+                    <td>${c.month}</td>
+                    <td>${c.year}</td>
+                </tr>
+                `
+            });
+
+            console.log(arrCoachTracking.join(""));
+            $("#coach-tracking-list").html(arrCoachTracking.join(""));
+            $("#coach-tracking-list").show();
+            $("#frm-tracking").hide();
+            
+    },
+
+    error: function(jqXHR, status, e){
+        console.log(e);
+    }
+});
+}
+
+function showFormTracking(){
     $.ajax({
         method: "get",
         url: "http://localhost:8080/api/coaches",
@@ -47,26 +78,9 @@ function payRoll() {
         contentType: "application/json",
         data: JSON.stringify(
             tableData),
-    })
-
-}
-function showAllSalaryinMonth(){
-    let year = +document.getElementById("year").value;
-    let month = +document.getElementById("month").value;
-    $.ajax({
-        method: "get",
-        url: "http://localhost:8080/api/coach_tracking/"+month+"/"+year,
-        success: function (data){
-            console.log(data)
-            let str = data.map((c,i,array) => {
-                return `
-                <tr>
-                    <td>${c.coach.name}</td>
-                    <td>${c.totalsalary}</td>
-                </tr>
-                `
-            })
-            $("#salary").html(str.join(""))
+        success: function(data) {
+            showAllPlayerTracking()
         }
     })
+
 }

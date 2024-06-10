@@ -1,5 +1,36 @@
-showformTracking()
-function showformTracking(){
+showAllPlayerTracking();
+
+function showAllPlayerTracking() {
+    $.ajax({
+        url: "http://localhost:8080/api/playertracking",
+        method: "get",
+
+        success: function (data) {
+            console.log(data);
+            let arrPlayerTracking = data.map((p, i, arrp) => {
+                return`
+                    <tr>
+                        <td>${p.player.name}</td>
+                        <td>${p.totalSalary}</td>
+                        <td>${p.month}</td>
+                        <td>${p.year}</td>
+                    </tr>
+                `;
+            });
+
+            console.log(arrPlayerTracking.join(""));
+            $("#player-tracking-list").html(arrPlayerTracking.join(""));
+            $("#player-tracking-list").show();
+            $("#table").show();
+            $("#form-tracking").hide();
+        },
+
+        error: function(jqXHR, status, e){
+            console.log(e);
+        }
+    });
+}
+function showFormTracking(){
     $.ajax({
         method: "get",
         url: "http://localhost:8080/api/player",
@@ -17,6 +48,8 @@ function showformTracking(){
                 `;
             })
             $("#hpw").html(str.join(""))
+            $("#form-tracking").show();
+            $(".table").hide();
         }
     })
 }
@@ -50,26 +83,8 @@ function payRoll() {
         contentType: "application/json",
         data: JSON.stringify(
             tableData),
-    })
-
-}
-function showAllSalaryinMonth(){
-    let year = +document.getElementById("year").value;
-    let month = +document.getElementById("month").value;
-    $.ajax({
-        method: "get",
-        url: "http://localhost:8080/api/playertracking/"+month+"/"+year,
-        success: function (data){
-            console.log(data)
-            let str = data.map((c,i,array) => {
-                return `
-                <tr>
-                    <td>${c.player.name}</td>
-                    <td>${c.totalSalary}</td>
-                </tr>
-                `
-            })
-            $("#salary").html(str.join(""))
+        success: function(data) {
+            showAllPlayerTracking()
         }
     })
 }

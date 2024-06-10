@@ -33,6 +33,7 @@
             integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
             crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="player_tracking.js"></script>
+    <link rel="stylesheet" href="p-tracking.css">
 
 </head>
 
@@ -147,58 +148,70 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Player Tracking</h1>
+                    <div class="p-header">
+                        <h1 class="h3 mb-2 text-gray-800">Player Tracking</h1>
+                        <button type="button" onclick="showFormTracking();">Add</button>
+                    </div>
+                    
 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
-                        <form action="">
-                            <label for="month">Choose Month</label>
-                                <select id="month">
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
-                                    <option value="7">7</option>
-                                    <option value="8">8</option>
-                                    <option value="9">9</option>
-                                    <option value="10">10</option>
-                                    <option value="11">11</option>
-                                    <option value="12">12</option>
-                                </select>
-                            <label for="year">Choose Year</label>
-                            <input type="text" id="year">
-                        
-                            <table border="1px" id="table">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="table" width="100%" cellspacing="0">
                                 <thead>
-                                <tr>
-                                    <td>Player Name</td>
-                                    <td>Hour play per weak 1</td>
-                                    <td>Hour play per weak 2</td>
-                                    <td>Hour play per weak 3</td>
-                                    <td>Hour play per weak 4</td>
-                                    <td>Bonus</td>
-                                </tr>
+                                    <tr>
+                                        <td>NAME</td>
+                                        <td>TOTAL SALARY</td>
+                                        <td>MONTH</td>
+                                        <td>YEAR</td>
+                                    </tr>
                                 </thead>
-                                <tbody id="hpw">
+                                <tbody id="player-tracking-list">
                                 </tbody>
                             </table>
-                            <button type="button" onclick="payRoll()">Payroll</button>
-                            <button type="button" onclick="showAllSalaryinMonth()">Show Salary In Month</button>
+                        </div>
+                        <form action="" id="form-tracking">
+                            <div class="player-filter">
+                                <label for="month">Choose Month</label>
+                                <select id="month">
+                                    <option value="1">January</option>
+                                    <option value="2">February</option>
+                                    <option value="3">March</option>
+                                    <option value="4">April</option>
+                                    <option value="5">May</option>
+                                    <option value="6">June</option>
+                                    <option value="7">July</option>
+                                    <option value="8">August</option>
+                                    <option value="9">September</option>
+                                    <option value="10">October</option>
+                                    <option value="11">November</option>
+                                    <option value="12">December</option>
+                                </select>
+
+                                <label for="year">Choose Year</label>
+                                <input type="text" id="year">
+                            </div>
+                            
+                            <div class="player-tracking-form">
+                                <table border="1px" id="table">
+                                    <thead>
+                                    <tr>
+                                        <td>Player Name</td>
+                                        <td>Hour play per weak 1</td>
+                                        <td>Hour play per weak 2</td>
+                                        <td>Hour play per weak 3</td>
+                                        <td>Hour play per weak 4</td>
+                                        <td>Bonus</td>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="hpw">
+                                    </tbody>
+                                </table>
+                                <button type="button" onclick="payRoll()">Payroll</button>
+                                <button type="button" onclick="showAllPlayerTracking()">Cancel</button>
+                            </div>
                         </form>
-                        <table >
-                            <tr>
-                                <td>NAME</td>
-                                <td>SALARY</td>
-                            </tr>
-                            <tbody id="salary">
-                        
-                            </tbody>
-                        </table>
-
                     </div>
-
                 </div>
                 <!-- /.container-fluid -->
 

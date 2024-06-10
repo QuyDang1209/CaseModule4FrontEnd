@@ -34,7 +34,6 @@ function showAllPlayer() {
 
         error: function(jqXHR, status, e){
             console.log(e);
-
         }
     });
 }
