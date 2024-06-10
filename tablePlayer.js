@@ -231,7 +231,7 @@ function updatePlayer(id){
 
         success: function () {
             console.log("Player updated successfully. Redirecting to index.html");
-            window.location.href = "tables.html";
+            window.location.href = "tablesPlayer.html";
         },
         error: function(jqXHR, status, e){
             console.log(e);
@@ -288,7 +288,7 @@ function confirmDelete(id){
 
         success: function () {
             console.log("Player deleted successfully. Redirecting to index.html");
-            window.location.href = "tables.html";
+            window.location.href = "tablesPlayer.html";
         },
         error: function(jqXHR, status, e) {
             console.log("Error deleting player:", e);
