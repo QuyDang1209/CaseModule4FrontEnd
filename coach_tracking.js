@@ -20,6 +20,7 @@ function showAllCoachTracking() {
             console.log(arrCoachTracking.join(""));
             $("#coach-tracking-list").html(arrCoachTracking.join(""));
             $("#coach-tracking-list").show();
+            $("#table").show();
             $("#frm-tracking").hide();
             
     },
@@ -47,6 +48,8 @@ function showFormTracking(){
                 `;
             })
             $("#bpw").html(str.join(""))
+            $("#frm-tracking").show();
+            $(".table").hide();
         }
     })
 }
@@ -79,7 +82,7 @@ function payRoll() {
         data: JSON.stringify(
             tableData),
         success: function(data) {
-            showAllPlayerTracking()
+            showAllCoachTracking()
         }
     })
 

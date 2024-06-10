@@ -43,6 +43,7 @@ function showFormTracking(){
                     <td><input type="number" id="weak2"></td>
                     <td><input type="number" id="weak3"></td>
                     <td><input type="number" id="weak4"></td>
+                    <td data-id="${c.per.id}" id="performence">${c.per.quality}</td>
                     <td><input type="number" id="bonus"></td>
                 </tr>
                 `;
@@ -59,6 +60,9 @@ function payRoll() {
     let table = document.getElementById("hpw");
     let rows = table.getElementsByTagName("tr");
     let tableData = [];
+    let per = document.querySelector("#performence")
+    let perform = per.dataset.id
+    
     for (let i = 0; i < rows.length; i++) {
         let row = rows[i];
         let playerID = row.getAttribute("data-id")
@@ -71,8 +75,8 @@ function payRoll() {
             weak4: cell[4].querySelector("input").value,
             month: month,
             year: year,
-            bonus: cell[5].querySelector("input").value,
-            performence: 2
+            bonus: cell[6].querySelector("input").value,
+            performence: perform
         }
         tableData.push(rowData);
     }
