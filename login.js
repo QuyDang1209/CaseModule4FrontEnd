@@ -60,7 +60,7 @@ function login() {
             localStorage.setItem("user", JSON.stringify(response));
 
             if(response.authorities[0].authority === "role_admin"){
-                window.location.href = "tables.html";
+                window.location.href = "tablesPlayer.html";
             }else if(response.authorities[0].authority === "role_user"){
                 window.location.href = "tableCoach.html";
             }else{

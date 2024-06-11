@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,28 +8,32 @@
             height: 100px;
         }
     </style>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Players Soccer Admin 2 Team - Tables - Java Web Backend Spring Boot Codegym Hue</title>
+    <title>CGHUE - Fooball Club Manager</title>
 
-    <!-- Custom fonts for this template -->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
             href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
             rel="stylesheet">
 
-    <!-- Custom styles for this template -->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
-    <!-- Custom styles for this page -->
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="test.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="player-card.css">
     <link rel="stylesheet" href="modal.css">
+
+    <style>
+
+    </style>
 
 </head>
 
@@ -45,970 +48,13 @@
         <!-- Sidebar - Brand -->
         <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
             <div class="sidebar-brand-icon rotate-n-15">
-                <i class="fas fa-laugh-wink"></i>
+                <i class="fa-solid fa-futbol"></i>
             </div>
-            <div class="sidebar-brand-text mx-3">Soccer Team Admin <sup>2</sup></div>
+            <div class="sidebar-brand-text mx-3">CGHUE Fooball Club</div>
         </a>
 
         <!-- Divider -->
-        <hr class="sidebar-divider my-0">
-
-        <!-- Nav Item - Dashboard -->
-        <li class="nav-item">
-            <a class="nav-link" href="index.html">
-                <i class="fas fa-fw fa-tachometer-alt"></i>
-                <span>Dashboard</span></a>
-        </li>
-
-        <!-- Divider -->
         <hr class="sidebar-divider">
-
-        <!-- Heading -->
-        <div class="sidebar-heading">
-            Interface
-        </div>
-
-        <!-- Nav Item - Pages Collapse Menu -->
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-               aria-expanded="true" aria-controls="collapseTwo">
-                <i class="fas fa-fw fa-cog"></i>
-                <span>Components</span>
-            </a>
-            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Custom Components:</h6>
-                    <a class="collapse-item" href="buttons.html">Buttons</a>
-                    <a class="collapse-item" href="cards.html">Cards</a>
-                </div>
-            </div>
-        </li>
-
-        <!-- Nav Item - Utilities Collapse Menu -->
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-               aria-expanded="true" aria-controls="collapseUtilities">
-                <i class="fas fa-fw fa-wrench"></i>
-                <span>Utilities</span>
-            </a>
-            <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-                 data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Custom Utilities:</h6>
-                    <a class="collapse-item" href="utilities-color.html">Colors</a>
-                    <a class="collapse-item" href="utilities-border.html">Borders</a>
-                    <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                    <a class="collapse-item" href="utilities-other.html">Other</a>
-                </div>
-            </div>
-        </li>
-
-
-        <!-- Divider -->
-        <hr class="sidebar-divider">
-
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-                    aria-expanded="true" aria-controls="collapsePages">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>Pages</span>
-                </a>
-                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Login Screens:</h6>
-                        <a class="collapse-item" href="login.html">Login</a>
-                        <a class="collapse-item" href="register.html">Register</a>
-                        <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
-                        <div class="collapse-divider"></div>
-                        <h6 class="collapse-header">Other Pages:</h6>
-                        <a class="collapse-item" href="404.html">404 Page</a>
-                        <a class="collapse-item" href="blank.html">Blank Page</a>
-                    </div>
-                </div>
-            </li>
-
-            <!-- Nav Item - Charts -->
-            <li class="nav-item">
-                <a class="nav-link" href="charts.html">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Charts</span></a>
-            </li>
-
-            <!-- Nav Item - Tables -->
-            <li class="nav-item active">
-                <a class="nav-link" href="tables.html">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Tables</span></a>
-            </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider d-none d-md-block">
-
-            <!-- Sidebar Toggler (Sidebar) -->
-            <div class="text-center d-none d-md-inline">
-                <button class="rounded-circle border-0" id="sidebarToggle"></button>
-            </div>
-
-        </ul>
-        <!-- End of Sidebar -->
-
-        <!-- Content Wrapper -->
-        <div id="content-wrapper" class="d-flex flex-column">
-
-            <!-- Main Content -->
-            <div id="content">
-
-                <!-- Topbar -->
-                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-
-                    <!-- Sidebar Toggle (Topbar) -->
-                    <form class="form-inline">
-                        <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                            <i class="fa fa-bars"></i>
-                        </button>
-                    </form>
-
-                    <!-- Topbar Search -->
-                    <form
-                            class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search"
-                            onsubmit="event.preventDefault(); searchPlayers();">
-                        <div class="input-group">
-                            <label for="min-salary" class="mr-2">Find salary for the players:</label>
-                            <input type="number" id="min-salary" class="form-control bg-light border-0 small" placeholder="Min salary" aria-label="Min salary" aria-describedby="basic-addon2">
-                            <input type="number" id="max-salary" class="form-control bg-light border-0 small" placeholder="Max salary" aria-label="Max salary" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-primary" type="button" onclick="searchPlayers()">
-                                    <i class="fas fa-search fa-sm"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-
-
-
-                    <!-- Topbar Navbar -->
-                    <ul class="navbar-nav ml-auto">
-
-                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-                        <li class="nav-item dropdown no-arrow d-sm-none">
-                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-search fa-fw"></i>
-                            </a>
-                            <!-- Dropdown - Messages -->
-                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
-                                aria-labelledby="searchDropdown">
-                                <form class="form-inline mr-auto w-100 navbar-search">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control bg-light border-0 small"
-                                            placeholder="Search for..." aria-label="Search"
-                                            aria-describedby="basic-addon2">
-                                        <div class="input-group-append">
-                                            <button class="btn btn-primary" type="button">
-                                                <i class="fas fa-search fa-sm"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </li>
-
-                        <!-- Nav Item - Alerts -->
-                        <li class="nav-item dropdown no-arrow mx-1">
-                            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-bell fa-fw"></i>
-                                <!-- Counter - Alerts -->
-                                <span class="badge badge-danger badge-counter">3+</span>
-                            </a>
-                            <!-- Dropdown - Alerts -->
-                            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                aria-labelledby="alertsDropdown">
-                                <h6 class="dropdown-header">
-                                    Alerts Center
-                                </h6>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="mr-3">
-                                        <div class="icon-circle bg-primary">
-                                            <i class="fas fa-file-alt text-white"></i>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div class="small text-gray-500">December 12, 2019</div>
-                                        <span class="font-weight-bold">A new monthly report is ready to download!</span>
-                                    </div>
-                                </a>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="mr-3">
-                                        <div class="icon-circle bg-success">
-                                            <i class="fas fa-donate text-white"></i>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div class="small text-gray-500">December 7, 2019</div>
-                                        $290.29 has been deposited into your account!
-                                    </div>
-                                </a>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="mr-3">
-                                        <div class="icon-circle bg-warning">
-                                            <i class="fas fa-exclamation-triangle text-white"></i>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div class="small text-gray-500">December 2, 2019</div>
-                                        Spending Alert: We've noticed unusually high spending for your account.
-                                    </div>
-                                </a>
-                                <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
-                            </div>
-                        </li>
-
-                        <!-- Nav Item - Messages -->
-                        <li class="nav-item dropdown no-arrow mx-1">
-                            <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-envelope fa-fw"></i>
-                                <!-- Counter - Messages -->
-                                <span class="badge badge-danger badge-counter">7</span>
-                            </a>
-                            <!-- Dropdown - Messages -->
-                            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                aria-labelledby="messagesDropdown">
-                                <h6 class="dropdown-header">
-                                    Message Center
-                                </h6>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="img/undraw_profile_1.svg"
-                                            alt="...">
-                                        <div class="status-indicator bg-success"></div>
-                                    </div>
-                                    <div class="font-weight-bold">
-                                        <div class="text-truncate">Hi there! I am wondering if you can help me with a
-                                            problem I've been having.</div>
-                                        <div class="small text-gray-500">Emily Fowler · 58m</div>
-                                    </div>
-                                </a>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="img/undraw_profile_2.svg"
-                                            alt="...">
-                                        <div class="status-indicator"></div>
-                                    </div>
-                                    <div>
-                                        <div class="text-truncate">I have the photos that you ordered last month, how
-                                            would you like them sent to you?</div>
-                                        <div class="small text-gray-500">Jae Chun · 1d</div>
-                                    </div>
-                                </a>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="img/undraw_profile_3.svg"
-                                            alt="...">
-                                        <div class="status-indicator bg-warning"></div>
-                                    </div>
-                                    <div>
-                                        <div class="text-truncate">Last month's report looks great, I am very happy with
-                                            the progress so far, keep up the good work!</div>
-                                        <div class="small text-gray-500">Morgan Alvarez · 2d</div>
-                                    </div>
-                                </a>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60"
-                                            alt="...">
-                                        <div class="status-indicator bg-success"></div>
-                                    </div>
-                                    <div>
-                                        <div class="text-truncate">Am I a good boy? The reason I ask is because someone
-                                            told me that people say this to all dogs, even if they aren't good...</div>
-                                        <div class="small text-gray-500">Chicken the Dog · 2w</div>
-                                    </div>
-                                </a>
-                                <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
-                            </div>
-                        </li>
-
-                        <div class="topbar-divider d-none d-sm-block"></div>
-
-                        <!-- Nav Item - User Information -->
-                        <li class="nav-item dropdown no-arrow">
-                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
-                                <img class="img-profile rounded-circle"
-                                    src="img/undraw_profile.svg">
-                            </a>
-                            <!-- Dropdown - User Information -->
-                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Profile
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Settings
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Activity Log
-                                </a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal" onclick="logout()">
-                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Logout
-                                </a>
-                            </div>
-                        </li>
-
-                    </ul>
-
-                </nav>
-                <!-- End of Topbar -->
-
-                <!-- Begin Page Content -->
-                <div class="container-fluid">
-
-                    <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Tables Player</h1>
-
-                    <!-- DataTales Example -->
-                    <div class="card shadow mb-4">
-                        <div class="card-header py-3">
-                            <button type="button" onclick="showFormCreate()">Add New Player</button>
-                            <form style="display: none" id="form-create" method="post">
-<!--                                <div>-->
-<!--                                    <label style="color: red" id="error-code111"></label>-->
-<!--                                </div>-->
-                                <input id="code" type="text" placeholder="Enter Code"> <br>
-                                <input id="img" type="file" placeholder="Enter Img" > <br>
-<!--                                <div>-->
-<!--                                    <label style="color: red" id="error-name"></label>-->
-<!--                                </div>-->
-                                <input id="name" type="text" placeholder="Enter Name"> <br>
-<!--                                <div>-->
-<!--                                    <label style="color: red" id="error-dob"></label>-->
-<!--                                </div>-->
-                                <input id="dob" type="text" placeholder="Enter Dob"> <br>
-<!--                                <div>-->
-<!--                                    <label style="color: red" id="error-address"></label>-->
-<!--                                </div>-->
-                                <input id="address" type="text" placeholder="Enter Address" > <br>
-<!--                                <div>-->
-<!--                                    <label style="color: red" id="error-position"></label>-->
-<!--                                </div>-->
-                                <input id="position" type="text" placeholder="Enter Position"> <br>
-<!--                                <div>-->
-<!--                                    <label style="color: red" id="error-height"></label>-->
-<!--                                </div>-->
-                                <input id="height" type="number" placeholder="Enter Height"> <br>
-<!--                                <div>-->
-<!--                                    <label style="color: red" id="error-weight"></label>-->
-<!--                                </div>-->
-                                <input id="weight" type="number" placeholder="Enter Weight"> <br>
-<!--                                <div>-->
-<!--                                    <label style="color: red" id="error-ranking"></label>-->
-<!--                                </div>-->
-                                <input id="ranking" type="text" placeholder="Enter Ranking"> <br>
-<!--                                <div>-->
-<!--                                    <label style="color: red" id="error-salary"></label>-->
-<!--                                </div>-->
-                                <input id="salary" type="number" placeholder="Enter Salary"> <br>
-<!--                                <div>-->
-<!--                                    <label style="color: red" id="error-performance"></label>-->
-<!--                                </div>-->
-                                <select name = "Performence" id="Performence">
-                                    <option value="1">High</option>
-                                    <option value="2">Average</option>
-                                    <option value="3">Low</option>
-                                </select> <br>
-                                <select name = "status" id="status">
-                                    <option value="1">Active</option>
-                                    <option value="2">Injure</option>
-                                    <option value="3">Retire</option>
-                                </select> <br>
-
-                                <button type="button" onclick="createNewPlayer()">Save</button>
-                                <button onclick="getAllPlayer()">Cancel</button>
-                            </form>
-                        </div>
-
-                        <div class="card-body">
-                            <form>
-                                <div class="input-group input-group-sm hidden-xs">
-                                        <input type="text" id="search-player" class="form-control pull-right" name="name" placeholder="search"/>
-                                        <div class="input-group-btn">
-                                            <button type="button" class="btn btn-default" onclick="showPlayerByName()"><i class="fa fa-search"></i></button>
-                                        </div>
-                                    
-                                </div>
-                            </form>
-
-                            <form action="">
-                                <select name="" id="status-option">
-                                    <option value="1">Active</option>
-                                    <option value="2">Injure</option>
-                                    <option value="3">Retire</option>
-                                </select>
-                                <button type="button" onclick="showPlayerByStatus()">submit</button>
-                            </form>
-
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th>Code</th>
-                                            <th>Image</th>
-                                            <th>Name</th>
-                                            <th>Date Of Birth</th>
-                                            <th>Address</th>
-                                            <th>Position</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="tb-player">
-                                    </tbody>
-                                    <tbody id="search-info">
-                                    
-                                    </tbody>
-                                </table>
-                            </div>
-
-                            
-                        </div>
-
-                        <div class="card-footer">
-                            <form style="display: none" id="form-update" enctype="multipart/form-data">
-                                <input id="code-update" type="text" placeholder="Enter Code"> <br>
-                                <input id="img-update" type="file" placeholder="Enter Img"> <br>
-                                <input id="name-update" type="text" placeholder="Enter Name"> <br>
-                                <input id="dob-update" type="text" placeholder="Enter Dob"> <br>
-                                <input id="address-update" type="text" placeholder="Enter Address"> <br>
-                                <input id="position-update" type="text" placeholder="Enter Position"> <br>
-                                <input id="height-update" type="text" placeholder="Enter Height" > <br>
-                                <input id="weight-update" type="text" placeholder="Enter Weight" > <br>
-                                <input id="ranking-update" type="text" placeholder="Enter Ranking"> <br>
-                                <input id="salary-update" type="text" placeholder="Enter Salary"> <br>
-                                <select name = "performence-update-id" id="performence-update-id">
-                                    <option value="1">High</option>
-                                    <option value="2">Average</option>
-                                    <option value="3">Low</option>
-                                </select> <br>
-                                <select name = "status-update-id" id="status-update-id">
-                                    <option value="1">Active</option>
-                                    <option value="2">Injure</option>
-                                    <option value="3">Retire</option>
-                                </select> <br>
-                        
-                                <button type="button" id="save-update-button">Save</button>
-                                <button onclick="showAllPlayer()">Cancel</button>
-                            </form>
-
-                            <div id="delete-confirmation" style="display: none;">
-                                <p>Are you sure you want to delete the following player?</p>
-                                <p id="delete-player-info"></p>
-                                <button type="button" id="confirm-delete-button">Yes, delete</button>
-                                <button onclick="window.location.href = 'tables.html'">Cancel</button>
-                            </div>
-
-                            <div class="wrapper">
-                                <div id="player_detail" class="modal">
-                                    <p id="player-info"></p>
-                            </div>
-                            </div>
-                            
-                        </div>
-
-                    </div>
-
-                </div>
-                <!-- /.container-fluid -->
-
-            </div>
-            <!-- End of Main Content -->
-
-            <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2020</span>
-                    </div>
-                </div>
-            </footer>
-            <!-- End of Footer --
-
-<!--        &lt;!&ndash; Heading &ndash;&gt;-->
-<!--        <div class="sidebar-heading">-->
-<!--            Addons-->
-<!--        </div>-->
-
-<!--        &lt;!&ndash; Nav Item - Pages Collapse Menu &ndash;&gt;-->
-<!--        <li class="nav-item">-->
-<!--            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"-->
-<!--               aria-expanded="true" aria-controls="collapsePages">-->
-<!--                <i class="fas fa-fw fa-folder"></i>-->
-<!--                <span>Pages</span>-->
-<!--            </a>-->
-<!--            <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">-->
-<!--                <div class="bg-white py-2 collapse-inner rounded">-->
-<!--                    <h6 class="collapse-header">Login Screens:</h6>-->
-<!--                    <a class="collapse-item" href="login.html">Login</a>-->
-<!--                    <a class="collapse-item" href="register.html">Register</a>-->
-<!--                    <a class="collapse-item" href="forgot-password.html">Forgot Password</a>-->
-<!--                    <div class="collapse-divider"></div>-->
-<!--                    <h6 class="collapse-header">Other Pages:</h6>-->
-<!--                    <a class="collapse-item" href="404.html">404 Page</a>-->
-<!--                    <a class="collapse-item" href="blank.html">Blank Page</a>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </li>-->
-
-<!--        &lt;!&ndash; Nav Item - Charts &ndash;&gt;-->
-<!--        <li class="nav-item">-->
-<!--            <a class="nav-link" href="charts.html">-->
-<!--                <i class="fas fa-fw fa-chart-area"></i>-->
-<!--                <span>Charts</span></a>-->
-<!--        </li>-->
-=======
-        <!-- Nav Item - Charts -->
-        <li class="nav-item">
-            <a class="nav-link" href="charts.html">
-                <i class="fas fa-fw fa-chart-area"></i>
-                <span>Charts</span></a>
-        </li>
->>>>>>> e2236a1d690117ca7f946096bed147575f9dcf0b
-
-<!--        &lt;!&ndash; Nav Item - Tables &ndash;&gt;-->
-<!--        <li class="nav-item active">-->
-<!--            <a class="nav-link" href="tables.html">-->
-<!--                <i class="fas fa-fw fa-table"></i>-->
-<!--                <span>Tables</span></a>-->
-<!--        </li>-->
-
-<!--        &lt;!&ndash; Divider &ndash;&gt;-->
-<!--        <hr class="sidebar-divider d-none d-md-block">-->
-
-<!--        &lt;!&ndash; Sidebar Toggler (Sidebar) &ndash;&gt;-->
-<!--        <div class="text-center d-none d-md-inline">-->
-<!--            <button class="rounded-circle border-0" id="sidebarToggle"></button>-->
-<!--        </div>-->
-
-<!--    </ul>-->
-<!--    &lt;!&ndash; End of Sidebar &ndash;&gt;-->
-
-<!--    &lt;!&ndash; Content Wrapper &ndash;&gt;-->
-<!--    <div id="content-wrapper" class="d-flex flex-column">-->
-
-<!--        &lt;!&ndash; Main Content &ndash;&gt;-->
-<!--        <div id="content">-->
-
-
-<!--            &lt;!&ndash; Topbar &ndash;&gt;-->
-<!--            <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">-->
-            <!-- Topbar -->
-            <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-
-<!--                &lt;!&ndash; Sidebar Toggle (Topbar) &ndash;&gt;-->
-<!--                <form class="form-inline">-->
-<!--                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">-->
-<!--                        <i class="fa fa-bars"></i>-->
-<!--                    </button>-->
-<!--                </form>-->
-
-<!--                &lt;!&ndash; Topbar Search &ndash;&gt;-->
-<!--                <form-->
-<!--                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">-->
-<!--                    <div class="input-group">-->
-<!--                        <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."-->
-<!--                               aria-label="Search" aria-describedby="basic-addon2">-->
-<!--                        <div class="input-group-append">-->
-<!--                            <button class="btn btn-primary" type="button">-->
-<!--                                <i class="fas fa-search fa-sm"></i>-->
-<!--                            </button>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </form>-->
-
-<!--                &lt;!&ndash; Topbar Navbar &ndash;&gt;-->
-<!--                <ul class="navbar-nav ml-auto">-->
-
-<!--                    &lt;!&ndash; Nav Item - Search Dropdown (Visible Only XS) &ndash;&gt;-->
-<!--                    <li class="nav-item dropdown no-arrow d-sm-none">-->
-<!--                        <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"-->
-<!--                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
-<!--                            <i class="fas fa-search fa-fw"></i>-->
-<!--                        </a>-->
-<!--                        &lt;!&ndash; Dropdown - Messages &ndash;&gt;-->
-<!--                        <div class="dropdown-menu dropdown-menu-right p-3 shadow animated&#45;&#45;grow-in"-->
-<!--                             aria-labelledby="searchDropdown">-->
-<!--                            <form class="form-inline mr-auto w-100 navbar-search">-->
-<!--                                <div class="input-group">-->
-<!--                                    <input type="text" class="form-control bg-light border-0 small"-->
-<!--                                           placeholder="Search for..." aria-label="Search"-->
-<!--                                           aria-describedby="basic-addon2">-->
-<!--                                    <div class="input-group-append">-->
-<!--                                        <button class="btn btn-primary" type="button">-->
-<!--                                            <i class="fas fa-search fa-sm"></i>-->
-<!--                                        </button>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                            </form>-->
-<!--                        </div>-->
-<!--                    </li>-->
-
-<!--                    &lt;!&ndash; Nav Item - Alerts &ndash;&gt;-->
-<!--                    <li class="nav-item dropdown no-arrow mx-1">-->
-<!--                        <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"-->
-<!--                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
-<!--                            <i class="fas fa-bell fa-fw"></i>-->
-<!--                            &lt;!&ndash; Counter - Alerts &ndash;&gt;-->
-<!--                            <span class="badge badge-danger badge-counter">3+</span>-->
-<!--                        </a>-->
-<!--                        &lt;!&ndash; Dropdown - Alerts &ndash;&gt;-->
-<!--                        <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated&#45;&#45;grow-in"-->
-<!--                             aria-labelledby="alertsDropdown">-->
-<!--                            <h6 class="dropdown-header">-->
-<!--                                Alerts Center-->
-<!--                            </h6>-->
-<!--                            <a class="dropdown-item d-flex align-items-center" href="#">-->
-<!--                                <div class="mr-3">-->
-<!--                                    <div class="icon-circle bg-primary">-->
-<!--                                        <i class="fas fa-file-alt text-white"></i>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                                <div>-->
-<!--                                    <div class="small text-gray-500">December 12, 2019</div>-->
-<!--                                    <span class="font-weight-bold">A new monthly report is ready to download!</span>-->
-<!--                                </div>-->
-<!--                            </a>-->
-<!--                            <a class="dropdown-item d-flex align-items-center" href="#">-->
-<!--                                <div class="mr-3">-->
-<!--                                    <div class="icon-circle bg-success">-->
-<!--                                        <i class="fas fa-donate text-white"></i>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                                <div>-->
-<!--                                    <div class="small text-gray-500">December 7, 2019</div>-->
-<!--                                    $290.29 has been deposited into your account!-->
-<!--                                </div>-->
-<!--                            </a>-->
-<!--                            <a class="dropdown-item d-flex align-items-center" href="#">-->
-<!--                                <div class="mr-3">-->
-<!--                                    <div class="icon-circle bg-warning">-->
-<!--                                        <i class="fas fa-exclamation-triangle text-white"></i>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                                <div>-->
-<!--                                    <div class="small text-gray-500">December 2, 2019</div>-->
-<!--                                    Spending Alert: We've noticed unusually high spending for your account.-->
-<!--                                </div>-->
-<!--                            </a>-->
-<!--                            <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>-->
-<!--                        </div>-->
-<!--                    </li>-->
-
-<!--                    &lt;!&ndash; Nav Item - Messages &ndash;&gt;-->
-<!--                    <li class="nav-item dropdown no-arrow mx-1">-->
-<!--                        <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"-->
-<!--                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
-<!--                            <i class="fas fa-envelope fa-fw"></i>-->
-<!--                            &lt;!&ndash; Counter - Messages &ndash;&gt;-->
-<!--                            <span class="badge badge-danger badge-counter">7</span>-->
-<!--                        </a>-->
-<!--                        &lt;!&ndash; Dropdown - Messages &ndash;&gt;-->
-<!--                        <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated&#45;&#45;grow-in"-->
-<!--                             aria-labelledby="messagesDropdown">-->
-<!--                            <h6 class="dropdown-header">-->
-<!--                                Message Center-->
-<!--                            </h6>-->
-<!--                            <a class="dropdown-item d-flex align-items-center" href="#">-->
-<!--                                <div class="dropdown-list-image mr-3">-->
-<!--                                    <img class="rounded-circle" src="img/undraw_profile_1.svg"-->
-<!--                                         alt="...">-->
-<!--                                    <div class="status-indicator bg-success"></div>-->
-<!--                                </div>-->
-<!--                                <div class="font-weight-bold">-->
-<!--                                    <div class="text-truncate">Hi there! I am wondering if you can help me with a-->
-<!--                                        problem I've been having.</div>-->
-<!--                                    <div class="small text-gray-500">Emily Fowler · 58m</div>-->
-<!--                                </div>-->
-<!--                            </a>-->
-<!--                            <a class="dropdown-item d-flex align-items-center" href="#">-->
-<!--                                <div class="dropdown-list-image mr-3">-->
-<!--                                    <img class="rounded-circle" src="img/undraw_profile_2.svg"-->
-<!--                                         alt="...">-->
-<!--                                    <div class="status-indicator"></div>-->
-<!--                                </div>-->
-<!--                                <div>-->
-<!--                                    <div class="text-truncate">I have the photos that you ordered last month, how-->
-<!--                                        would you like them sent to you?</div>-->
-<!--                                    <div class="small text-gray-500">Jae Chun · 1d</div>-->
-<!--                                </div>-->
-<!--                            </a>-->
-<!--                            <a class="dropdown-item d-flex align-items-center" href="#">-->
-<!--                                <div class="dropdown-list-image mr-3">-->
-<!--                                    <img class="rounded-circle" src="img/undraw_profile_3.svg"-->
-<!--                                         alt="...">-->
-<!--                                    <div class="status-indicator bg-warning"></div>-->
-<!--                                </div>-->
-<!--                                <div>-->
-<!--                                    <div class="text-truncate">Last month's report looks great, I am very happy with-->
-<!--                                        the progress so far, keep up the good work!</div>-->
-<!--                                    <div class="small text-gray-500">Morgan Alvarez · 2d</div>-->
-<!--                                </div>-->
-<!--                            </a>-->
-<!--                            <a class="dropdown-item d-flex align-items-center" href="#">-->
-<!--                                <div class="dropdown-list-image mr-3">-->
-<!--                                    <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60"-->
-<!--                                         alt="...">-->
-<!--                                    <div class="status-indicator bg-success"></div>-->
-<!--                                </div>-->
-<!--                                <div>-->
-<!--                                    <div class="text-truncate">Am I a good boy? The reason I ask is because someone-->
-<!--                                        told me that people say this to all dogs, even if they aren't good...</div>-->
-<!--                                    <div class="small text-gray-500">Chicken the Dog · 2w</div>-->
-<!--                                </div>-->
-<!--                            </a>-->
-<!--                            <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>-->
-<!--                        </div>-->
-<!--                    </li>-->
-
-<!--                    <div class="topbar-divider d-none d-sm-block"></div>-->
-
-<!--                    &lt;!&ndash; Nav Item - User Information &ndash;&gt;-->
-<!--                    <li class="nav-item dropdown no-arrow">-->
-<!--                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"-->
-<!--                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
-<!--                            <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>-->
-<!--                            <img class="img-profile rounded-circle"-->
-<!--                                 src="img/undraw_profile.svg">-->
-<!--                        </a>-->
-<!--                        &lt;!&ndash; Dropdown - User Information &ndash;&gt;-->
-<!--                        <div class="dropdown-menu dropdown-menu-right shadow animated&#45;&#45;grow-in"-->
-<!--                             aria-labelledby="userDropdown">-->
-<!--                            <a class="dropdown-item" href="#">-->
-<!--                                <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>-->
-<!--                                Profile-->
-<!--                            </a>-->
-<!--                            <a class="dropdown-item" href="#">-->
-<!--                                <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>-->
-<!--                                Settings-->
-<!--                            </a>-->
-<!--                            <a class="dropdown-item" href="#">-->
-<!--                                <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>-->
-<!--                                Activity Log-->
-<!--                            </a>-->
-<!--                            <div class="dropdown-divider"></div>-->
-<!--                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">-->
-<!--                                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>-->
-<!--                                Logout-->
-<!--                            </a>-->
-<!--                        </div>-->
-<!--                    </li>-->
-
-<!--                </ul>-->
-
-<!--            </nav>-->
-<!--            &lt;!&ndash; End of Topbar &ndash;&gt;-->
-
-<!--            &lt;!&ndash; Begin Page Content &ndash;&gt;-->
-<!--            <div class="container-fluid">-->
-
-<!--                &lt;!&ndash; Page Heading &ndash;&gt;-->
-<!--                <h1 class="h3 mb-2 text-gray-800">Tables Player</h1>-->
-
-<!--                &lt;!&ndash; DataTales Example &ndash;&gt;-->
-<!--                <div class="card shadow mb-4">-->
-<!--                    <div class="card-header py-3">-->
-<!--                        <button type="button" onclick="showFormCreate()">Add New Player</button>-->
-<!--                        <form style="display: none" id="form-create">-->
-<!--                            <input id="code" type="text" placeholder="Enter Code"> <br>-->
-<!--                            <input id="img" type="file" placeholder="Enter Img"> <br>-->
-<!--                            <input id="name" type="text" placeholder="Enter Name"> <br>-->
-<!--                            <input id="dob" type="text" placeholder="Enter Dob"> <br>-->
-<!--                            <input id="address" type="text" placeholder="Enter Address"> <br>-->
-<!--                            <input id="position" type="text" placeholder="Enter Position"> <br>-->
-<!--                            <input id="height" type="number" placeholder="Enter Height"> <br>-->
-<!--                            <input id="weight" type="number" placeholder="Enter Weight"> <br>-->
-<!--                            <input id="ranking" type="text" placeholder="Enter Ranking"> <br>-->
-<!--                            <input id="salary" type="number" placeholder="Enter Salary"> <br>-->
-<!--                            <select name = "Performence" id="Performence">-->
-<!--                                <option value="1">High</option>-->
-<!--                                <option value="2">Average</option>-->
-<!--                                <option value="3">Low</option>-->
-<!--                            </select> <br>-->
-<!--                            <select name = "status" id="status">-->
-<!--                                <option value="1">Active</option>-->
-<!--                                <option value="2">Injure</option>-->
-<!--                                <option value="3">Retire</option>-->
-<!--                            </select> <br>-->
-
-<<<<<<< HEAD
-<!--                            <button type="button" onclick="createNewPlayer()">Save</button>-->
-<!--                            <button onclick="getAllPlayer()">Cancel</button>-->
-<!--                        </form>-->
-<!--                    </div>-->
-
-<!--                    <div class="card-body">-->
-<!--                        <div class="table-responsive">-->
-<!--                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">-->
-<!--                                <thead>-->
-<!--                                <tr>-->
-<!--                                    <th>Code</th>-->
-<!--                                    <th>Image</th>-->
-<!--                                    <th>Name</th>-->
-<!--                                    <th>Date Of Birth</th>-->
-<!--                                    <th>Address</th>-->
-<!--                                    <th>Position</th>-->
-<!--                                    <th>Action</th>-->
-<!--                                </tr>-->
-<!--                                </thead>-->
-<!--                                <tbody id="tb-player">-->
-<!--                                </tbody>-->
-<!--                            </table>-->
-<!--                        </div>-->
-<!--                    </div>-->
-=======
-                            <button type="button" onclick="createNewPlayer()">Save</button>
-                            <button onclick="getAllPlayer()">Cancel</button>
-                        </form>
-                    </div>
-                    <div class="container-fluid">
-
-                        <!-- Page Heading -->
-                        <h1 class="h3 mb-2 text-gray-800">Tables Player</h1>
-                        <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
-                            For more information about DataTables, please visit the <a target="_blank"
-                                                                                       href="https://datatables.net">official DataTables documentation</a>.</p>
-
-
-                        <button class="btn btn-dark float-right" onclick="showPreviousPlayerStatus()" id="btnStatusCancel">Cancel</button>
-                        <button class="btn btn-danger float-right" onclick="updatePlayerStatus()" id="btnStatusUpdate">Update</button>
-                        <button class="btn btn-success float-right" onclick="changeStatus()" id="btnStatus">STATUS</button>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                <thead>
-                                <tr>
-                                    <th>Code</th>
-                                    <th>Image</th>
-                                    <th>Name</th>
-                                    <th>Date Of Birth</th>
-                                    <th>Address</th>
-                                    <th>Position</th>
-                                    <th>Status</th>
-                                    <th>Action</th>
-                                </tr>
-                                </thead>
-                                <tbody id="tb-player">
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-
-<!--                    <div class="card-footer">-->
-<!--                        <form style="display: none" id="form-update">-->
-<!--                            <input id="code-update" type="text" placeholder="Enter Code"> <br>-->
-<!--                            <input id="img-update" type="file" placeholder="Enter Img"> <br>-->
-<!--                            <input id="name-update" type="text" placeholder="Enter Name"> <br>-->
-<!--                            <input id="dob-update" type="text" placeholder="Enter Dob"> <br>-->
-<!--                            <input id="address-update" type="text" placeholder="Enter Address"> <br>-->
-<!--                            <input id="position-update" type="text" placeholder="Enter Position"> <br>-->
-<!--                            <input id="height-update" type="text" placeholder="Enter Height"> <br>-->
-<!--                            <input id="weight-update" type="text" placeholder="Enter Weight"> <br>-->
-<!--                            <input id="ranking-update" type="text" placeholder="Enter Ranking"> <br>-->
-<!--                            <input id="salary-update" type="text" placeholder="Enter Salary"> <br>-->
-<!--                            <select name = "performence-update-id" id="performence-update-id">-->
-<!--                                <option value="1">High</option>-->
-<!--                                <option value="2">Average</option>-->
-<!--                                <option value="3">Low</option>-->
-<!--                            </select> <br>-->
-<!--                            <select name = "status-update-id" id="status-update-id">-->
-<!--                                <option value="1">Active</option>-->
-<!--                                <option value="2">Injure</option>-->
-<!--                                <option value="3">Retire</option>-->
-<!--                            </select> <br>-->
-
-<!--                            <button type="button" id="save-update-button">Save</button>-->
-<!--                            <button onclick="showAllPlayer()">Cancel</button>-->
-<!--                        </form>-->
-
-<!--                        <div id="delete-confirmation" style="display: none;">-->
-<!--                            <p>Are you sure you want to delete the following player?</p>-->
-<!--                            <p id="delete-player-info"></p>-->
-<!--                            <button type="button" id="confirm-delete-button">Yes, delete</button>-->
-<!--                            <button onclick="window.location.href = 'tables.html'">Cancel</button>-->
-<!--                        </div>-->
-
-<!--                        <div class="wrapper">-->
-<!--                            <div id="player_detail" class="modal">-->
-<!--                                <p id="player-info"></p>-->
-<!--                            </div>-->
-<!--                        </div>-->
-
-<!--                    </div>-->
-
-<!--                </div>-->
-
-<!--            </div>-->
-<!--            &lt;!&ndash; /.container-fluid &ndash;&gt;-->
-
-<!--        </div>-->
-        <!-- End of Main Content -->
-
-<<<<<<< HEAD
-<!--        &lt;!&ndash; Footer &ndash;&gt;-->
-<!--        <footer class="sticky-footer bg-white">-->
-<!--            <div class="container my-auto">-->
-<!--                <div class="copyright text-center my-auto">-->
-<!--                    <span>Copyright &copy; Your Website 2020</span>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </footer>-->
-<!--        &lt;!&ndash; End of Footer &ndash;&gt;-->
-
-    </div>
-    <!-- End of Content Wrapper -->
-    <!-- Logout Modal-->
-<!--    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"-->
-<!--        aria-hidden="true">-->
-<!--        <div class="modal-dialog" role="document">-->
-<!--            <div class="modal-content">-->
-<!--                <div class="modal-header">-->
-<!--                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>-->
-<!--                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">-->
-<!--                        <span aria-hidden="true">×</span>-->
-<!--                    </button>-->
-<!--                </div>-->
-<!--                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>-->
-<!--                <div class="modal-footer">-->
-<!--                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>-->
-<!--                    <a class="btn btn-primary" href="login.html">Logout</a>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-
-        <!-- Footer -->
-        <footer class="sticky-footer bg-white">
-            <div class="container my-auto">
-                <div class="copyright text-center my-auto">
-                    <span>Copyright &copy; Your Website 2020</span>
-                </div>
-            </div>
-        </footer>
-        <!-- End of Footer -->
-
-        <!-- Heading -->
-        <div class="sidebar-heading">
-            Addons
-        </div>
 
         <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item">
@@ -1019,14 +65,14 @@
             </a>
             <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Login Screens:</h6>
-                    <a class="collapse-item" href="login.html">Login</a>
-                    <a class="collapse-item" href="register.html">Register</a>
-                    <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
-                    <div class="collapse-divider"></div>
+                    <h6 class="collapse-header">Views:</h6>
+                    <a class="collapse-item" href="tablesPlayer.html">Player</a>
+                    <a class="collapse-item" href="tableCoach.html">Coach</a>
+                    <h6 class="collapse-header">Tracking:</h6>
+                    <a class="collapse-item" href="player_tracking.html">Player Tracking</a>
+                    <a class="collapse-item" href="coach_tracking.html">Coach Tracking</a>
                     <h6 class="collapse-header">Other Pages:</h6>
                     <a class="collapse-item" href="404.html">404 Page</a>
-                    <a class="collapse-item" href="blank.html">Blank Page</a>
                 </div>
             </div>
         </li>
@@ -1038,27 +84,227 @@
                 <span>Charts</span></a>
         </li>
 
-        <!-- Nav Item - Tables -->
-        <li class="nav-item active">
-            <a class="nav-link" href="tables.html">
-                <i class="fas fa-fw fa-table"></i>
-                <span>Tables</span></a>
-        </li>
-
         <!-- Divider -->
         <hr class="sidebar-divider d-none d-md-block">
 
+        <!-- Sidebar Toggler (Sidebar) -->
+        <div class="text-center d-none d-md-inline">
+            <button class="rounded-circle border-0" id="sidebarToggle"></button>
+        </div>
+    </ul>
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+        <!-- Main Content -->
+        <div id="content">
+            <!-- Topbar -->
+            <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                <!-- Sidebar Toggle (Topbar) -->
+                <form class="form-inline">
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                </form>
+
+                <!-- Topbar Search -->
+                <form
+                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search"
+                        onsubmit="event.preventDefault(); searchPlayers();">
+                    <div class="input-group">
+                        <label for="min-salary" class="mr-2">Find salary for the players:</label>
+                        <input type="number" id="min-salary" class="form-control bg-light border-0 small" placeholder="Min salary" aria-label="Min salary" aria-describedby="basic-addon2">
+                        <input type="number" id="max-salary" class="form-control bg-light border-0 small" placeholder="Max salary" aria-label="Max salary" aria-describedby="basic-addon2">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" type="button" onclick="searchPlayers()">
+                                <i class="fas fa-search fa-sm"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+
+                <!-- Topbar Search -->
+                <ul class="navbar-nav ml-auto">
+                    <div class="topbar-divider d-none d-sm-block"></div>
+                    <!-- Nav Item - User Information -->
+                    <li class="nav-item dropdown no-arrow">
+                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                            <img class="img-profile rounded-circle"
+                                 src="img/undraw_profile.svg">
+                        </a>
+                        <!-- Dropdown - User Information -->
+                        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                             aria-labelledby="userDropdown">
+                            <a class="dropdown-item" href="#">
+                                <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                Profile
+                            </a>
+                            <a class="dropdown-item" href="#">
+                                <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                                Settings
+                            </a>
+                            <a class="dropdown-item" href="#">
+                                <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                                Activity Log
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                Logout
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+            <!-- End of Topbar -->
+
+            <!-- Begin Page Content -->
+            <div class="container-fluid">
 
 
-        </ul>
-        <!-- End of Sidebar -->
+                <!-- Page Heading -->
+                <div class="title-name">
+                    <h1 class="h3 mb-2 text-gray-800">Player List</h1>
+                </div>
 
-        <!-- Content Wrapper -->
+
+                <!-- DataTales Example -->
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                        <!-- Create Form -->
+                        <button type="button" onclick="showFormCreate() " class="btn btn-primary">Add New Player</button>
+                        <button class="btn btn-dark float-right" onclick="showPreviousPlayerStatus()" id="btnStatusCancel">Cancel</button>
+                        <button class="btn btn-danger float-right" onclick="updatePlayerStatus()" id="btnStatusUpdate">Update</button>
+                        <button class="btn btn-success float-right" onclick="changeStatus()" id="btnStatus">STATUS</button>
+                        <form style="display: none" id="form-create">
+                            <input id="code" type="text" placeholder="Enter Code"> <br>
+                            <input id="img" type="file" placeholder="Enter Img"> <br>
+                            <input id="name" type="text" placeholder="Enter Name"> <br>
+                            <input id="dob" type="text" placeholder="Enter Dob"> <br>
+                            <input id="address" type="text" placeholder="Enter Address"> <br>
+                            <input id="position" type="text" placeholder="Enter Position"> <br>
+                            <input id="height" type="number" placeholder="Enter Height"> <br>
+                            <input id="weight" type="number" placeholder="Enter Weight"> <br>
+                            <input id="ranking" type="text" placeholder="Enter Ranking"> <br>
+                            <input id="salary" type="number" placeholder="Enter Salary"> <br>
+                            <select name = "Performence" id="Performence">
+                                <option value="1">High</option>
+                                <option value="2">Average</option>
+                                <option value="3">Low</option>
+                            </select> <br>
+                            <select name = "status" id="status">
+                                <option value="1">Active</option>
+                                <option value="2">Injure</option>
+                                <option value="3">Retire</option>
+                            </select> <br>
+
+                            <button type="button" onclick="createNewPlayer()" class="btn-save">Save</button>
+                            <button onclick="getAllPlayer()" class="btn-cancel">Cancel</button>
+                        </form>
+                    </div>
 
 
+                    <div class="card-body">
+                        <form id="frm-search">
+                            <div class="input-group input-group-sm hidden-xs">
+                                <input type="text" id="search-player" class="form-control pull-right" name="name" placeholder="search"/>
+                                <div class="input-group-btn">
+                                    <button type="button" class="btn btn-default" onclick="showPlayerByName()"><i class="fa fa-search"></i></button>
+                                </div>
+                            </div>
+                        </form>
+
+                        <form id="frm-status">
+                            <select name="" id="status-option">
+                                <option value="1">Active</option>
+                                <option value="2">Injure</option>
+                                <option value="3">Retire</option>
+                            </select>
+                            <button type="button" onclick="showPlayerByStatus()" class="btn btn-success">submit</button>
+                        </form>
+
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <thead id="th-player">
+                                <tr>
+                                    <th>Code</th>
+                                    <th>Name</th>
+                                    <th>Date Of Birth</th>
+                                    <th>Address</th>
+                                    <th>Position</th>
+                                    <th>Image</th>
+                                    <th id="head-action">Action</th>
+                                </tr>
+                                </thead>
+                                <tbody id="tb-player">
+                                </tbody>
+                                <tbody id="search-info">
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="card-footer">
+                        <form style="display: none" id="form-update">
+                            <input id="code-update" type="text" placeholder="Enter Code"> <br>
+                            <input id="img-update" type="file" placeholder="Enter Img"> <br>
+                            <input id="name-update" type="text" placeholder="Enter Name"> <br>
+                            <input id="dob-update" type="text" placeholder="Enter Dob"> <br>
+                            <input id="address-update" type="text" placeholder="Enter Address"> <br>
+                            <input id="position-update" type="text" placeholder="Enter Position"> <br>
+                            <input id="height-update" type="text" placeholder="Enter Height"> <br>
+                            <input id="weight-update" type="text" placeholder="Enter Weight"> <br>
+                            <input id="ranking-update" type="text" placeholder="Enter Ranking"> <br>
+                            <input id="salary-update" type="text" placeholder="Enter Salary"> <br>
+                            <select name = "performence-update-id" id="performence-update-id">
+                                <option value="1">High</option>
+                                <option value="2">Average</option>
+                                <option value="3">Low</option>
+                            </select> <br>
+                            <select name = "status-update-id" id="status-update-id">
+                                <option value="1">Active</option>
+                                <option value="2">Injure</option>
+                                <option value="3">Retire</option>
+                            </select> <br>
+
+                            <button type="button" id="save-update-button">Save</button>
+                            <button onclick="showAllPlayer()" class="btn-cancel">Cancel</button>
+                        </form>
+
+                        <div id="delete-confirmation" style="display: none;">
+                            <p style="text-align: center;">Are you sure you want to delete the following player?</p>
+                            <p id="delete-player-info"></p>
+                            <div class="dlt-btn">
+                                <button type="button" id="confirm-delete-button" class="btn btn-success">Yes, delete</button>
+                                <button onclick="window.location.href = 'tablesPlayer.html'" class="btn btn-secondary">Cancel</button>
+                            </div>
+
+                        </div>
+
+                        <div class="wrapper">
+                            <div id="player_detail" class="modal">
+                                <p id="player-info"></p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+        <!-- End of Main Content -->
+
+        <!-- Footer -->
+
+        <!-- End of Footer -->
     </div>
     <!-- End of Page Wrapper -->
->>>>>>> e2236a1d690117ca7f946096bed147575f9dcf0b
 
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
@@ -1073,6 +319,14 @@
                     <h4 class="modal-title">Modal Heading</h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
+
+                <!-- Page level plugins -->
+                <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+                <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+                <!-- Page level custom scripts -->
+                <script src="js/demo/datatables-demo.js"></script>
+                <script src="table.js"></script>
 
                 <!-- Modal body -->
                 <div class="modal-body">
@@ -1092,7 +346,6 @@
                             <input type="text" class="form-control" placeholder="Enter username" id="username" required pattern="[A-Za-z0-9]{5,}">
                         </div>
 
-
                         <div class="form-group">
                             <label for="email">Email:</label>
                             <input type="email" class="form-control" placeholder="Enter email" id="email" required>
@@ -1109,8 +362,6 @@
                     </form>
                 </div>
 
-
-
                 <!-- Bootstrap core JavaScript-->
                 <script src="vendor/jquery/jquery.min.js"></script>
                 <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -1121,98 +372,7 @@
                 <!-- Custom scripts for all pages-->
                 <script src="js/sb-admin-2.min.js"></script>
 
-
-                <script src="table.js"></script>
-                </div>
-            </div>
-
-    <!-- Page level plugins -->
-    <script src="vendor/datatables/jquery.dataTables.min.js"></script>
-    <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
-
-    <!-- Page level custom scripts -->
-    <script src="js/demo/datatables-demo.js"></script>
-    <script src="table.js"></script>
-
-<!--            &lt;!&ndash; Modal body &ndash;&gt;-->
-<!--            <div class="modal-body">-->
-<!--                <form action="/action_page.php" id="registrationForm">-->
-<!--                    <div class="form-group">-->
-<!--                        <label for="fullname">Code:</label>-->
-<!--                        <input type="text" class="form-control" placeholder="Enter fullname" id="fullname" required pattern="[A-Za-z\s]+">-->
-<!--                    </div>-->
-
-<!--                    <div class="form-group">-->
-<!--                        <label for="phone">Phone:</label>-->
-<!--                        <input type="tel" class="form-control" placeholder="Enter phone" id="phone" required pattern="[0-9]{10}">-->
-<!--                    </div>-->
-
-<!--                    <div class="form-group">-->
-<!--                        <label for="username">User Name:</label>-->
-<!--                        <input type="text" class="form-control" placeholder="Enter username" id="username" required pattern="[A-Za-z0-9]{5,}">-->
-<!--                    </div>-->
-
-<!--                    &lt;!&ndash;                        <div class="form-group">&ndash;&gt;-->
-<!--                    &lt;!&ndash;                            <label for="pass">Password:</label>&ndash;&gt;-->
-<!--                    &lt;!&ndash;                            <input type="password" class="form-control" placeholder="Enter password" id="pass" required minlength="8">&ndash;&gt;-->
-<!--                    &lt;!&ndash;                            <div class="invalid-feedback">Please enter a valid password (at least 8 characters).</div>&ndash;&gt;-->
-<!--                    &lt;!&ndash;                        </div>&ndash;&gt;-->
-
-<!--                    <div class="form-group">-->
-<!--                        <label for="email">Email:</label>-->
-<!--                        <input type="email" class="form-control" placeholder="Enter email" id="email" required>-->
-<!--                        <div class="invalid-feedback">Please enter a valid email address.</div>-->
-<!--                    </div>-->
-
-<!--                    <div class="form-group form-check">-->
-<!--                        <label class="form-check-label">-->
-<!--                            <input class="form-check-input" type="checkbox"> Remember me-->
-<!--                        </label>-->
-<!--                    </div>-->
-
-<!--                    <button type="button" class="btn btn-primary" onclick="handleSubmitUser()">Submit</button>-->
-<!--                </form>-->
-<!--            </div>-->
-
-            <!-- Logout Modal-->
-            <!--    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"-->
-            <!--        aria-hidden="true">-->
-            <!--        <div class="modal-dialog" role="document">-->
-            <!--            <div class="modal-content">-->
-            <!--                <div class="modal-header">-->
-            <!--                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>-->
-            <!--                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">-->
-            <!--                        <span aria-hidden="true">×</span>-->
-            <!--                    </button>-->
-            <!--                </div>-->
-            <!--                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>-->
-            <!--                <div class="modal-footer">-->
-            <!--                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>-->
-            <!--                    <a class="btn btn-primary" href="login.html">Logout</a>-->
-            <!--                </div>-->
-            <!--            </div>-->
-            <!--        </div>-->
-            <!--    </div>-->
-
-            <!-- Bootstrap core JavaScript-->
-            <script src="vendor/jquery/jquery.min.js"></script>
-            <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-            <!-- Core plugin JavaScript-->
-            <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-            <!-- Custom scripts for all pages-->
-            <script src="js/sb-admin-2.min.js"></script>
-
-            <!-- Page level plugins -->
-            <!-- <script src="vendor/datatables/jquery.dataTables.min.js"></script> -->
-            <!-- <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script> -->
-
-            <!-- Page level custom scripts -->
-            <!-- <script src="js/demo/datatables-demo.js"></script> -->
-            <script src="table.js"></script>
-        </div>
-    </div>
+                <script src="tablePlayer.js"></script>
 
 </body>
 
