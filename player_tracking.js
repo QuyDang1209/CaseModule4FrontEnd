@@ -23,6 +23,8 @@ function showAllPlayerTracking() {
             $("#player-tracking-list").show();
             $("#table").show();
             $("#form-tracking").hide();
+            $("#btn-add").show();
+            
         },
 
         error: function(jqXHR, status, e){

@@ -204,10 +204,10 @@ function showFormUpdate(id){
             $("#tb-player").hide();
             $("#player-info").hide();
             $(".modal").hide();
-
-            // $("#frm-search").hide();
-            // $("#frm-status").hide();
-            // $(".btn").hide();
+            $("#th-player").hide();
+            $("#frm-search").hide();
+            $("#frm-status").hide();
+            $(".btn").hide();
         }
     });
 }
@@ -253,7 +253,6 @@ function showFormDelete(id){
         method: "get",
         success: function (data){
             $("#delete-player-info").html(`
-<<<<<<< HEAD
             <div class="player-info">
             <div class="info-item">
                 <strong>Code:</strong> <span>${data.code}</span>
