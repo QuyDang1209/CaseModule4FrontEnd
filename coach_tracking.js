@@ -87,3 +87,29 @@ function payRoll() {
     })
 
 }
+
+function showAllSalaryInMonth(){
+    let year = +document.getElementById("year-option").value;
+    let month = +document.getElementById("month-option").value;
+    console.log(year);
+    console.log(month);
+    $.ajax({
+        method: "get",
+        url: "http://localhost:8080/api/coach_tracking/"+month+"/"+year,
+        success: function (data){
+            console.log(data)
+            let str = data.map((c,i,array) => {
+                return `
+                <tr>
+                    <td>${c.coach.name}</td>
+                    <td>${c.totalsalary}</td>
+                    <td>${c.month}</td>
+                    <td>${c.year}</td>
+                </tr>
+                `
+            })
+            $("#salary").html(str.join(""))
+            $("#coach-tracking-list").hide();
+        }
+    })
+}

@@ -23,6 +23,8 @@ function showAllPlayerTracking() {
             $("#player-tracking-list").show();
             $("#table").show();
             $("#form-tracking").hide();
+            $("#btn-add").show();
+            
         },
 
         error: function(jqXHR, status, e){
@@ -90,6 +92,32 @@ function payRoll() {
             tableData),
         success: function(data) {
             showAllPlayerTracking()
+        }
+    })
+}
+
+function showAllSalaryInMonth(){
+    let year = +document.getElementById("year-option").value;
+    let month = +document.getElementById("month-option").value;
+    console.log(year);
+    console.log(month);
+    $.ajax({
+        method: "get",
+        url: "http://localhost:8080/api/playertracking/"+month+"/"+year,
+        success: function (data){
+            console.log(data)
+            let str = data.map((c,i,array) => {
+                return `
+                <tr>
+                    <td>${c.player.name}</td>
+                    <td>${c.totalSalary}</td>
+                    <td>${c.month}</td>
+                    <td>${c.year}</td>
+                </tr>
+                `
+            })
+            $("#salary").html(str.join(""))
+            $("#player-tracking-list").hide();
         }
     })
 }

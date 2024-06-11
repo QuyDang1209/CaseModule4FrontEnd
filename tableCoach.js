@@ -202,14 +202,14 @@ function showOfCoach(id) {
         method: "GET",
         success: function (data) {
             let coachDetail = `
-                <div>
-                    <strong>Code:</strong> ${data.code} <br>
-                    <strong>Image:</strong> <img src="${'http://localhost:8080/static/' + data.img}" alt="Coach Image"> <br>
-                    <strong>Name:</strong> ${data.name} <br>
-                    <strong>Dob:</strong> ${data.dob} <br>
-                    <strong>Address:</strong> ${data.address} <br>
-                    <strong>Salary:</strong> ${data.salary} <br>
-                </div>
+            <div class="coach-info">
+            <strong>Code:</strong> ${data.code} <br>
+            <strong>Image:</strong> <img src="${'http://localhost:8080/static/' + data.img}" alt="Coach Image"> <br>
+            <strong>Name:</strong> ${data.name} <br>
+            <strong>Dob:</strong> ${data.dob} <br>
+            <strong>Address:</strong> ${data.address} <br>
+            <strong>Salary:</strong> ${data.salary} <br>
+        </div>
             `;
 
             $("#coachDetail").html(coachDetail);
@@ -220,32 +220,3 @@ function showOfCoach(id) {
         }
     });
 }
-
-// function hideDeleteConfirmation(){
-//     $("#delete-confirmation").hide();
-// }
-// function showCoachDetail(id){
-//     $.ajax({
-//         url: "http://localhost:8080/api/coaches/" + id,
-//         method: "get",
-//         success: function (data){
-//
-//             $("#player-info").html(`
-//                 <strong>Code:</strong> ${data.code} <br>
-//                 <strong>Image:</strong><img src="${'http://localhost:8080/static/' + data.img}" alt=""> <br>
-//                 <strong>Name:</strong> ${data.name} <br>
-//                 <strong>Dob:</strong> ${data.dob} <br>
-//                 <strong>Address:</strong> ${data.address}<br>
-//                 <strong>Salary:</strong> ${data.salary}<br>
-//             `);
-//
-//             $("#coach_detail").show();
-//
-//             $("#tb-coach").hide();
-//         },
-//
-//         error: function(jqXHR, status, e) {
-//             console.log(e);
-//         }
-//     });
-// }
