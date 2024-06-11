@@ -50,6 +50,41 @@ function showAllPlayer() {
     });
 }
 
+function showPlayerByName() {
+    let name = document.getElementById("search-player").value;
+    console.log(name);
+
+    $.ajax({
+        url: "http://localhost:8080/api/player?name=" + name,
+        method: "get",
+
+        success: function(data){
+            console.log(data);
+
+            let arrPlayer = data.map((player, i, arrp) => {
+                return `
+                <tr>
+                <td>${player.code}</td>
+                <td>${player.name}</td>
+                <td>${player.dob}</td>
+                <td>${player.address}</td>
+                <td>${player.position}</td>
+                <td><img src="${'http://localhost:8080/static/' + player.img}" alt="" class="player-img"></td>
+                <td>
+                
+                <button type="button" class="btn btn-info"><a href="#player_detail"  onclick="showPlayerDetail(${player.id})" style="color: white;">View</a></button>
+                <button type="button" class="btn btn-danger"><a href="javascript:void(0)" onclick="showFormDelete(${player.id})" style="color: white;">Delete</a></button>
+                <button type="button" class="btn btn-secondary"><a href="javascript:void(0)" onclick="showFormUpdate(${player.id})" style="color: white;">Update</a></button>
+                </td>
+             </tr>
+                `;
+            });
+            $("#tb-player").html(arrPlayer.join(""));
+            $(".modal").hide();
+        },
+    })
+}
+
 function showPlayerByStatus() {
     let id = document.getElementById("status-option").value;
     console.log(id);
