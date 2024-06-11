@@ -16,35 +16,73 @@ function showAllPlayer() {
                 return `
                 <tr>
 
-                    <td>${player.code}</td>
-                    <td><img src="${'http://localhost:8080/static/' + player.img}" alt=""></td>
-                    <td>${player.name}</td>
-                    <td>${player.dob}</td>
-                    <td>${player.address}</td>
-                    <td>${player.position}</td>
-                    <td>
-                        <select name="status-update-id" class="status-update" data-player-id="${player.id}">
-                            <option value="1" ${player.status.id === 1 ? "selected" : ""}>Active</option>
-                            <option value="2" ${player.status.id === 2 ? "selected" : ""}>Injure</option>
-                            <option value="3" ${player.status.id === 3 ? "selected" : ""}>Retire</option>
-                        </select>
-                    </td>
-                    <td>
-                        <a href="#player_detail" onclick="showPlayerDetail(${player.id})">View</a>
-                        <a href="javascript:void(0)" onclick="showFormDelete(${player.id})">Delete</a>
-                        <a href="javascript:void(0)" onclick="showFormUpdate(${player.id})">Update</a>
-                    </td>
-                </tr>`;
+                <td>${player.code}</td>
+                <td>${player.name}</td>
+                <td>${player.dob}</td>
+                <td>${player.address}</td>
+                <td>${player.position}</td>
+                <td><img src="${'http://localhost:8080/static/' + player.img}" alt="" class="player-img"></td>
+                <td>
+                    <select name="status-update-id" class="status-update" data-player-id="${player.id}">
+                        <option value="1" ${player.status.id === 1 ? "selected" : ""}>Active</option>
+                        <option value="2" ${player.status.id === 2 ? "selected" : ""}>Injure</option>
+                        <option value="3" ${player.status.id === 3 ? "selected" : ""}>Retire</option>
+                    </select>
+                </td>
+                <td>             
+                    <button type="button" class="btn btn-info"><a href="#player_detail"  onclick="showPlayerDetail(${player.id})" style="color: white;">View</a></button>
+                    <button type="button" class="btn btn-danger"><a href="javascript:void(0)" onclick="showFormDelete(${player.id})" style="color: white;">Delete</a></button>
+                    <button type="button" class="btn btn-secondary"><a href="javascript:void(0)" onclick="showFormUpdate(${player.id})" style="color: white;">Update</a></button>
+                </td>
+             </tr>
+                `;
+
             });
             $("#tb-player").html(arrPlayer.join(""));
             $(".modal").hide();
             $('th:nth-child(7), td:nth-child(7)').hide();
+            $("#head-action").show();
             registerStatusChangeEvents();
         },
         error: function(jqXHR, status, e){
             console.log(e);
         }
     });
+}
+
+function showPlayerByStatus() {
+    let id = document.getElementById("status-option").value;
+    console.log(id);
+
+    $.ajax({
+        url: "http://localhost:8080/api/player/status/" + id,
+        method: "get",
+
+        success: function(data){
+            console.log(data);
+
+            let arrPlayer = data.map((player, i, arrp) => {
+                return `
+                <tr>
+                <td>${player.code}</td>
+                <td>${player.name}</td>
+                <td>${player.dob}</td>
+                <td>${player.address}</td>
+                <td>${player.position}</td>
+                <td><img src="${'http://localhost:8080/static/' + player.img}" alt="" class="player-img"></td>
+                <td>
+                
+                <button type="button" class="btn btn-info"><a href="#player_detail"  onclick="showPlayerDetail(${player.id})" style="color: white;">View</a></button>
+                <button type="button" class="btn btn-danger"><a href="javascript:void(0)" onclick="showFormDelete(${player.id})" style="color: white;">Delete</a></button>
+                <button type="button" class="btn btn-secondary"><a href="javascript:void(0)" onclick="showFormUpdate(${player.id})" style="color: white;">Update</a></button>
+                </td>
+             </tr>
+                `;
+            });
+            $("#tb-player").html(arrPlayer.join(""));
+            $(".modal").hide();
+        },
+    })
 }
 
 function registerStatusChangeEvents() {
@@ -57,6 +95,7 @@ function registerStatusChangeEvents() {
         } else {
             arrPlayerStatus.push({ id: playerId, statusId: newStatusId });
         }
+
     });
 }
 
@@ -71,6 +110,7 @@ function showFormCreate(){
     $("#th-player").hide();
     $("#frm-search").hide();
     $("#frm-status").hide();
+    $(".btn").hide();
 }
 
 function createNewPlayer(){
@@ -129,6 +169,10 @@ function showFormUpdate(id){
             $("#tb-player").hide();
             $("#player-info").hide();
             $(".modal").hide();
+
+            // $("#frm-search").hide();
+            // $("#frm-status").hide();
+            // $(".btn").hide();
         }
     });
 }
@@ -174,17 +218,42 @@ function showFormDelete(id){
         method: "get",
         success: function (data){
             $("#delete-player-info").html(`
-                <strong>Code:</strong> ${data.code} <br>
-                <strong>Image:</strong><img src="${'http://localhost:8080/static/' + data.img}" alt=""> <br>
-                <strong>Name:</strong> ${data.name} <br>
-                <strong>Dob:</strong> ${data.dob} <br>
-                <strong>Address:</strong> ${data.address} <br>
-                <strong>Position:</strong> ${data.position} <br>
-                <strong>Height:</strong> ${data.height} <br>
-                <strong>Weight:</strong> ${data.weight} <br>
-                <strong>Ranking:</strong> ${data.ranking} <br>
-                <strong>Performence:</strong> ${data.per.id} <br>
-                <strong>Status:</strong> ${data.status.id} <br>
+<<<<<<< HEAD
+            <div class="player-info">
+            <div class="info-item">
+                <strong>Code:</strong> <span>${data.code}</span>
+            </div>
+            <div class="info-item">
+                <strong>Image:</strong> <img src="${'http://localhost:8080/static/' + data.img}" alt="Player Image">
+            </div>
+            <div class="info-item">
+                <strong>Name:</strong> <span>${data.name}</span>
+            </div>
+            <div class="info-item">
+                <strong>Dob:</strong> <span>${data.dob}</span>
+            </div>
+            <div class="info-item">
+                <strong>Address:</strong> <span>${data.address}</span>
+            </div>
+            <div class="info-item">
+                <strong>Position:</strong> <span>${data.position}</span>
+            </div>
+            <div class="info-item">
+                <strong>Height:</strong> <span>${data.height}</span>
+            </div>
+            <div class="info-item">
+                <strong>Weight:</strong> <span>${data.weight}</span>
+            </div>
+            <div class="info-item">
+                <strong>Ranking:</strong> <span>${data.ranking}</span>
+            </div>
+            <div class="info-item">
+                <strong>Performance:</strong> <span>${data.per.id}</span>
+            </div>
+            <div class="info-item">
+                <strong>Status:</strong> <span>${data.status.id}</span>
+            </div>
+        </div>
             `);
 
             $("#delete-confirmation").show();
@@ -192,6 +261,10 @@ function showFormDelete(id){
                 confirmDelete(id);
             });
             $("#tb-player").hide();
+            $("#th-player").hide();
+            $("#frm-search").hide();
+            $("#frm-status").hide();
+            $(".btn-primary").hide();
         },
         error: function(jqXHR, status, e) {
             console.log(e);
@@ -248,15 +321,16 @@ function showPlayerDetail(id){
                             <strong>Status:</strong><span class="status">${data.status.status}</span><br>
                         </div>
                     </div>
+                    <div class="buttons">
+                        <button class="button" onclick="showFormUpdate(${data.id})">Udate</button>
+                        <button class="button" onclick="window.location.href = 'tablesPlayer.html'">Back</button>
+                    </div>
                 </div>
-                <div class="buttons">
-                    <button class="button" onclick="showFormUpdate(${data.id})">Udate</button>
-                    <button class="button" onclick="window.location.href = 'tablesPlayer.html'">Back</button>
-                </div>
+               
             `);
 
             $("#player_detail").show();
-            $("#tb-player").hide();
+            
         },
         error: function(jqXHR, status, e) {
             console.log(e);
@@ -287,4 +361,11 @@ function updatePlayerStatus(){
             console.log(e);
         }
     });
+}
+
+function showPreviousPlayerStatus(){
+    showAllPlayer();
+    $("#btnStatusCancel").hide();
+    $("#btnStatusUpdate").hide();
+    $("#btnStatus").show();
 }

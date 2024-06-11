@@ -51,6 +51,7 @@ function showFormTracking(){
             $("#hpw").html(str.join(""))
             $("#form-tracking").show();
             $(".table").hide();
+            $(".btn-primary").hide();
         }
     })
 }
