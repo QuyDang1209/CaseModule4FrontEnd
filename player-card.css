@@ -190,6 +190,49 @@
     justify-content: center;
 }
 
+/* update */
+#form-update {
+    display: block; /* Hiển thị form */
+    max-width: 70%;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+}
+
+#form-update input, #form-update select, #form-update button {
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+#save-update-button {
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+}
+
+#save-update-button:hover {
+    background-color: #45a049;
+}
+
+.btn-cancel {
+    background-color: darkgrey;
+    color: white;
+    cursor: pointer;
+}
+
+.btn-cancel:hover {
+    background-color: grey;
+}
+
+#form-update br {
+    margin-bottom: 10px; /* Thêm khoảng cách dưới mỗi <br> */
+}
+
 
 /* IPlayerRepository -> playerService -> viết controller GET -> viết ajax */
 /* giao diện update delete */

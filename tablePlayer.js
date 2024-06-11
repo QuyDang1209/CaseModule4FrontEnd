@@ -53,16 +53,16 @@ function showPlayerByStatus() {
                 return `
                 <tr>
                 <td>${player.code}</td>
-                <td><img src="${'http://localhost:8080/static/' + player.img}" alt="" class="player-img"></td>
                 <td>${player.name}</td>
                 <td>${player.dob}</td>
                 <td>${player.address}</td>
                 <td>${player.position}</td>
+                <td><img src="${'http://localhost:8080/static/' + player.img}" alt="" class="player-img"></td>
                 <td>
                 
-                <a href="#player_detail"  onclick="showPlayerDetail(${player.id})">View</a>
-                <a href="javascript:void(0)" onclick="showFormDelete(${player.id})">Delete</a>
-                <a href="javascript:void(0)" onclick="showFormUpdate(${player.id})">Update</a>
+                <button type="button" class="btn btn-info"><a href="#player_detail"  onclick="showPlayerDetail(${player.id})" style="color: white;">View</a></button>
+                <button type="button" class="btn btn-danger"><a href="javascript:void(0)" onclick="showFormDelete(${player.id})" style="color: white;">Delete</a></button>
+                <button type="button" class="btn btn-secondary"><a href="javascript:void(0)" onclick="showFormUpdate(${player.id})" style="color: white;">Update</a></button>
                 </td>
              </tr>
                 `;
@@ -189,6 +189,12 @@ function showFormUpdate(id){
             $("#tb-player").hide();
             $("#player-info").hide();
             $(".modal").hide();
+
+            
+            $("#th-player").hide();
+            $("#frm-search").hide();
+            $("#frm-status").hide();
+            $(".btn").hide();
 
         }
     });
