@@ -97,8 +97,10 @@ function payRoll() {
 }
 
 function showAllSalaryInMonth(){
-    let year = +document.getElementById("year").value;
-    let month = +document.getElementById("month").value;
+    let year = +document.getElementById("year-option").value;
+    let month = +document.getElementById("month-option").value;
+    console.log(year);
+    console.log(month);
     $.ajax({
         method: "get",
         url: "http://localhost:8080/api/playertracking/"+month+"/"+year,
@@ -115,6 +117,7 @@ function showAllSalaryInMonth(){
                 `
             })
             $("#salary").html(str.join(""))
+            $("#player-tracking-list").hide();
         }
     })
 }
