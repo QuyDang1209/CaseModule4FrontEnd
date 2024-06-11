@@ -7,14 +7,14 @@ function showAllPlayer() {
         // },
         method: "get",
         url: "http://localhost:8080/api/player",
-        
+
         success: function (data) {
             console.log(data);
             let arrPlayer = data.map((player, i, arrp) => {
                 return `
                 <tr>
                 <td>${player.code}</td>
-                <td><img src="${'http://localhost:8080/static/' + player.img}" alt=""></td>
+                <td><img src="${'http://localhost:8080/static/' + player.img}" alt="" class="player-img"></td>
                 <td>${player.name}</td>
                 <td>${player.dob}</td>
                 <td>${player.address}</td>
@@ -34,9 +34,80 @@ function showAllPlayer() {
 
         error: function(jqXHR, status, e){
             console.log(e);
-            
+
         }
     });
+}
+
+function showPlayerByStatus() {
+    let id = document.getElementById("status-option").value;
+    console.log(id);
+
+    $.ajax({
+        url: "http://localhost:8080/api/player/status/" + id,
+        method: "get",
+
+        success: function(data){
+            console.log(data);
+
+            let arrPlayer = data.map((player, i, arrp) => {
+                return `
+                <tr>
+                <td>${player.code}</td>
+                <td><img src="${'http://localhost:8080/static/' + player.img}" alt="" class="player-img"></td>
+                <td>${player.name}</td>
+                <td>${player.dob}</td>
+                <td>${player.address}</td>
+                <td>${player.position}</td>
+                <td>
+                
+                <a href="#player_detail"  onclick="showPlayerDetail(${player.id})">View</a>
+                <a href="javascript:void(0)" onclick="showFormDelete(${player.id})">Delete</a>
+                <a href="javascript:void(0)" onclick="showFormUpdate(${player.id})">Update</a>
+                </td>
+             </tr>
+                `;
+            });
+            $("#tb-player").html(arrPlayer.join(""));
+            $(".modal").hide();
+        },
+    });
+}
+
+function showPlayerByName() {
+    let name = document.getElementById("search-player").value;
+    console.log(name);
+
+    $.ajax({
+        url: "http://localhost:8080/api/player?name=" + name,
+        method: "get",
+
+        success: function(data){
+            console.log(data);
+            let arrPlayerInfo = data.map((player, i, arrp) => {
+                return `
+                <tr>
+                <td>${player.code}</td>
+                <td><img src="${'http://localhost:8080/static/' + player.img}" alt="" class="player-img"></td>
+                <td>${player.name}</td>
+                <td>${player.dob}</td>
+                <td>${player.address}</td>
+                <td>${player.position}</td>
+                <td>
+                
+                <a href="#player_detail"  onclick="showPlayerDetail(${player.id})">View</a>
+                <a href="javascript:void(0)" onclick="showFormDelete(${player.id})">Delete</a>
+                <a href="javascript:void(0)" onclick="showFormUpdate(${player.id})">Update</a>
+                </td>
+             </tr>
+                `;
+            });
+
+            $("#search-info").html(arrPlayerInfo.join(""));
+            $(".modal").hide();
+            $("#tb-player").hide();
+        }
+    })
 }
 
 function showFormCreate(){
@@ -84,7 +155,7 @@ function createNewPlayer(){
         },
         error: function(jqXHR, status, e){
             console.log(e);
-            
+
         }
     })
 }
@@ -93,7 +164,7 @@ function showFormUpdate(id){
     $.ajax({
         url: "http://localhost:8080/api/player/" + id,
         method: "get",
-        
+
         success: function (data){
             $("#code-update").val(data.code);
             // $("#img-update").val(data.img);
@@ -109,7 +180,7 @@ function showFormUpdate(id){
             $("#status-update-id").val(data.status.id);
             $("#save-update-button").on("click", function() {
                 updatePlayer(id);
-        });
+            });
 
             $("#form-update").show();
             $("#tb-player").hide();
@@ -147,7 +218,7 @@ function updatePlayer(id){
     formData.append("salary", salary);
     formData.append("per.id", performence);
     formData.append("status.id", status);
-    
+
     $.ajax({
         data: formData,
         url: "http://localhost:8080/api/player/" + id,
@@ -161,7 +232,7 @@ function updatePlayer(id){
         },
         error: function(jqXHR, status, e){
             console.log(e);
-            
+
         }
     });
 }
@@ -175,7 +246,7 @@ function showFormDelete(id){
         url: "http://localhost:8080/api/player/" + id,
         method: "get",
         success: function (data){
-            
+
             $("#delete-player-info").html(`
                 <strong>Code:</strong> ${data.code} <br>
                 <strong>Image:</strong><img src="${'http://localhost:8080/static/' + data.img}" alt=""> <br>
@@ -198,7 +269,7 @@ function showFormDelete(id){
 
             $("#tb-player").hide();
         },
-        
+
         error: function(jqXHR, status, e) {
             console.log(e);
         }
@@ -211,7 +282,7 @@ function confirmDelete(id){
     $.ajax({
         url: "http://localhost:8080/api/player/" + id,
         method: "delete",
-        
+
         success: function () {
             console.log("Player deleted successfully. Redirecting to index.html");
             window.location.href = "tables.html";
@@ -227,11 +298,13 @@ function hideDeleteConfirmation(){
 }
 
 function showPlayerDetail(id){
+    console.log(id);
     $.ajax({
         url: "http://localhost:8080/api/player/" + id,
         method: "get",
         success: function (data){
-            
+            console.log(data);
+
             $("#player-info").html(`
             
                 <div class="profile-card">
@@ -276,11 +349,70 @@ function showPlayerDetail(id){
             //     confirmDelete(id);
             // });
 
-            $("#tb-player").hide();
+            // $("#tb-player").hide();
         },
-        
+
         error: function(jqXHR, status, e) {
             console.log(e);
         }
     });
+}
+
+function showPlayerCreateModel() {
+    $("#player-create-model").html(`
+            <div class="modal-content">
+                            
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">CREATE NEW COACH</h4>
+                <button type="button" class="close" data-dismiss="modal">×</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                Modal body..
+                <div class="modal-body">
+                    <form  id="modalCreEdit" method="post">
+                        <div class="form-group">
+                            <label for="code">CODE:</label>
+                            <input type="text" class="form-control" placeholder="Enter code" id="code" name="code" >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="fullName">Name:</label>
+                            <input type="text" class="form-control" placeholder="fullName" id="fullName" name="fullName">
+                        </div>
+                        <div class="form-group">
+                            <label for="dob">Date Of Bith:</label>
+                            <input type="text" class="form-control" placeholder="Enter DateOfBirth" id="dob" name="DateOfBirth" >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="address">Address:</label>
+                            <input type="text" class="form-control" placeholder="Enter address" id="address" >
+                        </div>
+                        <div class="form-group">
+                            <label for="salary">Salary</label>
+                            <input type="number" class="form-control" placeholder="Enter Salary" id="salary" name="salary" >
+                        </div>
+                        <div class="form-group">
+                            <label for="img">Poster:</label>
+                            <input type="file" id="img" accept="image/*" onchange="previewImage(event)">
+                        </div>
+                        <button type="button" onclick="submitCreateCoach()" class="btn btn-primary" >Submit</button>
+                    </form>
+
+
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>         
+            `);
+
+    $("#player_create").modal("show");
 }
