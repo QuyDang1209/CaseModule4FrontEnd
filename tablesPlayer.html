@@ -143,6 +143,7 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
+
                     <!-- Page Heading -->
                     <h1 class="h3 mb-2 text-gray-800">Player List</h1>
 
@@ -177,6 +178,9 @@
                                 <button onclick="getAllPlayer()">Cancel</button>
                             </form>
                         </div>
+                        <button class="btn btn-dark float-right" onclick="showPreviousPlayerStatus()" id="btnStatusCancel">Cancel</button>
+                        <button class="btn btn-danger float-right" onclick="updatePlayerStatus()" id="btnStatusUpdate">Update</button>
+                        <button class="btn btn-success float-right" onclick="changeStatus()" id="btnStatus">STATUS</button>
 
                         <div class="card-body">
                             <form id="frm-search">
@@ -264,7 +268,7 @@
                     </div>
 
                 </div>
-                <!-- /.container-fluid -->
+
 
             </div>
             <!-- End of Main Content -->
