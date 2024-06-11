@@ -147,6 +147,7 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
+
                     <!-- Page Heading -->
                     <div class="title-name">
                         <h1 class="h3 mb-2 text-gray-800">Player List</h1>
@@ -158,6 +159,9 @@
                         <div class="card-header py-3">
                             <!-- Create Form -->
                             <button type="button" onclick="showFormCreate() " class="btn btn-primary">Add New Player</button>
+                            <button class="btn btn-dark float-right" onclick="showPreviousPlayerStatus()" id="btnStatusCancel">Cancel</button>
+                            <button class="btn btn-danger float-right" onclick="updatePlayerStatus()" id="btnStatusUpdate">Update</button>
+                            <button class="btn btn-success float-right" onclick="changeStatus()" id="btnStatus">STATUS</button>
                             <form style="display: none" id="form-create">
                                 <input id="code" type="text" placeholder="Enter Code"> <br>
                                 <input id="img" type="file" placeholder="Enter Img"> <br>
@@ -184,6 +188,7 @@
                                 <button onclick="getAllPlayer()" class="btn-cancel">Cancel</button>
                             </form>
                         </div>
+                        
 
                         <div class="card-body">
                             <form id="frm-search">
@@ -214,7 +219,7 @@
                                             <th>Address</th>
                                             <th>Position</th>
                                             <th>Image</th>
-                                            <th>Action</th>
+                                            <th id="head-action">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody id="tb-player">
@@ -274,7 +279,7 @@
                     </div>
 
                 </div>
-                <!-- /.container-fluid -->
+
 
             </div>
             <!-- End of Main Content -->
