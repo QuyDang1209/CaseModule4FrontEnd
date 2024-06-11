@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,7 +29,7 @@
     <!-- Custom styles for this page -->
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="player-card.css">
+    <link rel="stylesheet" href="test.css">
     <link rel="stylesheet" href="modal.css">
 
 </head>
@@ -103,6 +104,7 @@
         </li>
 
 
+<<<<<<< HEAD
         <!-- Divider -->
         <hr class="sidebar-divider">
 
@@ -571,6 +573,14 @@
 <!--                <i class="fas fa-fw fa-chart-area"></i>-->
 <!--                <span>Charts</span></a>-->
 <!--        </li>-->
+=======
+        <!-- Nav Item - Charts -->
+        <li class="nav-item">
+            <a class="nav-link" href="charts.html">
+                <i class="fas fa-fw fa-chart-area"></i>
+                <span>Charts</span></a>
+        </li>
+>>>>>>> e2236a1d690117ca7f946096bed147575f9dcf0b
 
 <!--        &lt;!&ndash; Nav Item - Tables &ndash;&gt;-->
 <!--        <li class="nav-item active">-->
@@ -596,9 +606,14 @@
 <!--        &lt;!&ndash; Main Content &ndash;&gt;-->
 <!--        <div id="content">-->
 
+<<<<<<< HEAD
 
 <!--            &lt;!&ndash; Topbar &ndash;&gt;-->
 <!--            <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">-->
+=======
+            <!-- Topbar -->
+            <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+>>>>>>> e2236a1d690117ca7f946096bed147575f9dcf0b
 
 <!--                &lt;!&ndash; Sidebar Toggle (Topbar) &ndash;&gt;-->
 <!--                <form class="form-inline">-->
@@ -835,6 +850,7 @@
 <!--                                <option value="3">Retire</option>-->
 <!--                            </select> <br>-->
 
+<<<<<<< HEAD
 <!--                            <button type="button" onclick="createNewPlayer()">Save</button>-->
 <!--                            <button onclick="getAllPlayer()">Cancel</button>-->
 <!--                        </form>-->
@@ -859,6 +875,47 @@
 <!--                            </table>-->
 <!--                        </div>-->
 <!--                    </div>-->
+=======
+                            <button type="button" onclick="createNewPlayer()">Save</button>
+                            <button onclick="getAllPlayer()">Cancel</button>
+                        </form>
+                    </div>
+                    <div class="container-fluid">
+
+                        <!-- Page Heading -->
+                        <h1 class="h3 mb-2 text-gray-800">Tables Player</h1>
+                        <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
+                            For more information about DataTables, please visit the <a target="_blank"
+                                                                                       href="https://datatables.net">official DataTables documentation</a>.</p>
+
+
+                        <button class="btn btn-dark float-right" onclick="showPreviousPlayerStatus()" id="btnStatusCancel">Cancel</button>
+                        <button class="btn btn-danger float-right" onclick="updatePlayerStatus()" id="btnStatusUpdate">Update</button>
+                        <button class="btn btn-success float-right" onclick="changeStatus()" id="btnStatus">STATUS</button>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                <tr>
+                                    <th>Code</th>
+                                    <th>Image</th>
+                                    <th>Name</th>
+                                    <th>Date Of Birth</th>
+                                    <th>Address</th>
+                                    <th>Position</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                                </thead>
+                                <tbody id="tb-player">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+>>>>>>> e2236a1d690117ca7f946096bed147575f9dcf0b
 
 <!--                    <div class="card-footer">-->
 <!--                        <form style="display: none" id="form-update">-->
@@ -910,6 +967,7 @@
 <!--        </div>-->
         <!-- End of Main Content -->
 
+<<<<<<< HEAD
 <!--        &lt;!&ndash; Footer &ndash;&gt;-->
 <!--        <footer class="sticky-footer bg-white">-->
 <!--            <div class="container my-auto">-->
@@ -941,23 +999,139 @@
 <!--            </div>-->
 <!--        </div>-->
 <!--    </div>-->
-
-</div>
-<!-- End of Page Wrapper -->
-
-<!-- Scroll to Top Button-->
-<a class="scroll-to-top rounded" href="#page-top">
-    <i class="fas fa-angle-up"></i>
-</a>
-<div class="modal" id="myModal">
-    <div class="modal-dialog">
-        <div class="modal-content">
-
-            <!-- Modal Header -->
-            <div class="modal-header">
-                <h4 class="modal-title">Modal Heading</h4>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
+=======
+        <!-- Footer -->
+        <footer class="sticky-footer bg-white">
+            <div class="container my-auto">
+                <div class="copyright text-center my-auto">
+                    <span>Copyright &copy; Your Website 2020</span>
+                </div>
             </div>
+        </footer>
+        <!-- End of Footer -->
+        >>>>>>> 4f730bc8f187af5e613795507194904fe520803b
+
+        <!-- Heading -->
+        <div class="sidebar-heading">
+            Addons
+        </div>
+
+        <!-- Nav Item - Pages Collapse Menu -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
+               aria-expanded="true" aria-controls="collapsePages">
+                <i class="fas fa-fw fa-folder"></i>
+                <span>Pages</span>
+            </a>
+            <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Login Screens:</h6>
+                    <a class="collapse-item" href="login.html">Login</a>
+                    <a class="collapse-item" href="register.html">Register</a>
+                    <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
+                    <div class="collapse-divider"></div>
+                    <h6 class="collapse-header">Other Pages:</h6>
+                    <a class="collapse-item" href="404.html">404 Page</a>
+                    <a class="collapse-item" href="blank.html">Blank Page</a>
+                </div>
+            </div>
+        </li>
+
+        <!-- Nav Item - Charts -->
+        <li class="nav-item">
+            <a class="nav-link" href="charts.html">
+                <i class="fas fa-fw fa-chart-area"></i>
+                <span>Charts</span></a>
+        </li>
+
+        <!-- Nav Item - Tables -->
+        <li class="nav-item active">
+            <a class="nav-link" href="tables.html">
+                <i class="fas fa-fw fa-table"></i>
+                <span>Tables</span></a>
+        </li>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider d-none d-md-block">
+
+
+
+        </ul>
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+
+
+    </div>
+    <!-- End of Page Wrapper -->
+>>>>>>> e2236a1d690117ca7f946096bed147575f9dcf0b
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+    <div class="modal" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Modal Heading</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <form action="/action_page.php" id="registrationForm">
+                        <div class="form-group">
+                            <label for="fullname">Code:</label>
+                            <input type="text" class="form-control" placeholder="Enter fullname" id="fullname" required pattern="[A-Za-z\s]+">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone:</label>
+                            <input type="tel" class="form-control" placeholder="Enter phone" id="phone" required pattern="[0-9]{10}">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="username">User Name:</label>
+                            <input type="text" class="form-control" placeholder="Enter username" id="username" required pattern="[A-Za-z0-9]{5,}">
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" class="form-control" placeholder="Enter email" id="email" required>
+                            <div class="invalid-feedback">Please enter a valid email address.</div>
+                        </div>
+
+                        <div class="form-group form-check">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox"> Remember me
+                            </label>
+                        </div>
+
+                        <button type="button" class="btn btn-primary" onclick="handleSubmitUser()">Submit</button>
+                    </form>
+                </div>
+
+
+
+                <!-- Bootstrap core JavaScript-->
+                <script src="vendor/jquery/jquery.min.js"></script>
+                <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+                <!-- Core plugin JavaScript-->
+                <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+                <!-- Custom scripts for all pages-->
+                <script src="js/sb-admin-2.min.js"></script>
+
+
+                <script src="table.js"></script>
+                </div>
+            </div>
+<<<<<<< HEAD
 
     <!-- Page level plugins -->
     <script src="vendor/datatables/jquery.dataTables.min.js"></script>
@@ -1044,6 +1218,10 @@
             <!-- Page level custom scripts -->
             <!-- <script src="js/demo/datatables-demo.js"></script> -->
             <script src="table.js"></script>
+=======
+        </div>
+    </div>
+>>>>>>> e2236a1d690117ca7f946096bed147575f9dcf0b
 
 </body>
 

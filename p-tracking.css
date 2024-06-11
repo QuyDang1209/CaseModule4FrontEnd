@@ -1,0 +1,80 @@
+/* Google Fonts - Poppins*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+.p-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#form-tracking {
+    padding: 30px 250px;
+}
+
+/* Apply basic styles to the form */
+#form-tracking {
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* Style the player filter section */
+.player-filter {
+    margin-bottom: 20px;
+}
+
+.player-filter label {
+    margin-bottom: 5px;
+}
+
+.player-filter select,
+.player-filter input[type="text"] {
+    width: 150px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+/* Style the player tracking form section */
+.player-tracking-form {
+    margin-bottom: 20px;
+}
+
+/* Style the table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th,
+table td {
+    padding: 8px;
+    text-align: left;
+}
+
+table th {
+    background-color: #f2f2f2;
+}
+
+.pt-btn {
+    display: flex;
+    justify-content: center;
+}
+
+/* Style the buttons */
+button {
+    padding: 10px 20px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 3px;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* Style the input fields inside the table */
+table input[type="number"] {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    text-align: center;
+}
