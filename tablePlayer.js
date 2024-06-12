@@ -299,6 +299,7 @@ function showFormDelete(id){
             $("#frm-search").hide();
             $("#frm-status").hide();
             $(".btn-primary").hide();
+            $("#btnStatus").hide();
         },
         error: function(jqXHR, status, e) {
             console.log(e);
