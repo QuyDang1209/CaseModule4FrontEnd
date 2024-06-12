@@ -1,0 +1,239 @@
+/* Google Fonts - Poppins*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+}
+
+.profile-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 500px;
+    width: 100%;
+    background: white;
+    border-radius: 24px;
+    padding: 25px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile-card .buttons {
+    display: flex;
+    align-items: center;
+    margin-top: 25px;
+}
+
+.buttons .button {
+    color: white;
+    font-size: 14px;
+    font-weight: 400;
+    border: none;
+    border-radius: 24px;
+    margin: 0 10px;
+    padding: 8px 24px;
+    background-color: dodgerblue;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.buttons .button:hover {
+    background-color: blue;
+}
+
+.profile-card .info {
+    display: flex;
+    align-items: center;
+    margin-top: 25px;
+}
+
+.info .data {
+    /* display: flex; */
+    align-items: center;
+    padding: 0 20px;
+    border-right: 2px solid grey;
+}
+
+.profile-card .text-data {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.text-data .name {
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.text-data .code {
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.image {
+    position: relative;
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    background-color: blue;
+    padding: 3px;
+    margin-bottom: 10px;
+}
+
+.image .profile-img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid white;
+}
+
+.title-name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#form-create {
+    display: block; /* Hiển thị form */
+    max-width: 70%;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+}
+
+#form-create input, #form-create select, #form-create button {
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.btn-save {
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+}
+
+.btn-save:hover {
+    background-color: #45a049;
+}
+
+.btn-cancel {
+    background-color: darkgrey;
+    color: white;
+    cursor: pointer;
+}
+
+.btn-cancel:hover {
+    background-color: grey;
+}
+
+#form-create br {
+    margin-bottom: 10px; /* Thêm khoảng cách dưới mỗi <br> */
+}
+
+/* Tổng thể cho phần chứa thông tin người chơi */
+.player-info {
+    max-width: 50%;
+    margin: 20px auto;
+    padding: 10px 300px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+}
+
+/* Kiểu dáng cho từng mục thông tin */
+.info-item {
+    margin-bottom: 15px;
+    line-height: 1.5;
+    display: flex;
+    align-items: center;
+}
+
+/* Kiểu dáng cho tiêu đề mạnh (bold) */
+.info-item strong {
+    width: 120px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Kiểu dáng cho nội dung thông tin */
+.info-item span {
+    color: #555;
+}
+
+/* Kiểu dáng cho hình ảnh */
+.info-item img {
+    max-width: 100px;
+    height: auto;
+    border-radius: 5px;
+    margin-left: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Tùy chỉnh cho các mục cuối cùng (loại bỏ khoảng cách cuối cùng) */
+.info-item:last-child {
+    margin-bottom: 0;
+}
+
+.dlt-btn{
+    display: flex;
+    justify-content: center;
+}
+
+/* update */
+#form-update {
+    display: block; /* Hiển thị form */
+    max-width: 70%;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+}
+
+#form-update input, #form-update select, #form-update button {
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+#save-update-button {
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+}
+
+#save-update-button:hover {
+    background-color: #45a049;
+}
+
+.btn-cancel {
+    background-color: darkgrey;
+    color: white;
+    cursor: pointer;
+}
+
+.btn-cancel:hover {
+    background-color: grey;
+}
+
+#form-update br {
+    margin-bottom: 10px; /* Thêm khoảng cách dưới mỗi <br> */
+}
+
+
+/* IPlayerRepository -> playerService -> viết controller GET -> viết ajax */
+/* giao diện update delete */
+
