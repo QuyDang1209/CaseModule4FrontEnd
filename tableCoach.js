@@ -19,9 +19,15 @@ function showAllCoach() {
                         <td>${coach.salary}</td>
                         <td><img src="${'http://localhost:8080/static/' + coach.img}" alt=""></td>
                         <td>
+<<<<<<< HEAD
+                            <button class="btn-view" type="button"onclick="showOfCoach(${coach.id})">View</button>
+                            <button class="btn-update" type="button" onclick="updateCoach(${coach.id})">Update</button>
+                             <button class="btn-delete" type="button" onclick="showFormDelete(${coach.id})">Delete</button>
+=======
                             <button class="btn-view btn-info" type="button" onclick="showOfCoach(${coach.id})" >View</button>
                             <button class="btn-update btn-secondary" type="button" onclick="updateCoach(${coach.id})">Update</button>
                              <button class="btn-delete btn-danger" type="button" onclick="showFormDelete(${coach.id})">Delete</button>
+>>>>>>> e2236a1d690117ca7f946096bed147575f9dcf0b
                         </td>
                     </tr>
                 `;
