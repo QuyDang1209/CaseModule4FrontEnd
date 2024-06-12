@@ -112,7 +112,7 @@ function showFormCreate(){
     $("#frm-status").hide();
     $(".btn").hide();
 }
-
+/*
 function createNewPlayer(){
     let formData = new FormData();
     formData.append("code", $("#code").val());
@@ -128,6 +128,7 @@ function createNewPlayer(){
     formData.append("per.id", $("#Performence").val());
     formData.append("status.id", $("#status").val());
 
+
     $.ajax({
         data: formData,
         method: "post",
@@ -142,6 +143,64 @@ function createNewPlayer(){
             console.log(e);
         }
     });
+}
+
+ */
+
+function createNewPlayer() {
+    let code = document.getElementById("code").value;
+
+    let name = document.getElementById("name").value;
+    let dob = document.getElementById("dob").value;
+    let address = document.getElementById("address").value;
+    let position = document.getElementById("position").value;
+    let height = document.getElementById("height").value;
+    let weight = document.getElementById("weight").value;
+    let ranking = document.getElementById("ranking").value;
+    let salary = document.getElementById("salary").value;
+    let Performence = document.getElementById("Performence").value;
+    let status = document.getElementById("status").value;
+
+    let inputImg = document.getElementById("img");
+
+    if (!code || !name || !dob || !address || !position || !height || !weight || !ranking || !salary || !performance || !status) {
+        alert("Please fill out all required fields.");
+        return;
+    }
+    if (inputImg.files.length === 0) {
+        alert("You must choose image");
+        return;
+    }
+    let formData = new FormData();
+    formData.append("code", code);
+    formData.append("img", img.files[0]);
+    formData.append("name", name);
+    formData.append("dob", dob);
+    formData.append("address", address);
+    formData.append("position", position);
+    formData.append("height", height);
+    formData.append("weight", weight);
+    formData.append("ranking", ranking);
+    formData.append("salary", salary);
+    formData.append("per.id", Performence);
+    formData.append("status.id", status);
+
+    $.ajax({
+        data: formData,
+        method: "post",
+        processData: false,
+        contentType: false,
+        url: "http://localhost:8080/api/player/upload",
+        success: function (data) {
+            console.log("Player added successfully. Redirecting to tables.html", data);
+            window.location.href = "tables.html";
+        },
+
+        error: function(jqXHR, status, e){
+            console.log(e);
+
+        }
+    })
 }
 
 function showFormUpdate(id){
@@ -178,6 +237,11 @@ function showFormUpdate(id){
 }
 
 function updatePlayer(id){
+    // Check if the image input is empty
+    if (!$("#img-update")[0].files[0]) {
+        alert("You must choose an image");
+        return; // Exit the function if no image is selected
+    }
     let formData = new FormData();
     formData.append("code", $("#code-update").val());
     formData.append("img", $("#img-update")[0].files[0]);
