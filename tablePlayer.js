@@ -404,3 +404,43 @@ function showPreviousPlayerStatus(){
     $("#btnStatusUpdate").hide();
     $("#btnStatus").show();
 }
+
+function salaryPlayers() {
+    const minSalary = document.getElementById('min-salary').value;
+    const maxSalary = document.getElementById('max-salary').value;
+
+    // Construct the URL with parameters
+    let url = `http://localhost:8080/api/player/searchBySalaryRange?minSalary=${encodeURIComponent(minSalary)}&maxSalary=${encodeURIComponent(maxSalary)}`;
+
+    $.ajax({
+        url: url,
+        method: 'GET',
+        success: function(response) {
+            console.log("Players found:", response);
+
+            let tableRows = response.map(player => `
+                <tr>
+                <td>${player.code}</td>
+                <td>${player.name}</td>
+                <td>${player.dob}</td>
+                <td>${player.address}</td>
+                <td>${player.position}</td>
+                <td><img src="${'http://localhost:8080/static/' + player.img}" alt="" class="player-img"></td>
+                <td>
+                
+                <button type="button" class="btn btn-info"><a href="#player_detail"  onclick="showPlayerDetail(${player.id})" style="color: white;">View</a></button>
+                <button type="button" class="btn btn-danger"><a href="javascript:void(0)" onclick="showFormDelete(${player.id})" style="color: white;">Delete</a></button>
+                <button type="button" class="btn btn-secondary"><a href="javascript:void(0)" onclick="showFormUpdate(${player.id})" style="color: white;">Update</a></button>
+                </td>
+             </tr>
+            `);
+
+            $("#tb-player").html(tableRows.join(""));
+            $(".modal").hide();
+            $("#tb-player").show();
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            console.error("Error searching players:", textStatus, errorThrown);
+        }
+    });
+}
