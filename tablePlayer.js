@@ -149,6 +149,27 @@ function showFormCreate(){
 }
 
 function createNewPlayer(){
+    // Retrieve values from the form
+    let code = $("#code").val();
+    let img = $("#img")[0];
+    let name = $("#name").val();
+    let dob = $("#dob").val();
+    let address = $("#address").val();
+    let height = $("#height").val();
+    let weight = $("#weight").val();
+    let salary = $("#salary").val();
+    let Performence = $("#Performence").val();
+    let status = $("#status").val();
+    // Basic client-side validation
+    if (!code || !img.files[0] || !name || !dob || !address || !height || !weight || !salary || !Performence || !status) {
+        alert("Please fill out all required fields.");
+        return;
+    }
+    if (!img.files[0]) {
+        alert("You must choose an image.");
+        return;
+    }
+
     let formData = new FormData();
     formData.append("code", $("#code").val());
     formData.append("img", $("#img")[0].files[0]);
@@ -162,6 +183,7 @@ function createNewPlayer(){
     formData.append("salary", $("#salary").val());
     formData.append("per.id", $("#Performence").val());
     formData.append("status.id", $("#status").val());
+
 
     $.ajax({
         data: formData,
@@ -246,7 +268,6 @@ function updatePlayer(id){
 function hideFormUpdate() {
     $("#form-update").hide();
 }
-
 /*
 function showFormDelete(id){
     $.ajax({
@@ -327,7 +348,6 @@ function hideDeleteConfirmation(){
 
 
  */
-
 function showPlayerDetail(id){
     $.ajax({
         url: "http://localhost:8080/api/player/" + id,
