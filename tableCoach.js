@@ -19,15 +19,9 @@ function showAllCoach() {
                         <td>${coach.salary}</td>
                         <td><img src="${'http://localhost:8080/static/' + coach.img}" alt=""></td>
                         <td>
-<<<<<<< HEAD
-                            <button class="btn-view" type="button"onclick="showOfCoach(${coach.id})">View</button>
-                            <button class="btn-update" type="button" onclick="updateCoach(${coach.id})">Update</button>
-                             <button class="btn-delete" type="button" onclick="showFormDelete(${coach.id})">Delete</button>
-=======
-                            <button class="btn-view btn-info" type="button" onclick="showOfCoach(${coach.id})" >View</button>
-                            <button class="btn-update btn-secondary" type="button" onclick="updateCoach(${coach.id})">Update</button>
-                             <button class="btn-delete btn-danger" type="button" onclick="showFormDelete(${coach.id})">Delete</button>
->>>>>>> e2236a1d690117ca7f946096bed147575f9dcf0b
+                            <button class="btn btn-info " type="button"onclick="showOfCoach(${coach.id})">View</button>
+                            <button class="btn btn-danger" type="button" onclick="updateCoach(${coach.id})">Update</button>
+                             <button class="btn btn-secondary" type="button" onclick="showFormDelete(${coach.id})">Delete</button>
                         </td>
                     </tr>
                 `;
@@ -201,28 +195,106 @@ function submitDeleteCoach() {
         }
     });
 }
+
 showAllCoach()
+
+let mychart = null;
+const ctx = document.getElementById('myChart');
 function showOfCoach(id) {
+    
     $.ajax({
         url: "http://localhost:8080/api/coaches/" + id,
         method: "GET",
         success: function (data) {
             let coachDetail = `
-            <div class="coach-info">
-            <strong>Code:</strong> ${data.code} <br>
-            <strong>Image:</strong> <img src="${'http://localhost:8080/static/' + data.img}" alt="Coach Image"> <br>
-            <strong>Name:</strong> ${data.name} <br>
-            <strong>Dob:</strong> ${data.dob} <br>
-            <strong>Address:</strong> ${data.address} <br>
-            <strong>Salary:</strong> ${data.salary} <br>
-        </div>
+                <div data-id="${data.id}" id="coachtracking">
+                    
+                    <strong>Code:</strong> ${data.code} <br>
+                    <strong>Image:</strong> <img src="${'http://localhost:8080/static/' + data.img}" alt="Coach Image"> <br>
+                    <strong>Name:</strong> ${data.name} <br>
+                    <strong>Dob:</strong> ${data.dob} <br>
+                    <strong>Address:</strong> ${data.address} <br>
+                    <strong>Salary:</strong> ${data.salary} <br>
+                </div>
             `;
 
             $("#coachDetail").html(coachDetail);
             $("#coachDetailModal").modal('show');
+            if(mychart !== null){
+                mychart.destroy()
+            }
+            getCoachTracking()
         },
         error: function (jqXHR, status, e) {
             console.log("Error getting Coach details:", e);
         }
     });
 }
+
+
+function getCoachTracking() {
+
+    let eCoachTracking = document.querySelector("#coachtracking")
+    let idcoach = eCoachTracking.dataset.id
+    let currentDate = new Date()
+    let month = currentDate.getMonth() + 1
+    let year = currentDate.getFullYear()
+    $.ajax({
+        method: "get",
+        url: "http://localhost:8080/api/coach_tracking/" + idcoach + "/" + month + "/" + year,
+        success: function (data) {
+            let arrMonth = []
+            let arrSalary = [];
+            let name = "";
+            for (let i = 0; i < data.length; i++) {
+                arrMonth.push("tháng " + data[i].month)
+                arrSalary.push(data[i].totalsalary)
+                name = data[i].coach.name
+            }
+            mychart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: arrMonth,
+                    datasets: [{
+                        label: name,
+                        data: arrSalary,
+                        fill: false,
+                        borderColor: 'rgb(75, 192, 192)',
+                        tension: 0.1
+                    }]
+                }
+            })
+        }
+    })
+
+
+}
+
+// function hideDeleteConfirmation(){
+//     $("#delete-confirmation").hide();
+// }
+// function showCoachDetail(id){
+//     $.ajax({
+//         url: "http://localhost:8080/api/coaches/" + id,
+//         method: "get",
+//         success: function (data){
+//
+//             $("#player-info").html(`
+//                 <strong>Code:</strong> ${data.code} <br>
+//                 <strong>Image:</strong><img src="${'http://localhost:8080/static/' + data.img}" alt=""> <br>
+//                 <strong>Name:</strong> ${data.name} <br>
+//                 <strong>Dob:</strong> ${data.dob} <br>
+//                 <strong>Address:</strong> ${data.address}<br>
+//                 <strong>Salary:</strong> ${data.salary}<br>
+//             `);
+//
+//             $("#coach_detail").show();
+//
+//             $("#tb-coach").hide();
+//         },
+//
+//         error: function(jqXHR, status, e) {
+//             console.log(e);
+//         }
+//     });
+// }
