@@ -110,13 +110,13 @@
                 <!-- Topbar Search -->
                 <form
                         class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search"
-                        onsubmit="event.preventDefault(); searchPlayers();">
+                        onsubmit="event.preventDefault(); salaryPlayers();">
                     <div class="input-group">
                         <label for="min-salary" class="mr-2">Find salary for the players:</label>
                         <input type="number" id="min-salary" class="form-control bg-light border-0 small" placeholder="Min salary" aria-label="Min salary" aria-describedby="basic-addon2">
                         <input type="number" id="max-salary" class="form-control bg-light border-0 small" placeholder="Max salary" aria-label="Max salary" aria-describedby="basic-addon2">
                         <div class="input-group-append">
-                            <button class="btn btn-primary" type="button" onclick="searchPlayers()">
+                            <button class="btn btn-primary" type="button" onclick="salaryPlayers()">
                                 <i class="fas fa-search fa-sm"></i>
                             </button>
                         </div>
@@ -279,7 +279,6 @@
                                 <button type="button" id="confirm-delete-button" class="btn btn-success">Yes, delete</button>
                                 <button onclick="window.location.href = 'tablesPlayer.html'" class="btn btn-secondary">Cancel</button>
                             </div>
-
                         </div>
 
                         <div class="wrapper">

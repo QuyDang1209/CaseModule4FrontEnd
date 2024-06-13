@@ -247,6 +247,7 @@ function hideFormUpdate() {
     $("#form-update").hide();
 }
 
+/*
 function showFormDelete(id){
     $.ajax({
         url: "http://localhost:8080/api/player/" + id,
@@ -306,7 +307,6 @@ function showFormDelete(id){
         }
     });
 }
-
 function confirmDelete(id){
     $.ajax({
         url: "http://localhost:8080/api/player/" + id,
@@ -324,6 +324,9 @@ function confirmDelete(id){
 function hideDeleteConfirmation(){
     $("#delete-confirmation").hide();
 }
+
+
+ */
 
 function showPlayerDetail(id){
     $.ajax({
@@ -373,6 +376,91 @@ function showPlayerDetail(id){
     });
 }
 
+// code của Huy
+function showFormDelete(id){
+    $.ajax({
+        url: "http://localhost:8080/api/player/" + id,
+        method: "GET",
+        success: function (data){
+            $("#delete-player-info").html(`
+            <div class="player-info">
+                <div class="info-item">
+                    <strong>Code:</strong> <span>${data.code}</span>
+                </div>
+                <div class="info-item">
+                    <strong>Image:</strong> <img src="${'http://localhost:8080/static/' + data.img}" alt="Player Image">
+                </div>
+                <div class="info-item">
+                    <strong>Name:</strong> <span>${data.name}</span>
+                </div>
+                <div class="info-item">
+                    <strong>Dob:</strong> <span>${data.dob}</span>
+                </div>
+                <div class="info-item">
+                    <strong>Address:</strong> <span>${data.address}</span>
+                </div>
+                <div class="info-item">
+                    <strong>Position:</strong> <span>${data.position}</span>
+                </div>
+                <div class="info-item">
+                    <strong>Height:</strong> <span>${data.height}</span>
+                </div>
+                <div class="info-item">
+                    <strong>Weight:</strong> <span>${data.weight}</span>
+                </div>
+                <div class="info-item">
+                    <strong>Ranking:</strong> <span>${data.ranking}</span>
+                </div>
+                <div class="info-item">
+                    <strong>Performance:</strong> <span>${data.per.id}</span>
+                </div>
+                <div class="info-item">
+                    <strong>Status:</strong> <span>${data.status.id}</span>
+                </div>
+            </div>
+            `);
+
+            $("#delete-confirmation").show();
+
+            // Hủy gắn sự kiện click trước đó để tránh gắn nhiều lần
+            $("#confirm-delete-button").off("click").on("click", function() {
+                confirmDelete(id);
+            });
+
+            $("#tb-player").hide();
+            $("#th-player").hide();
+            $("#frm-search").hide();
+            $("#frm-status").hide();
+            $(".btn-primary").hide();
+            $("#btnStatus").hide();
+        },
+        error: function(jqXHR, status, e) {
+            console.log(e);
+        }
+    });
+}
+
+function confirmDelete(id) {
+    $.ajax({
+        url: "http://localhost:8080/api/player/" + id,
+        method: "DELETE",
+        success: function (response) {
+            console.log("Player deleted successfully:", response);
+            // Thực hiện hành động cần thiết sau khi xóa thành công
+            $("#delete-confirmation").hide();
+            window.location.href = 'tablesPlayer.html'; // Chuyển hướng sau khi xóa
+        },
+        error: function(jqXHR, status, e) {
+            console.log('Error deleting player:', e);
+        }
+    });
+}
+
+
+
+
+
+
 function changeStatus(){
     $('th:nth-child(8), td:nth-child(8)').hide();
     $('th:nth-child(7), td:nth-child(7)').show();
@@ -405,7 +493,8 @@ function showPreviousPlayerStatus(){
     $("#btnStatus").show();
 }
 
-function searchPlayers() {
+
+function salaryPlayers() {
     const minSalary = document.getElementById('min-salary').value;
     const maxSalary = document.getElementById('max-salary').value;
 
@@ -420,19 +509,19 @@ function searchPlayers() {
 
             let tableRows = response.map(player => `
                 <tr>
-                    <td>${player.code}</td>
-                    <td><img src="${'http://localhost:8080/static/' + player.img}" alt="" class="player-img"></td>
-                    <td>${player.name}</td>
-                    <td>${player.dob}</td>
-                    <td>${player.address}</td>
-                    <td>${player.position}</td>
-                    <td>${player.salary}</td>
-                    <td>
-                        <a href="#player_detail" onclick="showPlayerDetail(${player.id})">View</a>
-                        <a href="javascript:void(0)" onclick="showFormDelete(${player.id})">Delete</a>
-                        <a href="javascript:void(0)" onclick="showFormUpdate(${player.id})">Update</a>
-                    </td>
-                </tr>
+                <td>${player.code}</td>
+                <td>${player.name}</td>
+                <td>${player.dob}</td>
+                <td>${player.address}</td>
+                <td>${player.position}</td>
+                <td><img src="${'http://localhost:8080/static/' + player.img}" alt="" class="player-img"></td>
+                <td>
+                
+                <button type="button" class="btn btn-info"><a href="#player_detail"  onclick="showPlayerDetail(${player.id})" style="color: white;">View</a></button>
+                <button type="button" class="btn btn-danger"><a href="javascript:void(0)" onclick="showFormDelete(${player.id})" style="color: white;">Delete</a></button>
+                <button type="button" class="btn btn-secondary"><a href="javascript:void(0)" onclick="showFormUpdate(${player.id})" style="color: white;">Update</a></button>
+                </td>
+             </tr>
             `);
 
             $("#tb-player").html(tableRows.join(""));
