@@ -30,6 +30,7 @@
 
     <link rel="stylesheet" href="player-card.css">
     <link rel="stylesheet" href="modal.css">
+    
 
     <style>
         
@@ -108,6 +109,21 @@
                     </form>
 
                     <!-- Topbar Search -->
+                    <form
+                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search"
+                        onsubmit="event.preventDefault(); salaryPlayers();">
+                        <div class="input-group">
+                            <label for="min-salary" class="mr-2">Find players by Max Min :</label>
+                            <input type="number" id="min-salary" class="form-control bg-light" placeholder="Min" aria-label="Min salary" aria-describedby="basic-addon2">
+                            <input type="number" id="max-salary" class="form-control bg-light" placeholder="Max" aria-label="Max salary" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="button" onclick="salaryPlayers()">
+                                    <i class="fas fa-search fa-sm"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
                     <ul class="navbar-nav ml-auto">
                         <div class="topbar-divider d-none d-sm-block"></div>
                         <!-- Nav Item - User Information -->

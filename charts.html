@@ -32,8 +32,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
             integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
             crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="player_tracking.js"></script>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="chart.css">
 
 </head>
 
@@ -145,29 +148,23 @@
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
-                <h1>CODEGYM HUẾ - FOOTBALL CLUB </h1>
+                <div class="container">
+                    <div class="title-chart">
+                        <h1>Chart Information</h1>
+                        <p>Click to show salary detail by chart!</p>
+                    </div>
 
-                <div class="info-detail">
-                    <button class="button-flex" id="btn-mss">
-                        <span class="message">26 new messages</span>
-                        <span class="subtext">Click to read</span>
-                    </button>
-                    <button class="button-flex" id="btn-coach">
-                        <span class="message">Coach</span>
-                        <span class="subtext">Manage team</span>
-                    </button>
-                    <button class="button-flex" id="btn-match">
-                        <span class="message">Match</span>
-                        <span class="subtext">View schedule</span>
-                    </button>
-                    <button class="button-flex" id="btn-fund">
-                        <span class="message">Fund</span>
-                        <span class="subtext">See budget</span>
-                    </button>
+                    <div class="chart-detail">
+                        <button class="player-btn" onclick="showchartPlayerin3month()" >Player</button>
+                        <button class="coach-btn" onclick="showchrtCoachin3Month()">Coach</button>
+                    </div>
+
+                    <div>
+                        <canvas id="mychart"></canvas>
+                    </div>
+
                 </div>
-                
-                
-                
+                              
                 <!-- /.container-fluid -->
 
             </div>
@@ -201,18 +198,79 @@
     <script src="js/demo/datatables-demo.js"></script>
     <script src="table.js"></script>
 
-            <!-- Bootstrap core JavaScript-->
-            <script src="vendor/jquery/jquery.min.js"></script>
-            <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-            <!-- Core plugin JavaScript-->
-            <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-            <!-- Custom scripts for all pages-->
-            <script src="js/sb-admin-2.min.js"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
 
-            <script src="tablePlayer.js"></script>
+    <script src="tablePlayer.js"></script>
+
+    <script src="charts.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+            integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+<h1>Nhớ xóagit </h1>
+<button onclick="showchartPlayerin3month()" >Player</button>
+<button onclick="showchrtCoachin3Month()">Coach</button>
+<div style="width: 500px">
+    <canvas id="mychart"></canvas>
+</div>
+<div>
+    <canvas id="coachchart"></canvas>
+</div>
+</body>
+<script src="charts.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</html> -->
