@@ -235,6 +235,22 @@ function showFormUpdate(id){
 }
 
 function updatePlayer(id){
+    // Retrieve values from the form
+    let code = $("#code-update").val();
+    let name = $("#name-update").val();
+    let dob = $("#dob-update").val();
+    let address = $("#address-update").val();
+    let salary = $("#salary-update").val();
+    let img = $("#img-update")[0];
+    // Basic client-side validation
+    if (!code || !name || !dob || !address || !salary) {
+        alert("Please fill out all required fields.");
+        return;
+    }
+    if (!img.files[0]) {
+        alert("You must choose an image.");
+        return;
+    }
     let formData = new FormData();
     formData.append("code", $("#code-update").val());
     formData.append("img", $("#img-update")[0].files[0]);
