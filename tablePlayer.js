@@ -50,6 +50,41 @@ function showAllPlayer() {
     });
 }
 
+function showPlayerByName() {
+    let name = document.getElementById("search-player").value;
+    console.log(name);
+
+    $.ajax({
+        url: "http://localhost:8080/api/player?name=" + name,
+        method: "get",
+
+        success: function(data){
+            console.log(data);
+
+            let arrPlayer = data.map((player, i, arrp) => {
+                return `
+                <tr>
+                <td>${player.code}</td>
+                <td>${player.name}</td>
+                <td>${player.dob}</td>
+                <td>${player.address}</td>
+                <td>${player.position}</td>
+                <td><img src="${'http://localhost:8080/static/' + player.img}" alt="" class="player-img"></td>
+                <td>
+                
+                <button type="button" class="btn btn-info"><a href="#player_detail"  onclick="showPlayerDetail(${player.id})" style="color: white;">View</a></button>
+                <button type="button" class="btn btn-danger"><a href="javascript:void(0)" onclick="showFormDelete(${player.id})" style="color: white;">Delete</a></button>
+                <button type="button" class="btn btn-secondary"><a href="javascript:void(0)" onclick="showFormUpdate(${player.id})" style="color: white;">Update</a></button>
+                </td>
+             </tr>
+                `;
+            });
+            $("#tb-player").html(arrPlayer.join(""));
+            $(".modal").hide();
+        },
+    })
+}
+
 function showPlayerByStatus() {
     let id = document.getElementById("status-option").value;
     console.log(id);
@@ -112,7 +147,7 @@ function showFormCreate(){
     $("#frm-status").hide();
     $(".btn").hide();
 }
-/*
+
 function createNewPlayer(){
     let formData = new FormData();
     formData.append("code", $("#code").val());
@@ -128,7 +163,6 @@ function createNewPlayer(){
     formData.append("per.id", $("#Performence").val());
     formData.append("status.id", $("#status").val());
 
-
     $.ajax({
         data: formData,
         method: "post",
@@ -143,64 +177,6 @@ function createNewPlayer(){
             console.log(e);
         }
     });
-}
-
- */
-
-function createNewPlayer() {
-    let code = document.getElementById("code").value;
-
-    let name = document.getElementById("name").value;
-    let dob = document.getElementById("dob").value;
-    let address = document.getElementById("address").value;
-    let position = document.getElementById("position").value;
-    let height = document.getElementById("height").value;
-    let weight = document.getElementById("weight").value;
-    let ranking = document.getElementById("ranking").value;
-    let salary = document.getElementById("salary").value;
-    let Performence = document.getElementById("Performence").value;
-    let status = document.getElementById("status").value;
-
-    let inputImg = document.getElementById("img");
-
-    if (!code || !name || !dob || !address || !position || !height || !weight || !ranking || !salary || !performance || !status) {
-        alert("Please fill out all required fields.");
-        return;
-    }
-    if (inputImg.files.length === 0) {
-        alert("You must choose image");
-        return;
-    }
-    let formData = new FormData();
-    formData.append("code", code);
-    formData.append("img", img.files[0]);
-    formData.append("name", name);
-    formData.append("dob", dob);
-    formData.append("address", address);
-    formData.append("position", position);
-    formData.append("height", height);
-    formData.append("weight", weight);
-    formData.append("ranking", ranking);
-    formData.append("salary", salary);
-    formData.append("per.id", Performence);
-    formData.append("status.id", status);
-
-    $.ajax({
-        data: formData,
-        method: "post",
-        processData: false,
-        contentType: false,
-        url: "http://localhost:8080/api/player/upload",
-        success: function (data) {
-            console.log("Player added successfully. Redirecting to tables.html", data);
-            window.location.href = "tables.html";
-        },
-
-        error: function(jqXHR, status, e){
-            console.log(e);
-
-        }
-    })
 }
 
 function showFormUpdate(id){
@@ -228,20 +204,15 @@ function showFormUpdate(id){
             $("#tb-player").hide();
             $("#player-info").hide();
             $(".modal").hide();
-
-            // $("#frm-search").hide();
-            // $("#frm-status").hide();
-            // $(".btn").hide();
+            $("#th-player").hide();
+            $("#frm-search").hide();
+            $("#frm-status").hide();
+            $(".btn").hide();
         }
     });
 }
 
 function updatePlayer(id){
-    // Check if the image input is empty
-    if (!$("#img-update")[0].files[0]) {
-        alert("You must choose an image");
-        return; // Exit the function if no image is selected
-    }
     let formData = new FormData();
     formData.append("code", $("#code-update").val());
     formData.append("img", $("#img-update")[0].files[0]);
@@ -282,7 +253,6 @@ function showFormDelete(id){
         method: "get",
         success: function (data){
             $("#delete-player-info").html(`
-<<<<<<< HEAD
             <div class="player-info">
             <div class="info-item">
                 <strong>Code:</strong> <span>${data.code}</span>
@@ -329,6 +299,7 @@ function showFormDelete(id){
             $("#frm-search").hide();
             $("#frm-status").hide();
             $(".btn-primary").hide();
+            $("#btnStatus").hide();
         },
         error: function(jqXHR, status, e) {
             console.log(e);
@@ -394,7 +365,7 @@ function showPlayerDetail(id){
             `);
 
             $("#player_detail").show();
-            
+
         },
         error: function(jqXHR, status, e) {
             console.log(e);
@@ -418,7 +389,7 @@ function updatePlayerStatus(){
         data: JSON.stringify(arrPlayerStatus),
         success: function () {
             showAllPlayer();
-            window.location.href ="tables.html"
+            window.location.href ="tablesPlayer.html"
 
         },
         error: function (jqXHR, status, e){

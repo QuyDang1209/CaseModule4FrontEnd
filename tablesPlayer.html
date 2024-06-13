@@ -32,7 +32,7 @@
     <link rel="stylesheet" href="modal.css">
 
     <style>
-        
+
     </style>
 
 </head>
@@ -56,322 +56,325 @@
         <!-- Divider -->
         <hr class="sidebar-divider">
 
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-                    aria-expanded="true" aria-controls="collapsePages">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>Pages</span>
-                </a>
-                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Views:</h6>
-                        <a class="collapse-item" href="tablesPlayer.html">Player</a>
-                        <a class="collapse-item" href="tableCoach.html">Coach</a>
-                        <h6 class="collapse-header">Tracking:</h6>
-                        <a class="collapse-item" href="player_tracking.html">Player Tracking</a>
-                        <a class="collapse-item" href="coach_tracking.html">Coach Tracking</a>
-                        <h6 class="collapse-header">Other Pages:</h6>
-                        <a class="collapse-item" href="404.html">404 Page</a>
-                    </div>
+        <!-- Nav Item - Pages Collapse Menu -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
+               aria-expanded="true" aria-controls="collapsePages">
+                <i class="fas fa-fw fa-folder"></i>
+                <span>Pages</span>
+            </a>
+            <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Views:</h6>
+                    <a class="collapse-item" href="tablesPlayer.html">Player</a>
+                    <a class="collapse-item" href="tableCoach.html">Coach</a>
+                    <h6 class="collapse-header">Tracking:</h6>
+                    <a class="collapse-item" href="player_tracking.html">Player Tracking</a>
+                    <a class="collapse-item" href="coach_tracking.html">Coach Tracking</a>
+                    <h6 class="collapse-header">Other Pages:</h6>
+                    <a class="collapse-item" href="404.html">404 Page</a>
                 </div>
-            </li>
-
-            <!-- Nav Item - Charts -->
-            <li class="nav-item">
-                <a class="nav-link" href="charts.html">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Charts</span></a>
-            </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider d-none d-md-block">
-
-            <!-- Sidebar Toggler (Sidebar) -->
-            <div class="text-center d-none d-md-inline">
-                <button class="rounded-circle border-0" id="sidebarToggle"></button>
             </div>
-        </ul>
-        <!-- End of Sidebar -->
+        </li>
 
-        <!-- Content Wrapper -->
-        <div id="content-wrapper" class="d-flex flex-column">
-            <!-- Main Content -->
-            <div id="content">
-                <!-- Topbar -->
-                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-                    <!-- Sidebar Toggle (Topbar) -->
-                    <form class="form-inline">
-                        <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                            <i class="fa fa-bars"></i>
-                        </button>
-                    </form>
-                    <!-- Topbar Search -->
-                    <form
-                            class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search"
-                            onsubmit="event.preventDefault(); searchPlayers();">
-                        <div class="input-group">
-                            <label for="min-salary" class="mr-2">Find salary for the players:</label>
-                            <input type="number" id="min-salary" class="form-control bg-light border-0 small" placeholder="Min salary" aria-label="Min salary" aria-describedby="basic-addon2">
-                            <input type="number" id="max-salary" class="form-control bg-light border-0 small" placeholder="Max salary" aria-label="Max salary" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-primary" type="button" onclick="searchPlayers()">
-                                    <i class="fas fa-search fa-sm"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+        <!-- Nav Item - Charts -->
+        <li class="nav-item">
+            <a class="nav-link" href="charts.html">
+                <i class="fas fa-fw fa-chart-area"></i>
+                <span>Charts</span></a>
+        </li>
 
-                    <!-- Topbar Search -->
-                    <ul class="navbar-nav ml-auto">
-                        <div class="topbar-divider d-none d-sm-block"></div>
-                        <!-- Nav Item - User Information -->
-                        <li class="nav-item dropdown no-arrow">
-                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
-                                <img class="img-profile rounded-circle"
-                                    src="img/undraw_profile.svg">
-                            </a>
-                            <!-- Dropdown - User Information -->
-                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Profile
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Settings
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Activity Log
-                                </a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Logout
-                                </a>
-                            </div>
-                        </li>
-                    </ul>
-                </nav>
-                <!-- End of Topbar -->
+        <!-- Divider -->
+        <hr class="sidebar-divider d-none d-md-block">
 
-                <!-- Begin Page Content -->
-                <div class="container-fluid">
+        <!-- Sidebar Toggler (Sidebar) -->
+        <div class="text-center d-none d-md-inline">
+            <button class="rounded-circle border-0" id="sidebarToggle"></button>
+        </div>
+    </ul>
+    <!-- End of Sidebar -->
 
-
-                    <!-- Page Heading -->
-                    <div class="title-name">
-                        <h1 class="h3 mb-2 text-gray-800">Player List</h1>
-                    </div>
-                    
-
-                    <!-- DataTales Example -->
-                    <div class="card shadow mb-4">
-                        <div class="card-header py-3">
-                            <!-- Create Form -->
-                            <button type="button" onclick="showFormCreate() " class="btn btn-primary">Add New Player</button>
-                            <button class="btn btn-dark float-right" onclick="showPreviousPlayerStatus()" id="btnStatusCancel">Cancel</button>
-                            <button class="btn btn-danger float-right" onclick="updatePlayerStatus()" id="btnStatusUpdate">Update</button>
-                            <button class="btn btn-success float-right" onclick="changeStatus()" id="btnStatus">STATUS</button>
-                            <form style="display: none" id="form-create">
-                                <input id="code" type="text" placeholder="Enter Code"> <br>
-                                <input id="img" type="file" placeholder="Enter Img"> <br>
-                                <input id="name" type="text" placeholder="Enter Name"> <br>
-                                <input id="dob" type="text" placeholder="Enter Dob"> <br>
-                                <input id="address" type="text" placeholder="Enter Address"> <br>
-                                <input id="position" type="text" placeholder="Enter Position"> <br>
-                                <input id="height" type="number" placeholder="Enter Height"> <br>
-                                <input id="weight" type="number" placeholder="Enter Weight"> <br>
-                                <input id="ranking" type="text" placeholder="Enter Ranking"> <br>
-                                <input id="salary" type="number" placeholder="Enter Salary"> <br>
-                                <select name = "Performence" id="Performence">
-                                    <option value="1">High</option>
-                                    <option value="2">Average</option>
-                                    <option value="3">Low</op   tion>
-                                </select> <br>
-                                <select name = "status" id="status">
-                                    <option value="1">Active</option>
-                                    <option value="2">Injure</option>
-                                    <option value="3">Retire</option>
-                                </select> <br>
-
-                                <button type="button" onclick="createNewPlayer()" class="btn-save">Save</button>
-                                <button onclick="getAllPlayer()" class="btn-cancel">Cancel</button>
-                            </form>
-                        </div>
-                        
-
-                        <div class="card-body">
-                            <form id="frm-search">
-                                <div class="input-group input-group-sm hidden-xs">
-                                        <input type="text" id="search-player" class="form-control pull-right" name="name" placeholder="search"/>
-                                        <div class="input-group-btn">
-                                            <button type="button" class="btn btn-default" onclick="showPlayerByName()"><i class="fa fa-search"></i></button>
-                                        </div>
-                                </div>
-                            </form>
-
-                            <form id="frm-status">
-                                <select name="" id="status-option">
-                                    <option value="1">Active</option>
-                                    <option value="2">Injure</option>
-                                    <option value="3">Retire</option>
-                                </select>
-                                <button type="button" onclick="showPlayerByStatus()" class="btn btn-success">submit</button>
-                            </form>
-
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead id="th-player">
-                                        <tr>
-                                            <th>Code</th>
-                                            <th>Name</th>
-                                            <th>Date Of Birth</th>
-                                            <th>Address</th>
-                                            <th>Position</th>
-                                            <th>Image</th>
-                                            <th id="head-action">Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="tb-player">
-                                    </tbody>
-                                    <tbody id="search-info">
-                                    
-                                    </tbody>
-                                </table>
-                            </div>        
-                        </div>
-
-                        <div class="card-footer">
-                            <form style="display: none" id="form-update">
-                                <input id="code-update" type="text" placeholder="Enter Code"> <br>
-                                <input id="img-update" type="file" placeholder="Enter Img"> <br>
-                                <input id="name-update" type="text" placeholder="Enter Name"> <br>
-                                <input id="dob-update" type="text" placeholder="Enter Dob"> <br>
-                                <input id="address-update" type="text" placeholder="Enter Address"> <br>
-                                <input id="position-update" type="text" placeholder="Enter Position"> <br>
-                                <input id="height-update" type="text" placeholder="Enter Height"> <br>
-                                <input id="weight-update" type="text" placeholder="Enter Weight"> <br>
-                                <input id="ranking-update" type="text" placeholder="Enter Ranking"> <br>
-                                <input id="salary-update" type="text" placeholder="Enter Salary"> <br>
-                                <select name = "performence-update-id" id="performence-update-id">
-                                    <option value="1">High</option>
-                                    <option value="2">Average</option>
-                                    <option value="3">Low</option>
-                                </select> <br>
-                                <select name = "status-update-id" id="status-update-id">
-                                    <option value="1">Active</option>
-                                    <option value="2">Injure</option>
-                                    <option value="3">Retire</option>
-                                </select> <br>
-                        
-                                <button type="button" id="save-update-button">Save</button>
-                                <button onclick="showAllPlayer()" class="btn-cancel">Cancel</button>
-                            </form>
-
-                            <div id="delete-confirmation" style="display: none;">
-                                <p style="text-align: center;">Are you sure you want to delete the following player?</p>
-                                <p id="delete-player-info"></p>
-                                <div class="dlt-btn">
-                                    <button type="button" id="confirm-delete-button" class="btn btn-success">Yes, delete</button>
-                                    <button onclick="window.location.href = 'tablesPlayer.html'" class="btn btn-secondary">Cancel</button>
-                                </div>
-                                
-                            </div>
-
-                            <div class="wrapper">
-                                <div id="player_detail" class="modal">
-                                    <p id="player-info"></p>
-                            </div>
-                            </div>
-                            
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-            </div>
-            <!-- End of Main Content -->
-
-            <!-- Footer -->
-            
-            <!-- End of Footer -->
-</div>
-<!-- End of Page Wrapper -->
-
-<!-- Scroll to Top Button-->
-<a class="scroll-to-top rounded" href="#page-top">
-    <i class="fas fa-angle-up"></i>
-</a>
-<div class="modal" id="myModal">
-    <div class="modal-dialog">
-        <div class="modal-content">
-
-            <!-- Modal Header -->
-            <div class="modal-header">
-                <h4 class="modal-title">Modal Heading</h4>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-            </div>
-
-    <!-- Page level plugins -->
-    <script src="vendor/datatables/jquery.dataTables.min.js"></script>
-    <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
-
-    <!-- Page level custom scripts -->
-    <script src="js/demo/datatables-demo.js"></script>
-    <script src="table.js"></script>
-
-            <!-- Modal body -->
-            <div class="modal-body">
-                <form action="/action_page.php" id="registrationForm">
-                    <div class="form-group">
-                        <label for="fullname">Code:</label>
-                        <input type="text" class="form-control" placeholder="Enter fullname" id="fullname" required pattern="[A-Za-z\s]+">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="phone">Phone:</label>
-                        <input type="tel" class="form-control" placeholder="Enter phone" id="phone" required pattern="[0-9]{10}">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="username">User Name:</label>
-                        <input type="text" class="form-control" placeholder="Enter username" id="username" required pattern="[A-Za-z0-9]{5,}">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="email">Email:</label>
-                        <input type="email" class="form-control" placeholder="Enter email" id="email" required>
-                        <div class="invalid-feedback">Please enter a valid email address.</div>
-                    </div>
-
-                    <div class="form-group form-check">
-                        <label class="form-check-label">
-                            <input class="form-check-input" type="checkbox"> Remember me
-                        </label>
-                    </div>
-
-                    <button type="button" class="btn btn-primary" onclick="handleSubmitUser()">Submit</button>
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+        <!-- Main Content -->
+        <div id="content">
+            <!-- Topbar -->
+            <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                <!-- Sidebar Toggle (Topbar) -->
+                <form class="form-inline">
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
                 </form>
+
+                <!-- Topbar Search -->
+                <form
+                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search"
+                        onsubmit="event.preventDefault(); searchPlayers();">
+                    <div class="input-group">
+                        <label for="min-salary" class="mr-2">Find salary for the players:</label>
+                        <input type="number" id="min-salary" class="form-control bg-light border-0 small" placeholder="Min salary" aria-label="Min salary" aria-describedby="basic-addon2">
+                        <input type="number" id="max-salary" class="form-control bg-light border-0 small" placeholder="Max salary" aria-label="Max salary" aria-describedby="basic-addon2">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" type="button" onclick="searchPlayers()">
+                                <i class="fas fa-search fa-sm"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                <ul class="navbar-nav ml-auto">
+                    <div class="topbar-divider d-none d-sm-block"></div>
+                    <!-- Nav Item - User Information -->
+                    <li class="nav-item dropdown no-arrow">
+                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                            <img class="img-profile rounded-circle"
+                                 src="img/undraw_profile.svg">
+                        </a>
+                        <!-- Dropdown - User Information -->
+                        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                             aria-labelledby="userDropdown">
+                            <a class="dropdown-item" href="#">
+                                <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                Profile
+                            </a>
+                            <a class="dropdown-item" href="#">
+                                <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                                Settings
+                            </a>
+                            <a class="dropdown-item" href="#">
+                                <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                                Activity Log
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                Logout
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+            <!-- End of Topbar -->
+
+            <!-- Begin Page Content -->
+            <div class="container-fluid">
+
+
+                <!-- Page Heading -->
+                <div class="title-name">
+                    <h1 class="h3 mb-2 text-gray-800">Player List</h1>
+                </div>
+
+
+                <!-- DataTales Example -->
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                        <!-- Create Form -->
+                        <button type="button" onclick="showFormCreate() " class="btn btn-primary">Add New Player</button>
+                        <button class="btn btn-dark float-right" onclick="showPreviousPlayerStatus()" id="btnStatusCancel">Cancel</button>
+                        <button class="btn btn-danger float-right" onclick="updatePlayerStatus()" id="btnStatusUpdate">Update</button>
+                        <button class="btn btn-success float-right" onclick="changeStatus()" id="btnStatus">STATUS</button>
+                        <form style="display: none" id="form-create">
+                            <input id="code" type="text" placeholder="Enter Code"> <br>
+                            <input id="img" type="file" placeholder="Enter Img"> <br>
+                            <input id="name" type="text" placeholder="Enter Name"> <br>
+                            <input id="dob" type="text" placeholder="Enter Dob"> <br>
+                            <input id="address" type="text" placeholder="Enter Address"> <br>
+                            <input id="position" type="text" placeholder="Enter Position"> <br>
+                            <input id="height" type="number" placeholder="Enter Height"> <br>
+                            <input id="weight" type="number" placeholder="Enter Weight"> <br>
+                            <input id="ranking" type="text" placeholder="Enter Ranking"> <br>
+                            <input id="salary" type="number" placeholder="Enter Salary"> <br>
+                            <select name = "Performence" id="Performence">
+                                <option value="1">High</option>
+                                <option value="2">Average</option>
+                                <option value="3">Low</option>
+                            </select> <br>
+                            <select name = "status" id="status">
+                                <option value="1">Active</option>
+                                <option value="2">Injure</option>
+                                <option value="3">Retire</option>
+                            </select> <br>
+
+                            <button type="button" onclick="createNewPlayer()" class="btn-save">Save</button>
+                            <button onclick="getAllPlayer()" class="btn-cancel">Cancel</button>
+                        </form>
+                    </div>
+
+
+                    <div class="card-body">
+                        <form id="frm-search">
+                            <div class="input-group input-group-sm hidden-xs">
+                                <input type="text" id="search-player" class="form-control pull-right" name="name" placeholder="search"/>
+                                <div class="input-group-btn">
+                                    <button type="button" class="btn btn-default" onclick="showPlayerByName()"><i class="fa fa-search"></i></button>
+                                </div>
+                            </div>
+                        </form>
+
+                        <form id="frm-status">
+                            <select name="" id="status-option">
+                                <option value="1">Active</option>
+                                <option value="2">Injure</option>
+                                <option value="3">Retire</option>
+                            </select>
+                            <button type="button" onclick="showPlayerByStatus()" class="btn btn-success">submit</button>
+                        </form>
+
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <thead id="th-player">
+                                <tr>
+                                    <th>Code</th>
+                                    <th>Name</th>
+                                    <th>Date Of Birth</th>
+                                    <th>Address</th>
+                                    <th>Position</th>
+                                    <th>Image</th>
+                                    <th id="head-action">Action</th>
+                                </tr>
+                                </thead>
+                                <tbody id="tb-player">
+                                </tbody>
+                                <tbody id="search-info">
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="card-footer">
+                        <form style="display: none" id="form-update">
+                            <input id="code-update" type="text" placeholder="Enter Code"> <br>
+                            <input id="img-update" type="file" placeholder="Enter Img"> <br>
+                            <input id="name-update" type="text" placeholder="Enter Name"> <br>
+                            <input id="dob-update" type="text" placeholder="Enter Dob"> <br>
+                            <input id="address-update" type="text" placeholder="Enter Address"> <br>
+                            <input id="position-update" type="text" placeholder="Enter Position"> <br>
+                            <input id="height-update" type="text" placeholder="Enter Height"> <br>
+                            <input id="weight-update" type="text" placeholder="Enter Weight"> <br>
+                            <input id="ranking-update" type="text" placeholder="Enter Ranking"> <br>
+                            <input id="salary-update" type="text" placeholder="Enter Salary"> <br>
+                            <select name = "performence-update-id" id="performence-update-id">
+                                <option value="1">High</option>
+                                <option value="2">Average</option>
+                                <option value="3">Low</option>
+                            </select> <br>
+                            <select name = "status-update-id" id="status-update-id">
+                                <option value="1">Active</option>
+                                <option value="2">Injure</option>
+                                <option value="3">Retire</option>
+                            </select> <br>
+
+                            <button type="button" id="save-update-button">Save</button>
+                            <button onclick="showAllPlayer()" class="btn-cancel">Cancel</button>
+                        </form>
+
+                        <div id="delete-confirmation" style="display: none;">
+                            <p style="text-align: center;">Are you sure you want to delete the following player?</p>
+                            <p id="delete-player-info"></p>
+                            <div class="dlt-btn">
+                                <button type="button" id="confirm-delete-button" class="btn btn-success">Yes, delete</button>
+                                <button onclick="window.location.href = 'tablesPlayer.html'" class="btn btn-secondary">Cancel</button>
+                            </div>
+
+                        </div>
+
+                        <div class="wrapper">
+                            <div id="player_detail" class="modal">
+                                <p id="player-info"></p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
             </div>
 
-            <!-- Bootstrap core JavaScript-->
-            <script src="vendor/jquery/jquery.min.js"></script>
-            <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-            <!-- Core plugin JavaScript-->
-            <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+        </div>
+        <!-- End of Main Content -->
 
-            <!-- Custom scripts for all pages-->
-            <script src="js/sb-admin-2.min.js"></script>
+        <!-- Footer -->
 
-            <script src="tablePlayer.js"></script>
+        <!-- End of Footer -->
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+    <div class="modal" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Modal Heading</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Page level plugins -->
+                <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+                <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+                <!-- Page level custom scripts -->
+                <script src="js/demo/datatables-demo.js"></script>
+                <script src="table.js"></script>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <form action="/action_page.php" id="registrationForm">
+                        <div class="form-group">
+                            <label for="fullname">Code:</label>
+                            <input type="text" class="form-control" placeholder="Enter fullname" id="fullname" required pattern="[A-Za-z\s]+">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone:</label>
+                            <input type="tel" class="form-control" placeholder="Enter phone" id="phone" required pattern="[0-9]{10}">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="username">User Name:</label>
+                            <input type="text" class="form-control" placeholder="Enter username" id="username" required pattern="[A-Za-z0-9]{5,}">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" class="form-control" placeholder="Enter email" id="email" required>
+                            <div class="invalid-feedback">Please enter a valid email address.</div>
+                        </div>
+
+                        <div class="form-group form-check">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox"> Remember me
+                            </label>
+                        </div>
+
+                        <button type="button" class="btn btn-primary" onclick="handleSubmitUser()">Submit</button>
+                    </form>
+                </div>
+
+                <!-- Bootstrap core JavaScript-->
+                <script src="vendor/jquery/jquery.min.js"></script>
+                <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+                <!-- Core plugin JavaScript-->
+                <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+                <!-- Custom scripts for all pages-->
+                <script src="js/sb-admin-2.min.js"></script>
+
+                <script src="tablePlayer.js"></script>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </body>
 
